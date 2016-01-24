@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="mU8-Hm-vsH">
+            <objects>
+                <navigationController storyboardIdentifier="Universal" id="Phx-0t-doR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pI7-VG-UqM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9q4-o0-DA3" kind="relationship" relationship="rootViewController" id="qT1-pD-hHm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YR9-C6-Cr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373" y="-237"/>
+        </scene>
+        <!--评价-->
+        <scene sceneID="hpA-Jq-8c8">
+            <objects>
+                <viewController storyboardIdentifier="UniversalVC" id="9q4-o0-DA3" customClass="UniversalVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PIk-4K-BW7"/>
+                        <viewControllerLayoutGuide type="bottom" id="0CR-vx-bqb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AfA-5D-xcA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypn-Uz-SCf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="DtV-9t-F3J"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DtV-9t-F3J"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="DtV-9t-F3J"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yID-QG-gwL">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9q4-o0-DA3" id="adp-FE-qpc"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ypn-Uz-SCf" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="-16" id="11t-9N-Bqh"/>
+                            <constraint firstItem="yID-QG-gwL" firstAttribute="top" secondItem="PIk-4K-BW7" secondAttribute="bottom" id="6Af-5s-u4J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yID-QG-gwL" secondAttribute="trailing" constant="-16" id="6qj-7T-mgL"/>
+                            <constraint firstItem="0CR-vx-bqb" firstAttribute="top" secondItem="yID-QG-gwL" secondAttribute="bottom" id="Jdx-pG-BUQ"/>
+                            <constraint firstItem="Ypn-Uz-SCf" firstAttribute="top" secondItem="AfA-5D-xcA" secondAttribute="topMargin" constant="63" id="QgN-cu-7cv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ypn-Uz-SCf" secondAttribute="trailing" constant="-16" id="Xa7-4A-7wH"/>
+                            <constraint firstItem="yID-QG-gwL" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="-16" id="lOM-wW-bbL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ypn-Uz-SCf"/>
+                                <exclude reference="yID-QG-gwL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Jdx-pG-BUQ"/>
+                                <exclude reference="6Af-5s-u4J"/>
+                                <exclude reference="6qj-7T-mgL"/>
+                                <exclude reference="lOM-wW-bbL"/>
+                                <exclude reference="11t-9N-Bqh"/>
+                                <exclude reference="QgN-cu-7cv"/>
+                                <exclude reference="Xa7-4A-7wH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ypn-Uz-SCf"/>
+                                <include reference="yID-QG-gwL"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Jdx-pG-BUQ"/>
+                                <include reference="6Af-5s-u4J"/>
+                                <include reference="6qj-7T-mgL"/>
+                                <include reference="lOM-wW-bbL"/>
+                                <include reference="11t-9N-Bqh"/>
+                                <include reference="QgN-cu-7cv"/>
+                                <include reference="Xa7-4A-7wH"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="评价" id="wxg-nw-wf3"/>
+                    <connections>
+                        <outlet property="mContentWebView" destination="yID-QG-gwL" id="JvQ-Zq-2n3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0u-OG-HVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1156.5" y="-237"/>
+        </scene>
+    </scenes>
+</document>

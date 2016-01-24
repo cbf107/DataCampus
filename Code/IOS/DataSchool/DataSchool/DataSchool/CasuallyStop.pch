@@ -1,0 +1,62 @@
+//
+//  CasuallyStop.pch
+//  CasuallyStop
+//
+//  Created by coreyfu on 15/4/3.
+//  Copyright (c) 2015年 meineke. All rights reserved.
+//
+
+#ifdef __OBJC__
+#ifndef CasuallyStop_CasuallyStop_pch
+#define CasuallyStop_CasuallyStop_pch
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+// #import "CasuallyDefine.h"              //宏定义头文件
+
+//    #import "CasuallyInterface.h"           //接口头文件
+#import "AppDelegate.h"
+
+#import "Appearance.h"                  //
+
+#import "ApiDefine.h"
+#import "UserManager.h"
+#import "BaseRequest.h"
+
+//#import "UIKit+AFNetworking.h"          //网络请求2
+
+#import "UIViewController+WXUtil.h"     //自定义分类1（添加获取Storyboard）
+
+#import "NSString+WXUtil.h"             //自定义分类2 (添加判断)
+
+#import "UIImage+Utility.h"             //自定义分类2 (添加图片压缩)
+
+#import "UIColor+WXUtil.h"              //自定义分类2 (添加16进制颜色)
+
+#import "UITextField+WXUtil.h"          //自定义分类2 (添加提示文字颜色)
+
+#import "JSBadgeView.h"                 //角标
+#import "MJRefresh.h"
+#import "RefreshTableView.h"
+#import "RefreshCollectionView.h"
+
+#import "SVProgressHUD.h"
+#import "UIImageView+WebCache.h"
+
+
+#import "NSString+GNUtil.h"
+#import "UIColor+GNUtil.h"
+#import "UIView+GNUtil.h"
+#import "UILabel+GNUtil.h"
+#import "UIAlertView+GNUtil.h"
+#import "UIImage+GNUtil.h"
+#import "NSArray+GNUtil.h"
+#import "NSDate+GNUtil.h"
+#import "NSTimer+GNUtil.h"
+#endif
+#endif
