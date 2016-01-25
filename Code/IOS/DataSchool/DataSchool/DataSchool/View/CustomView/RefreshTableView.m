@@ -116,7 +116,7 @@
 }
 
 - (void)footerRereshing {
-    self.request.pageStart = self.dataArray.count/self.request.pageLength + 1;
+    self.request.pageStart =  self.dataArray.count + 1;//self.dataArray.count/self.request.pageLength + 1;
     
     [self.request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         [self footerEndRefreshing];

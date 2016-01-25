@@ -3,7 +3,6 @@
 //  RootViewController.m
 //  NewProject
 //
-//  Created by 学鸿 张 on 13-11-29.
 //  Copyright (c) 2013年 Steven. All rights reserved.
 //
 
@@ -64,7 +63,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return 6;
     if (nil != [((RefreshTableView*) tableView) dataArray]) {
         return [[((RefreshTableView*) tableView) dataArray] count];
     } else {
