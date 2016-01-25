@@ -93,7 +93,23 @@
     }
     
     return data;
-
-
 }
 @end
+
+
+
+@implementation DeleteNoticeRequest
+- (NSString *)requestUrl {
+    return kApiDeleteNotice;
+}
+
+- (id)requestParameters {
+    return @{@"NoticeRefId":self.NoticeRefId?:[NSNull null]};
+    
+}
+
+- (id)parseResult {
+    return self.responseBodyJSON;
+}
+@end
+

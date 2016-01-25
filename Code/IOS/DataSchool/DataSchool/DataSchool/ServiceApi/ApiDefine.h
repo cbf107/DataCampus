@@ -59,6 +59,7 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define kApiGetNotifyType           @"/schoolnews/GetNoticeType.ashx"
 #define kApiSendNotice              @"/schoolnews/SendNotice.ashx"
 #define kApiGetClassNotice          @"/schoolnews/GetClassNotice.ashx"
+#define kApiDeleteNotice            @"/schoolnews/DeleteNotice.ashx"
 
 #define kApiGetAlbumFolderList      @"/schoolAlbums/GetAlbumFolderList.ashx"
 #define kApiGetThumbnailList        @"/schoolAlbums/GetThumbnailList.ashx"

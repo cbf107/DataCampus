@@ -24,3 +24,7 @@
 @property (nonatomic, copy)NSString *className;
 @end
 
+//删除消息
+@interface DeleteNoticeRequest : BaseRequest
+@property(nonatomic, copy)NSString *NoticeRefId;
+@end

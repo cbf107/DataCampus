@@ -157,13 +157,12 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-/*    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        DeleteMsgRequest *requester = [[DeleteMsgRequest alloc] init];
-        MessageInfo *msgInfo = [[((RefreshTableView*) tableView) dataArray] objectAtIndex:indexPath.row];
-        requester.sMsg = msgInfo.iMsg;
-        requester.iClass = 1;
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        DeleteNoticeRequest *request = [[DeleteNoticeRequest alloc] init];
+        ClassNotice *info = [[((RefreshTableView*) tableView) dataArray] objectAtIndex:indexPath.row];
+        request.NoticeRefId = info.RefId;
         
-        [requester startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
             [[((RefreshTableView*) tableView) dataArray] removeObjectAtIndex:indexPath.row];
             
             [_mTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -175,7 +174,7 @@
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }*/
+    }
 }
 
 
