@@ -320,7 +320,7 @@
     UIImage *photo = info[UIImagePickerControllerOriginalImage];
     RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:photo];
     imageCropVC.delegate = self;
-    [picker pushViewController:imageCropVC animated:YES];    
+    [picker pushViewController:imageCropVC animated:YES];
 }
 
 

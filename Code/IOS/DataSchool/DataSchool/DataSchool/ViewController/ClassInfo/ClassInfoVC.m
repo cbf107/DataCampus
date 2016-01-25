@@ -143,6 +143,7 @@
 
     DetailInfoVC *detailVC = (DetailInfoVC *)[UIViewController viewControllerWithStoryboard:@"ClassInfo" identifier:@"DetailInfoVC"];
     detailVC.sURL = info.Url;
+    detailVC.mStatusUrl = info.StatusUrl;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

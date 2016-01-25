@@ -34,6 +34,8 @@
 @property (nonatomic, copy)NSString *IsRead;
 @property (nonatomic, copy)NSString *ReadTime;
 @property (nonatomic, copy)NSString *ClassRefid;
+@property (nonatomic, copy)NSString *StatusUrl;
+
 @end
 
 

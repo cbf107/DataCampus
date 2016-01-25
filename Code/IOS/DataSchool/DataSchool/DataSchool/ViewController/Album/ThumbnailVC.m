@@ -51,7 +51,11 @@
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"拍摄" style:UIBarButtonItemStyleBordered target:self action:@selector(setupCamera)];
+    UserInfo *info = [UserManager currentUser];
+    
+    if ([info.UserType isEqualToString:@"教师"]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"拍摄" style:UIBarButtonItemStyleBordered target:self action:@selector(setupCamera)];
+    }
     
     //self.mCollectionView.tableFooterView = [[UIView alloc]init];
     /*self.mCollectionView.refreshStatusViewBlock = ^(RefreshTableViewStatus status){

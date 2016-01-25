@@ -52,14 +52,15 @@
                                                         <constraint firstAttribute="height" constant="21" id="Jg8-kL-mYt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="Jg8-kL-mYt"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="94" y="8" width="83" height="21"/>
                                                         <mask key="constraints">
                                                             <include reference="Jg8-kL-mYt"/>
                                                         </mask>
@@ -78,7 +79,8 @@
                                                             <exclude reference="9UR-IQ-Ibl"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="94" y="32" width="163" height="31"/>
                                                         <mask key="constraints">
                                                             <include reference="9UR-IQ-Ibl"/>
                                                         </mask>
@@ -284,7 +286,7 @@
                                             <constraint firstAttribute="height" constant="27" id="rVz-bU-aTP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">

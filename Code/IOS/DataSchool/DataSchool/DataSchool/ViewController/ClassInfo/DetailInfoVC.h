@@ -12,4 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *mContentWebView;
 @property (nonatomic, copy)NSString *sURL;
+@property (nonatomic, copy)NSString *mStatusUrl;
 @end

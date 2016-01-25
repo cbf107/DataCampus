@@ -74,6 +74,12 @@
     [_mImageDelBtn5 addTarget:self action:@selector(clickImageDelButton:) forControlEvents:UIControlEventTouchUpInside];
     [_mImageDelBtn6 addTarget:self action:@selector(clickImageDelButton:) forControlEvents:UIControlEventTouchUpInside];
 
+    UserInfo *info = [UserManager currentUser];
+    
+    if (![info.UserType isEqualToString:@"教师"]) {
+        _mPublishBtn.hidden = YES;
+    }
+    
     _mImageArray = [[NSMutableArray alloc]init];
     _mImageDataArray = [[NSMutableArray alloc]init];
     _mImageViewArray = [[NSMutableArray alloc] initWithObjects:_mImageBtn1, _mImageBtn2, _mImageBtn3, _mImageBtn4, _mImageBtn5, _mImageBtn6, nil];

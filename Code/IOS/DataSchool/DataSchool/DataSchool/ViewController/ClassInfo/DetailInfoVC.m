@@ -8,6 +8,7 @@
 
 #import "DetailInfoVC.h"
 #import "SysRequest.h"
+#import "UniversalVC.h"
 
 @implementation DetailInfoVC
 @synthesize sURL = _sURL;
@@ -15,12 +16,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    UserInfo *info = [UserManager currentUser];
+    
+    if ([info.UserType isEqualToString:@"教师"]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleBordered target:self action:@selector(checkIsRead)];
+    }
+
     // Do any additional setup after loading the view.
     [_mContentWebView setDelegate:self];
     
     //NSURL *url = [NSURL URLWithString:@"http://115.28.85.127:8084/wdpm/agreement.html"];
     
     [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_sURL]]];
+}
+
+-(void)checkIsRead{
+    UniversalVC *universal = (UniversalVC *)[UIViewController viewControllerWithStoryboard:@"Universal" identifier:@"UniversalVC"];
+    
+    universal.mURL = _mStatusUrl;
+    universal.title = @"查看状态";
+    
+    [self.navigationController pushViewController:universal animated:YES];
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
