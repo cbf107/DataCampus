@@ -30,5 +30,10 @@
 @property (nonatomic, copy)NSString *Img;
 @property (nonatomic, copy)NSArray *Folders;
 @property (nonatomic, copy)NSString *Title;
+@end
 
+//删除图片
+@interface DeleateImageRequest : BaseRequest
+@property (nonatomic, copy)NSString *AlbumRefId;
+@property (nonatomic, copy)NSString *ImgRefId;
 @end

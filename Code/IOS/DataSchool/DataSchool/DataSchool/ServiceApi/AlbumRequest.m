@@ -116,3 +116,22 @@
 }
 
 @end
+
+
+//删除图片
+@implementation DeleateImageRequest
+- (NSString *)requestUrl {
+    return kApiDeleteImage;
+}
+
+- (id)requestParameters {
+    return @{@"AlbumRefId":self.AlbumRefId?:[NSNull null],
+             @"ImgRefId":self.ImgRefId?:[NSNull null]
+             };
+}
+
+- (id)parseResult {
+    return self.responseBodyJSON;
+}
+
+@end

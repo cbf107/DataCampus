@@ -65,6 +65,7 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define kApiGetThumbnailList        @"/schoolAlbums/GetThumbnailList.ashx"
 #define kApiGetUploadFolderList     @"/schoolAlbums/GetUploadFolderList.ashx"
 #define kApiUploadImage             @"/schoolAlbums/UploadImage.ashx"
+#define kApiDeleteImage             @"/schoolAlbums/DeleteImage.ashx"
 
 #define kApiUpdateHeadImg           @"/user/updateUserHead.ashx"
 //判断IOS机型
