@@ -159,3 +159,19 @@
 }
 @end
 
+//headimage
+@implementation UpdateUserHeadRequest
+- (NSString *)requestUrl {
+    return kApiUpdateHeadImg;
+}
+
+- (id)requestParameters {
+    return @{@"HeadImg":self.HeadImg?:[NSNull null]};
+}
+
+- (id)parseResult {
+    id result = self.responseBodyJSON;
+    return result;
+}
+
+@end

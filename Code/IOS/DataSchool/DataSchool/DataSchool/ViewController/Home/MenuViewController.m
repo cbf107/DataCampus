@@ -38,6 +38,7 @@
 #import "AlbumViewController.h"
 //#import <ViewDeck/ViewDeck.h>
 #import "UniversalVC.h"
+#import "SysRequest.h"
 
 @implementation MenuViewController
 @synthesize mTableView = _mTableView;
@@ -316,12 +317,10 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    
     UIImage *photo = info[UIImagePickerControllerOriginalImage];
     RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:photo];
     imageCropVC.delegate = self;
-    [picker pushViewController:imageCropVC animated:YES];
-    
+    [picker pushViewController:imageCropVC animated:YES];    
 }
 
 
@@ -343,37 +342,34 @@
     
     [controller.navigationController popViewControllerAnimated:NO];
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    //self.avatar = croppedImage;
     [self uploadHeadImage:croppedImage];
-    self.avatar = croppedImage;
 }
 
 - (void)uploadHeadImage:(UIImage *)headImg
 {
-    [self.userHeadImage setImage:headImg];
-    
-    /*UserInfo *userinfo = [UserManager currentUser].clone;
+    //UserInfo *userinfo = [UserManager currentUser].clone;
     //头像
-    if (self.avatar) {
-        NSData *data = UIImagePNGRepresentation(self.avatar);
+    NSString *avatarString;
+    if (headImg) {  //self.avatar
+        NSData *data = UIImagePNGRepresentation(headImg);
         NSString *head = @"data:image/jpg;base64,";
-        NSString *avatarString = [head stringByAppendingString:[MEBase64 stringByEncodingData:data]];
-        
-        userinfo.Icon = avatarString;
+        avatarString = [head stringByAppendingString:[MEBase64 stringByEncodingData:data]];
+        //userinfo.Icon = avatarString;
     }
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-    UpdateLoginUserDetailRequest *request = [[UpdateLoginUserDetailRequest alloc] init];
-    request.UserInfo = userinfo;
-    
+    UpdateUserHeadRequest *request = [[UpdateUserHeadRequest alloc] init];
+    request.HeadImg = avatarString;
     
     [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         [SVProgressHUD dismiss];
-        UserInfo *userInfo = [[UserInfo alloc] initWithDictionary:[request responseBodyJSON] error:nil];
-        UserManager.currentUser.sIcon = userInfo.sIcon;
+        [self.userHeadImage setImage:headImg];
     } failure:^(NSError *err) {
         [SVProgressHUD dismiss];
         
         [[[UIAlertView alloc] initWithTitle:@"提交信息失败" message:err.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-    }];*/
+    }];
 
 }
 

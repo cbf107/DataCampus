@@ -44,4 +44,7 @@
 @interface UserLogoutRequest : BaseRequest
 @end
 
-
+//更新头像
+@interface UpdateUserHeadRequest : BaseRequest
+@property(nonatomic, copy)NSString *HeadImg; //头像图片
+@end

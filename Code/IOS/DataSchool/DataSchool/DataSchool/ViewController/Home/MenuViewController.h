@@ -36,6 +36,6 @@
 @property (nonatomic, retain) IBOutlet UIButton *mSettingBtn;
 @property (nonatomic, retain) NSArray *mMenuArr;
 
-@property UIImage *avatar;
+//@property UIImage *avatar;
 
 @end
