@@ -176,21 +176,19 @@
 {
     //点击
     //__weak typeof(self) weakSelf=self;
-    ThumbnailInfo *info = [[(RefreshCollectionView *)collectionView dataArray] objectAtIndex:indexPath.row];
-
-    [PhotoBroswerVC show:self type:PhotoBroswerVCTypeModal AlbumRefid:_sAlbumRefId ImgRefid:info.AlbumDetailRefId index:indexPath.row photoModelBlock:^NSArray *{
+    [PhotoBroswerVC show:self type:PhotoBroswerVCTypeModal AlbumRefid:_sAlbumRefId index:indexPath.row photoModelBlock:^NSArray *{
         NSMutableArray *modelsM = [[NSMutableArray alloc] init];
         
         NSUInteger count = [(RefreshCollectionView *)collectionView dataArray].count;
         for (NSUInteger i = 0; i < count; i++) {
             ThumbnailInfo *info = [[(RefreshCollectionView *)collectionView dataArray] objectAtIndex:i];
-            //[_data addObject:info.ImageURL];
             
             PhotoModel *pbModel=[[PhotoModel alloc] init];
             pbModel.mid = i + 1;
             pbModel.title = [NSString stringWithFormat:@"这是标题%@",@(i+1)];
             pbModel.desc = @"";
             pbModel.image_HD_U = info.ImageURL;
+            pbModel.imgRefid = info.AlbumDetailRefId;
             
             //源frame
             UICollectionViewCell *cell = [_mCollectionView cellForItemAtIndexPath:indexPath];

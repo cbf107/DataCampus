@@ -76,7 +76,7 @@
 @implementation PhotoBroswerVC
 
 
-+(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type AlbumRefid:(NSString *)albumID ImgRefid:(NSString*)imgID index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock{
++(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type AlbumRefid:(NSString *)albumID index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock{
     
     //取出相册数组
     NSArray *photoModels = photoModelBlock();
@@ -102,7 +102,6 @@
     pbVC.photoModels = photoModels;
     pbVC.type =type;
     pbVC.handleVC = handleVC;
-    pbVC.ImgRefId = imgID;
     pbVC.AlbumRefId = albumID;
     
     //展示
@@ -331,9 +330,6 @@
     }];
 }
 
-
-
-
 /*
  *  scrollView代理方法区
  */
@@ -369,9 +365,6 @@
     }
 }
 
-
-
-
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     NSUInteger page = [self pageCalWithScrollView:scrollView];
@@ -379,15 +372,10 @@
     [self reuserAndVisibleHandle:page];
 }
 
-
-
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
     //重围
     self.dragPage = 0;
 }
-
-
 
 -(void)reuserAndVisibleHandle:(NSUInteger)page{
     
@@ -414,7 +402,6 @@
     return page;
 }
 
-
 -(void)setPhotoModels:(NSArray *)photoModels{
     
     //_photoModels = photoModels;
@@ -431,8 +418,6 @@
         self.page = _index;
     });
 }
-
-
 
 -(void)setPage:(NSUInteger)page{
     if (page >= self.mutablePhotoModels.count) {
@@ -481,9 +466,13 @@
 }
 
 - (IBAction)rightBtnClick:(id)sender {
+    
     DeleateImageRequest *request = [[DeleateImageRequest alloc] init];
     request.AlbumRefId = _AlbumRefId;
-    request.ImgRefId = _ImgRefId;
+    
+    PhotoModel *photoModel = self.mutablePhotoModels[self.page];
+    request.ImgRefId = photoModel.imgRefid;
+    
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         [SVProgressHUD dismiss];

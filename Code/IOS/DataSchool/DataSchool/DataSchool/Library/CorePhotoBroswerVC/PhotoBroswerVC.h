@@ -6,7 +6,7 @@
 @interface PhotoBroswerVC : UIViewController
 
 
-+(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type AlbumRefid:(NSString *)albumID ImgRefid:(NSString*)imgID index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock;
++(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type AlbumRefid:(NSString *)albumID index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock;
 
 
 @end

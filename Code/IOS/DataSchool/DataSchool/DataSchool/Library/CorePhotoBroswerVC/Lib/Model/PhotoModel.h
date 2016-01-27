@@ -13,11 +13,11 @@
 
 @interface PhotoModel : NSObject
 
+/** 图片ID */
+@property (nonatomic,copy) NSString *imgRefid;
+
 /** mid，保存图片缓存唯一标识，必须传 */
 @property (nonatomic,assign) NSUInteger mid;
-
-
-
 
 /*
  *  网络图片
@@ -26,20 +26,10 @@
 /** 高清图地址 */
 @property (nonatomic,copy) NSString *image_HD_U;
 
-
-
 /*
  *  本地图片
  */
 @property (nonatomic,strong) UIImage *image;
-
-
-
-
-
-
-
-
 
 /** 标题 */
 @property (nonatomic,copy) NSString *title;
