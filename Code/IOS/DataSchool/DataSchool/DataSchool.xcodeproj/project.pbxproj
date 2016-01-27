@@ -239,6 +239,49 @@
 		9CEAE8781C4E1EC500978887 /* FolderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAE8771C4E1EC500978887 /* FolderInfo.m */; };
 		9CEAE8861C53200800978887 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CEAE8831C53200800978887 /* SVProgressHUD.bundle */; };
 		9CEAE8871C53200800978887 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CEAE8851C53200800978887 /* SVProgressHUD.m */; };
+		9CF14BAD1C58776300303F77 /* AmrWavConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B6B1C58776300303F77 /* AmrWavConvert.m */; };
+		9CF14BAE1C58776300303F77 /* gn_wav_reader.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B6C1C58776300303F77 /* gn_wav_reader.c */; };
+		9CF14BAF1C58776300303F77 /* gn_wav_wirter.c in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B6E1C58776300303F77 /* gn_wav_wirter.c */; };
+		9CF14BB01C58776300303F77 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF14B721C58776300303F77 /* libopencore-amrnb.a */; };
+		9CF14BB11C58776300303F77 /* libopencore-amrwb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF14B731C58776300303F77 /* libopencore-amrwb.a */; };
+		9CF14BB21C58776300303F77 /* AudioFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B7C1C58776300303F77 /* AudioFileUtils.m */; };
+		9CF14BB31C58776300303F77 /* AudioPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B7E1C58776300303F77 /* AudioPlay.m */; };
+		9CF14BB41C58776300303F77 /* AudioRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B801C58776300303F77 /* AudioRecord.m */; };
+		9CF14BB51C58776300303F77 /* ChatInputFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B831C58776300303F77 /* ChatInputFunctionView.m */; };
+		9CF14BB61C58776300303F77 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B851C58776300303F77 /* ChatMessage.m */; };
+		9CF14BB71C58776300303F77 /* ChatMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B871C58776300303F77 /* ChatMessageCell.m */; };
+		9CF14BB81C58776300303F77 /* ChatMessageContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B891C58776300303F77 /* ChatMessageContentButton.m */; };
+		9CF14BB91C58776300303F77 /* ChatMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B8B1C58776300303F77 /* ChatMessageFrame.m */; };
+		9CF14BBA1C58776300303F77 /* UUImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B8D1C58776300303F77 /* UUImageAvatarBrowser.m */; };
+		9CF14BBB1C58776300303F77 /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF14B8F1C58776300303F77 /* UUProgressHUD.m */; };
+		9CF14BBC1C58776300303F77 /* chat_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B911C58776300303F77 /* chat_bg@2x.png */; };
+		9CF14BBD1C58776300303F77 /* Chat_take_picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B921C58776300303F77 /* Chat_take_picture@2x.png */; };
+		9CF14BBE1C58776300303F77 /* chatDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B931C58776300303F77 /* chatDefault@2x.png */; };
+		9CF14BBF1C58776300303F77 /* keybord_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B941C58776300303F77 /* keybord_icon@2x.png */; };
+		9CF14BC01C58776300303F77 /* more_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B951C58776300303F77 /* more_icon@2x.png */; };
+		9CF14BC11C58776300303F77 /* RecordingBkg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B961C58776300303F77 /* RecordingBkg@2x.png */; };
+		9CF14BC21C58776300303F77 /* RecordingBkg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B971C58776300303F77 /* RecordingBkg@3x.png */; };
+		9CF14BC31C58776300303F77 /* RecordingSignal001@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B981C58776300303F77 /* RecordingSignal001@2x.png */; };
+		9CF14BC41C58776300303F77 /* RecordingSignal001@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B991C58776300303F77 /* RecordingSignal001@3x.png */; };
+		9CF14BC51C58776300303F77 /* RecordingSignal002@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9A1C58776300303F77 /* RecordingSignal002@2x.png */; };
+		9CF14BC61C58776300303F77 /* RecordingSignal002@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9B1C58776300303F77 /* RecordingSignal002@3x.png */; };
+		9CF14BC71C58776300303F77 /* RecordingSignal003@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9C1C58776300303F77 /* RecordingSignal003@2x.png */; };
+		9CF14BC81C58776300303F77 /* RecordingSignal003@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9D1C58776300303F77 /* RecordingSignal003@3x.png */; };
+		9CF14BC91C58776300303F77 /* RecordingSignal004@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9E1C58776300303F77 /* RecordingSignal004@2x.png */; };
+		9CF14BCA1C58776300303F77 /* RecordingSignal004@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14B9F1C58776300303F77 /* RecordingSignal004@3x.png */; };
+		9CF14BCB1C58776300303F77 /* RecordingSignal005@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA01C58776300303F77 /* RecordingSignal005@2x.png */; };
+		9CF14BCC1C58776300303F77 /* RecordingSignal005@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA11C58776300303F77 /* RecordingSignal005@3x.png */; };
+		9CF14BCD1C58776300303F77 /* RecordingSignal006@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA21C58776300303F77 /* RecordingSignal006@2x.png */; };
+		9CF14BCE1C58776300303F77 /* RecordingSignal006@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA31C58776300303F77 /* RecordingSignal006@3x.png */; };
+		9CF14BCF1C58776300303F77 /* RecordingSignal007@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA41C58776300303F77 /* RecordingSignal007@2x.png */; };
+		9CF14BD01C58776300303F77 /* RecordingSignal007@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA51C58776300303F77 /* RecordingSignal007@3x.png */; };
+		9CF14BD11C58776300303F77 /* RecordingSignal008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA61C58776300303F77 /* RecordingSignal008@2x.png */; };
+		9CF14BD21C58776300303F77 /* RecordingSignal008@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA71C58776300303F77 /* RecordingSignal008@3x.png */; };
+		9CF14BD31C58776300303F77 /* voice_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA81C58776300303F77 /* voice_icon@2x.png */; };
+		9CF14BD41C58776300303F77 /* voicePlaying0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BA91C58776300303F77 /* voicePlaying0@2x.png */; };
+		9CF14BD51C58776300303F77 /* voicePlaying1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BAA1C58776300303F77 /* voicePlaying1@2x.png */; };
+		9CF14BD61C58776300303F77 /* voicePlaying2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BAB1C58776300303F77 /* voicePlaying2@2x.png */; };
+		9CF14BD71C58776300303F77 /* voicePlaying3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF14BAC1C58776300303F77 /* voicePlaying3@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -707,6 +750,66 @@
 		9CEAE8831C53200800978887 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		9CEAE8841C53200800978887 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		9CEAE8851C53200800978887 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		9CF14B6A1C58776300303F77 /* AmrWavConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmrWavConvert.h; sourceTree = "<group>"; };
+		9CF14B6B1C58776300303F77 /* AmrWavConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmrWavConvert.m; sourceTree = "<group>"; };
+		9CF14B6C1C58776300303F77 /* gn_wav_reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gn_wav_reader.c; sourceTree = "<group>"; };
+		9CF14B6D1C58776300303F77 /* gn_wav_reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gn_wav_reader.h; sourceTree = "<group>"; };
+		9CF14B6E1C58776300303F77 /* gn_wav_wirter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gn_wav_wirter.c; sourceTree = "<group>"; };
+		9CF14B6F1C58776300303F77 /* gn_wav_wirter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gn_wav_wirter.h; sourceTree = "<group>"; };
+		9CF14B721C58776300303F77 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		9CF14B731C58776300303F77 /* libopencore-amrwb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrwb.a"; sourceTree = "<group>"; };
+		9CF14B751C58776300303F77 /* interf_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_dec.h; sourceTree = "<group>"; };
+		9CF14B761C58776300303F77 /* interf_enc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interf_enc.h; sourceTree = "<group>"; };
+		9CF14B781C58776300303F77 /* dec_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dec_if.h; sourceTree = "<group>"; };
+		9CF14B791C58776300303F77 /* if_rom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = if_rom.h; sourceTree = "<group>"; };
+		9CF14B7B1C58776300303F77 /* AudioFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileUtils.h; sourceTree = "<group>"; };
+		9CF14B7C1C58776300303F77 /* AudioFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFileUtils.m; sourceTree = "<group>"; };
+		9CF14B7D1C58776300303F77 /* AudioPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlay.h; sourceTree = "<group>"; };
+		9CF14B7E1C58776300303F77 /* AudioPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlay.m; sourceTree = "<group>"; };
+		9CF14B7F1C58776300303F77 /* AudioRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecord.h; sourceTree = "<group>"; };
+		9CF14B801C58776300303F77 /* AudioRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecord.m; sourceTree = "<group>"; };
+		9CF14B821C58776300303F77 /* ChatInputFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInputFunctionView.h; sourceTree = "<group>"; };
+		9CF14B831C58776300303F77 /* ChatInputFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInputFunctionView.m; sourceTree = "<group>"; };
+		9CF14B841C58776300303F77 /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
+		9CF14B851C58776300303F77 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		9CF14B861C58776300303F77 /* ChatMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageCell.h; sourceTree = "<group>"; };
+		9CF14B871C58776300303F77 /* ChatMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageCell.m; sourceTree = "<group>"; };
+		9CF14B881C58776300303F77 /* ChatMessageContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageContentButton.h; sourceTree = "<group>"; };
+		9CF14B891C58776300303F77 /* ChatMessageContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageContentButton.m; sourceTree = "<group>"; };
+		9CF14B8A1C58776300303F77 /* ChatMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageFrame.h; sourceTree = "<group>"; };
+		9CF14B8B1C58776300303F77 /* ChatMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageFrame.m; sourceTree = "<group>"; };
+		9CF14B8C1C58776300303F77 /* UUImageAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUImageAvatarBrowser.h; sourceTree = "<group>"; };
+		9CF14B8D1C58776300303F77 /* UUImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUImageAvatarBrowser.m; sourceTree = "<group>"; };
+		9CF14B8E1C58776300303F77 /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
+		9CF14B8F1C58776300303F77 /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
+		9CF14B911C58776300303F77 /* chat_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_bg@2x.png"; sourceTree = "<group>"; };
+		9CF14B921C58776300303F77 /* Chat_take_picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat_take_picture@2x.png"; sourceTree = "<group>"; };
+		9CF14B931C58776300303F77 /* chatDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatDefault@2x.png"; sourceTree = "<group>"; };
+		9CF14B941C58776300303F77 /* keybord_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keybord_icon@2x.png"; sourceTree = "<group>"; };
+		9CF14B951C58776300303F77 /* more_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_icon@2x.png"; sourceTree = "<group>"; };
+		9CF14B961C58776300303F77 /* RecordingBkg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingBkg@2x.png"; sourceTree = "<group>"; };
+		9CF14B971C58776300303F77 /* RecordingBkg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingBkg@3x.png"; sourceTree = "<group>"; };
+		9CF14B981C58776300303F77 /* RecordingSignal001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal001@2x.png"; sourceTree = "<group>"; };
+		9CF14B991C58776300303F77 /* RecordingSignal001@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal001@3x.png"; sourceTree = "<group>"; };
+		9CF14B9A1C58776300303F77 /* RecordingSignal002@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal002@2x.png"; sourceTree = "<group>"; };
+		9CF14B9B1C58776300303F77 /* RecordingSignal002@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal002@3x.png"; sourceTree = "<group>"; };
+		9CF14B9C1C58776300303F77 /* RecordingSignal003@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal003@2x.png"; sourceTree = "<group>"; };
+		9CF14B9D1C58776300303F77 /* RecordingSignal003@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal003@3x.png"; sourceTree = "<group>"; };
+		9CF14B9E1C58776300303F77 /* RecordingSignal004@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal004@2x.png"; sourceTree = "<group>"; };
+		9CF14B9F1C58776300303F77 /* RecordingSignal004@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal004@3x.png"; sourceTree = "<group>"; };
+		9CF14BA01C58776300303F77 /* RecordingSignal005@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal005@2x.png"; sourceTree = "<group>"; };
+		9CF14BA11C58776300303F77 /* RecordingSignal005@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal005@3x.png"; sourceTree = "<group>"; };
+		9CF14BA21C58776300303F77 /* RecordingSignal006@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal006@2x.png"; sourceTree = "<group>"; };
+		9CF14BA31C58776300303F77 /* RecordingSignal006@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal006@3x.png"; sourceTree = "<group>"; };
+		9CF14BA41C58776300303F77 /* RecordingSignal007@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal007@2x.png"; sourceTree = "<group>"; };
+		9CF14BA51C58776300303F77 /* RecordingSignal007@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal007@3x.png"; sourceTree = "<group>"; };
+		9CF14BA61C58776300303F77 /* RecordingSignal008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal008@2x.png"; sourceTree = "<group>"; };
+		9CF14BA71C58776300303F77 /* RecordingSignal008@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal008@3x.png"; sourceTree = "<group>"; };
+		9CF14BA81C58776300303F77 /* voice_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice_icon@2x.png"; sourceTree = "<group>"; };
+		9CF14BA91C58776300303F77 /* voicePlaying0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voicePlaying0@2x.png"; sourceTree = "<group>"; };
+		9CF14BAA1C58776300303F77 /* voicePlaying1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voicePlaying1@2x.png"; sourceTree = "<group>"; };
+		9CF14BAB1C58776300303F77 /* voicePlaying2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voicePlaying2@2x.png"; sourceTree = "<group>"; };
+		9CF14BAC1C58776300303F77 /* voicePlaying3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voicePlaying3@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -715,8 +818,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CE0CCB71C0DE1680059C247 /* libz.dylib in Frameworks */,
+				9CF14BB01C58776300303F77 /* libopencore-amrnb.a in Frameworks */,
 				9CE0CCB51C0DE15E0059C247 /* libstdc++.dylib in Frameworks */,
 				9CE0CCB31C0DE1520059C247 /* libicucore.dylib in Frameworks */,
+				9CF14BB11C58776300303F77 /* libopencore-amrwb.a in Frameworks */,
 				9CE0CCB11C0DE1480059C247 /* libsqlite3.dylib in Frameworks */,
 				9CE0CCAF1C0DE13F0059C247 /* Security.framework in Frameworks */,
 				9CE0CCAD1C0DE1370059C247 /* ImageIO.framework in Frameworks */,
@@ -1010,6 +1115,7 @@
 		9CE0CB241C0DE0370059C247 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				9CF14B671C58776300303F77 /* ChatLib */,
 				9CEAE7CE1C48D97000978887 /* CorePhotoBroswerVC */,
 				9CC577C51C180559001C7217 /* RSKImageCropper */,
 				9CE0CB251C0DE0370059C247 /* Base64 */,
@@ -1867,6 +1973,145 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9CF14B671C58776300303F77 /* ChatLib */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B681C58776300303F77 /* AudioRecord */,
+				9CF14B811C58776300303F77 /* ChatUI */,
+				9CF14B901C58776300303F77 /* Resource */,
+			);
+			path = ChatLib;
+			sourceTree = "<group>";
+		};
+		9CF14B681C58776300303F77 /* AudioRecord */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B691C58776300303F77 /* Convert */,
+				9CF14B701C58776300303F77 /* opencore_amr */,
+				9CF14B7A1C58776300303F77 /* Record */,
+			);
+			path = AudioRecord;
+			sourceTree = "<group>";
+		};
+		9CF14B691C58776300303F77 /* Convert */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B6A1C58776300303F77 /* AmrWavConvert.h */,
+				9CF14B6B1C58776300303F77 /* AmrWavConvert.m */,
+				9CF14B6C1C58776300303F77 /* gn_wav_reader.c */,
+				9CF14B6D1C58776300303F77 /* gn_wav_reader.h */,
+				9CF14B6E1C58776300303F77 /* gn_wav_wirter.c */,
+				9CF14B6F1C58776300303F77 /* gn_wav_wirter.h */,
+			);
+			path = Convert;
+			sourceTree = "<group>";
+		};
+		9CF14B701C58776300303F77 /* opencore_amr */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B711C58776300303F77 /* lib */,
+				9CF14B741C58776300303F77 /* opencore_amrnb */,
+				9CF14B771C58776300303F77 /* opencore_amrwb */,
+			);
+			path = opencore_amr;
+			sourceTree = "<group>";
+		};
+		9CF14B711C58776300303F77 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B721C58776300303F77 /* libopencore-amrnb.a */,
+				9CF14B731C58776300303F77 /* libopencore-amrwb.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		9CF14B741C58776300303F77 /* opencore_amrnb */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B751C58776300303F77 /* interf_dec.h */,
+				9CF14B761C58776300303F77 /* interf_enc.h */,
+			);
+			path = opencore_amrnb;
+			sourceTree = "<group>";
+		};
+		9CF14B771C58776300303F77 /* opencore_amrwb */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B781C58776300303F77 /* dec_if.h */,
+				9CF14B791C58776300303F77 /* if_rom.h */,
+			);
+			path = opencore_amrwb;
+			sourceTree = "<group>";
+		};
+		9CF14B7A1C58776300303F77 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B7B1C58776300303F77 /* AudioFileUtils.h */,
+				9CF14B7C1C58776300303F77 /* AudioFileUtils.m */,
+				9CF14B7D1C58776300303F77 /* AudioPlay.h */,
+				9CF14B7E1C58776300303F77 /* AudioPlay.m */,
+				9CF14B7F1C58776300303F77 /* AudioRecord.h */,
+				9CF14B801C58776300303F77 /* AudioRecord.m */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		9CF14B811C58776300303F77 /* ChatUI */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B821C58776300303F77 /* ChatInputFunctionView.h */,
+				9CF14B831C58776300303F77 /* ChatInputFunctionView.m */,
+				9CF14B841C58776300303F77 /* ChatMessage.h */,
+				9CF14B851C58776300303F77 /* ChatMessage.m */,
+				9CF14B861C58776300303F77 /* ChatMessageCell.h */,
+				9CF14B871C58776300303F77 /* ChatMessageCell.m */,
+				9CF14B881C58776300303F77 /* ChatMessageContentButton.h */,
+				9CF14B891C58776300303F77 /* ChatMessageContentButton.m */,
+				9CF14B8A1C58776300303F77 /* ChatMessageFrame.h */,
+				9CF14B8B1C58776300303F77 /* ChatMessageFrame.m */,
+				9CF14B8C1C58776300303F77 /* UUImageAvatarBrowser.h */,
+				9CF14B8D1C58776300303F77 /* UUImageAvatarBrowser.m */,
+				9CF14B8E1C58776300303F77 /* UUProgressHUD.h */,
+				9CF14B8F1C58776300303F77 /* UUProgressHUD.m */,
+			);
+			path = ChatUI;
+			sourceTree = "<group>";
+		};
+		9CF14B901C58776300303F77 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9CF14B911C58776300303F77 /* chat_bg@2x.png */,
+				9CF14B921C58776300303F77 /* Chat_take_picture@2x.png */,
+				9CF14B931C58776300303F77 /* chatDefault@2x.png */,
+				9CF14B941C58776300303F77 /* keybord_icon@2x.png */,
+				9CF14B951C58776300303F77 /* more_icon@2x.png */,
+				9CF14B961C58776300303F77 /* RecordingBkg@2x.png */,
+				9CF14B971C58776300303F77 /* RecordingBkg@3x.png */,
+				9CF14B981C58776300303F77 /* RecordingSignal001@2x.png */,
+				9CF14B991C58776300303F77 /* RecordingSignal001@3x.png */,
+				9CF14B9A1C58776300303F77 /* RecordingSignal002@2x.png */,
+				9CF14B9B1C58776300303F77 /* RecordingSignal002@3x.png */,
+				9CF14B9C1C58776300303F77 /* RecordingSignal003@2x.png */,
+				9CF14B9D1C58776300303F77 /* RecordingSignal003@3x.png */,
+				9CF14B9E1C58776300303F77 /* RecordingSignal004@2x.png */,
+				9CF14B9F1C58776300303F77 /* RecordingSignal004@3x.png */,
+				9CF14BA01C58776300303F77 /* RecordingSignal005@2x.png */,
+				9CF14BA11C58776300303F77 /* RecordingSignal005@3x.png */,
+				9CF14BA21C58776300303F77 /* RecordingSignal006@2x.png */,
+				9CF14BA31C58776300303F77 /* RecordingSignal006@3x.png */,
+				9CF14BA41C58776300303F77 /* RecordingSignal007@2x.png */,
+				9CF14BA51C58776300303F77 /* RecordingSignal007@3x.png */,
+				9CF14BA61C58776300303F77 /* RecordingSignal008@2x.png */,
+				9CF14BA71C58776300303F77 /* RecordingSignal008@3x.png */,
+				9CF14BA81C58776300303F77 /* voice_icon@2x.png */,
+				9CF14BA91C58776300303F77 /* voicePlaying0@2x.png */,
+				9CF14BAA1C58776300303F77 /* voicePlaying1@2x.png */,
+				9CF14BAB1C58776300303F77 /* voicePlaying2@2x.png */,
+				9CF14BAC1C58776300303F77 /* voicePlaying3@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1947,28 +2192,56 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF14BD01C58776300303F77 /* RecordingSignal007@3x.png in Resources */,
+				9CF14BCB1C58776300303F77 /* RecordingSignal005@2x.png in Resources */,
 				9CE0CC8F1C0DE0380059C247 /* foregroundStar@3x.png in Resources */,
+				9CF14BCC1C58776300303F77 /* RecordingSignal005@3x.png in Resources */,
+				9CF14BC91C58776300303F77 /* RecordingSignal004@2x.png in Resources */,
 				9CE0CCA11C0DE0380059C247 /* CustomPickerView.xib in Resources */,
 				9C1B02EA1C21518300D6C3AD /* Setting.storyboard in Resources */,
+				9CF14BC51C58776300303F77 /* RecordingSignal002@2x.png in Resources */,
 				9CE0CADD1C0DDED80059C247 /* Main.storyboard in Resources */,
+				9CF14BD11C58776300303F77 /* RecordingSignal008@2x.png in Resources */,
 				9CEAE8861C53200800978887 /* SVProgressHUD.bundle in Resources */,
+				9CF14BC71C58776300303F77 /* RecordingSignal003@2x.png in Resources */,
+				9CF14BD31C58776300303F77 /* voice_icon@2x.png in Resources */,
+				9CF14BBE1C58776300303F77 /* chatDefault@2x.png in Resources */,
 				9CCD8AB11C3A67CF00AED8B4 /* Universal.storyboard in Resources */,
+				9CF14BC01C58776300303F77 /* more_icon@2x.png in Resources */,
 				9CEAE85C1C48D97000978887 /* CoreSVP.bundle in Resources */,
 				9CEAE8661C48D97000978887 /* PB.bundle in Resources */,
 				9CE0CAE21C0DDED80059C247 /* LaunchScreen.xib in Resources */,
+				9CF14BCF1C58776300303F77 /* RecordingSignal007@2x.png in Resources */,
+				9CF14BBF1C58776300303F77 /* keybord_icon@2x.png in Resources */,
 				9CE0CC511C0DE0380059C247 /* IQKeyboardManager.bundle in Resources */,
 				9CE0CC8E1C0DE0380059C247 /* backgroundStar@3x.png in Resources */,
+				9CF14BD41C58776300303F77 /* voicePlaying0@2x.png in Resources */,
+				9CF14BC61C58776300303F77 /* RecordingSignal002@3x.png in Resources */,
+				9CF14BCE1C58776300303F77 /* RecordingSignal006@3x.png in Resources */,
 				9C39B02F1C16FF830068189B /* ClassInfo.storyboard in Resources */,
+				9CF14BD21C58776300303F77 /* RecordingSignal008@3x.png in Resources */,
+				9CF14BBD1C58776300303F77 /* Chat_take_picture@2x.png in Resources */,
 				9C39AD191C1584090068189B /* MenuViewController.storyboard in Resources */,
+				9CF14BC21C58776300303F77 /* RecordingBkg@3x.png in Resources */,
 				9C39AD2F1C15AFA70068189B /* Evaluation.storyboard in Resources */,
 				9CEAE86D1C48D97000978887 /* PhotoItemView.xib in Resources */,
+				9CF14BC31C58776300303F77 /* RecordingSignal001@2x.png in Resources */,
 				9CEAE7B81C453F3300978887 /* Album.storyboard in Resources */,
 				9C39AD211C158C890068189B /* NewsViewController.storyboard in Resources */,
+				9CF14BC11C58776300303F77 /* RecordingBkg@2x.png in Resources */,
 				9CE0CC5D1C0DE0380059C247 /* MJRefresh.bundle in Resources */,
 				9CEAE86F1C48D97000978887 /* PhotoBroswerVC.xib in Resources */,
 				9C39ACC81C15240F0068189B /* Login.storyboard in Resources */,
+				9CF14BC41C58776300303F77 /* RecordingSignal001@3x.png in Resources */,
 				9CEAE8591C48D97000978887 /* CoreSDWebImage.bundle in Resources */,
+				9CF14BC81C58776300303F77 /* RecordingSignal003@3x.png in Resources */,
 				9CE0CADF1C0DDED80059C247 /* Images.xcassets in Resources */,
+				9CF14BD71C58776300303F77 /* voicePlaying3@2x.png in Resources */,
+				9CF14BD51C58776300303F77 /* voicePlaying1@2x.png in Resources */,
+				9CF14BD61C58776300303F77 /* voicePlaying2@2x.png in Resources */,
+				9CF14BBC1C58776300303F77 /* chat_bg@2x.png in Resources */,
+				9CF14BCA1C58776300303F77 /* RecordingSignal004@3x.png in Resources */,
+				9CF14BCD1C58776300303F77 /* RecordingSignal006@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1992,6 +2265,7 @@
 				9CE0CC791C0DE0380059C247 /* YTKNetworkConfig.m in Sources */,
 				9CE0CC731C0DE0380059C247 /* UIImageView+AFNetworking.m in Sources */,
 				9CC577D11C180559001C7217 /* RSKTouchView.m in Sources */,
+				9CF14BB31C58776300303F77 /* AudioPlay.m in Sources */,
 				9CE0CC751C0DE0380059C247 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9CE0CC2D1C0DE0370059C247 /* pinyin.c in Sources */,
 				9CE0CC7C1C0DE0380059C247 /* LeveyPopListView.m in Sources */,
@@ -2004,6 +2278,7 @@
 				9CE0CC611C0DE0380059C247 /* MJRefreshHeaderView.m in Sources */,
 				9CE0CCA31C0DE0380059C247 /* HomeMetroButton.m in Sources */,
 				9CEAE8541C48D97000978887 /* UIImage+Water.m in Sources */,
+				9CF14BB21C58776300303F77 /* AudioFileUtils.m in Sources */,
 				9CE0CC9C1C0DE0380059C247 /* UserManager.m in Sources */,
 				9C39AD061C1539A40068189B /* IISideController.m in Sources */,
 				9C1B02F01C2153BE00D6C3AD /* ModifyPasswordVC.m in Sources */,
@@ -2015,6 +2290,7 @@
 				9CEAE84E1C48D97000978887 /* UIDevice+Extend.m in Sources */,
 				9CEAE85E1C48D97000978887 /* SVIndefiniteAnimatedView.m in Sources */,
 				9CE0CC2E1C0DE0370059C247 /* UIAlertView+GNUtil.m in Sources */,
+				9CF14BAD1C58776300303F77 /* AmrWavConvert.m in Sources */,
 				9CE0CC3F1C0DE0370059C247 /* CheckBox.m in Sources */,
 				9CEAE8751C4D28EA00978887 /* UploadClassFolderVC.m in Sources */,
 				9CE0CC381C0DE0370059C247 /* UITextField+ShakeUITextField.m in Sources */,
@@ -2022,6 +2298,7 @@
 				9CE0CC4A1C0DE0380059C247 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				9CEAE86E1C48D97000978887 /* PhotoBroswerVC.m in Sources */,
 				9CE0CC521C0DE0380059C247 /* JSBadgeView.m in Sources */,
+				9CF14BB61C58776300303F77 /* ChatMessage.m in Sources */,
 				9CE0CC891C0DE0380059C247 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9CE0CC681C0DE0380059C247 /* AFHTTPSessionManager.m in Sources */,
 				9CEAE8871C53200800978887 /* SVProgressHUD.m in Sources */,
@@ -2075,6 +2352,8 @@
 				9C39AD251C158F6E0068189B /* TabHomeCollCell.m in Sources */,
 				9CE0CC2A1C0DE0370059C247 /* NSString+GNUtil.m in Sources */,
 				9CE0CC541C0DE0380059C247 /* JSONModelArray.m in Sources */,
+				9CF14BB81C58776300303F77 /* ChatMessageContentButton.m in Sources */,
+				9CF14BBB1C58776300303F77 /* UUProgressHUD.m in Sources */,
 				9CE0CC4E1C0DE0380059C247 /* IQTitleBarButtonItem.m in Sources */,
 				9CE0CC9E1C0DE0380059C247 /* CustomHud.m in Sources */,
 				9CE0CC9D1C0DE0380059C247 /* CustomAlertView.m in Sources */,
@@ -2085,6 +2364,7 @@
 				9CEAE8651C48D97000978887 /* PhotoModel.m in Sources */,
 				9CCD8AAC1C34FB5D00AED8B4 /* SchoolNewsRequest.m in Sources */,
 				9CEAE8501C48D97000978887 /* UIImage+Color.m in Sources */,
+				9CF14BAE1C58776300303F77 /* gn_wav_reader.c in Sources */,
 				9CEAE8551C48D97000978887 /* UITableViewCell+Extend.m in Sources */,
 				9CE0CC641C0DE0380059C247 /* UIView+MJExtension.m in Sources */,
 				9CEAE84F1C48D97000978887 /* UIFont+Extend.m in Sources */,
@@ -2116,6 +2396,7 @@
 				9CE0CC2B1C0DE0370059C247 /* NSString+WXUtil.m in Sources */,
 				9CE0CC3A1C0DE0370059C247 /* UIView+GNUtil.m in Sources */,
 				9C1B02F71C2155B700D6C3AD /* GNUtil.m in Sources */,
+				9CF14BB71C58776300303F77 /* ChatMessageCell.m in Sources */,
 				9CE0CCA61C0DE0380059C247 /* RefreshTableView.m in Sources */,
 				9CE0CC441C0DE0380059C247 /* IQNSArray+Sort.m in Sources */,
 				9C1B02F11C2153BE00D6C3AD /* SettingViewController.m in Sources */,
@@ -2135,6 +2416,7 @@
 				9CE0CC4C1C0DE0380059C247 /* IQTextView.m in Sources */,
 				9CEAE8691C48D97000978887 /* PBSaveBtn.m in Sources */,
 				9CE0CC451C0DE0380059C247 /* IQUITextFieldView+Additions.m in Sources */,
+				9CF14BB41C58776300303F77 /* AudioRecord.m in Sources */,
 				9CE0CC271C0DE0370059C247 /* NSArray+GNUtil.m in Sources */,
 				9C39AD1F1C158C580068189B /* NewsViewController.m in Sources */,
 				9CE0CC561C0DE0380059C247 /* JSONModelError.m in Sources */,
@@ -2148,6 +2430,7 @@
 				9CEAE85A1C48D97000978887 /* UIButton+SD.m in Sources */,
 				9CE0CC781C0DE0380059C247 /* YTKNetworkAgent.m in Sources */,
 				9CEAE86C1C48D97000978887 /* PhotoItemView.m in Sources */,
+				9CF14BB91C58776300303F77 /* ChatMessageFrame.m in Sources */,
 				9CEAE8611C48D97000978887 /* LFRoundProgressView.m in Sources */,
 				9CE0CC2F1C0DE0370059C247 /* UIColor+GNUtil.m in Sources */,
 				9CE0CC6C1C0DE0380059C247 /* AFURLRequestSerialization.m in Sources */,
@@ -2158,6 +2441,7 @@
 				9CE0CC591C0DE0380059C247 /* JSONHTTPClient.m in Sources */,
 				9CE0CC361C0DE0370059C247 /* UINavigationItem+GNUtil.m in Sources */,
 				9CEAE7C71C46871700978887 /* AlbumRequest.m in Sources */,
+				9CF14BAF1C58776300303F77 /* gn_wav_wirter.c in Sources */,
 				9CEAE8451C48D97000978887 /* CoreArchive.m in Sources */,
 				9CE0CC411C0DE0370059C247 /* InfiniteScrollContainer.m in Sources */,
 				9CEAE84A1C48D97000978887 /* NSObject+Extend.m in Sources */,
@@ -2169,12 +2453,14 @@
 				9CE0CC9A1C0DE0380059C247 /* BLTopTabView.m in Sources */,
 				9CE0CC691C0DE0380059C247 /* AFNetworkReachabilityManager.m in Sources */,
 				9CCD8ABA1C3BD50E00AED8B4 /* ClassNotice.m in Sources */,
+				9CF14BBA1C58776300303F77 /* UUImageAvatarBrowser.m in Sources */,
 				9CE0CC5A1C0DE0380059C247 /* JSONModel+networking.m in Sources */,
 				9CEAE84B1C48D97000978887 /* NSString+Extend.m in Sources */,
 				9CE0CAD41C0DDED80059C247 /* main.m in Sources */,
 				9CEAE8511C48D97000978887 /* UIImage+Cut.m in Sources */,
 				9CEAE7C11C46829B00978887 /* ThumbnailCollectionCell.m in Sources */,
 				9CE0CC821C0DE0380059C247 /* SDWebImageDownloader.m in Sources */,
+				9CF14BB51C58776300303F77 /* ChatInputFunctionView.m in Sources */,
 				9CC577D21C180559001C7217 /* UIImage+FixOrientation.m in Sources */,
 				9C39AD2D1C15AF890068189B /* EvaluationVC.m in Sources */,
 				9CEAE8571C48D97000978887 /* UIWindow+Launch.m in Sources */,
@@ -2316,6 +2602,10 @@
 				INFOPLIST_FILE = DataSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataSchool/Library/ChatLib/AudioRecord/opencore_amr/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2330,6 +2620,10 @@
 				INFOPLIST_FILE = DataSchool/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DataSchool/Library/ChatLib/AudioRecord/opencore_amr/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

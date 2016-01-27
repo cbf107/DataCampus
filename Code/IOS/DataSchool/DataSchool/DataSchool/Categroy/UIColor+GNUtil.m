@@ -80,37 +80,38 @@
 //    
 //}
 //
-//+ (UIColor *)appEdgeLineColor
++ (UIColor *)appEdgeLineColor
+{
+    return [UIColor colorWithHexString:kAppColorGraybkg]; //kAppEdgeLineColor];
+    
+}
+
++ (UIColor *)appFontColorLight
+{
+    return [UIColor colorWithHexString:kAppFontColorLight];
+    
+}
++ (UIColor *)appFontColorDark
+{
+    return [UIColor colorWithHexString:kAppFontColorDark];
+    
+}
++ (UIColor *)appFontColor
+{
+    return [UIColor colorWithHexString:kAppFontColor];
+    
+}
+//+ (UIColor *)appFontColorRed
 //{
-//    return [UIColor colorWithHexString:kAppColorGraybkg]; //kAppEdgeLineColor];
+//    return [UIColor colorWithHexString:kAppFontColorRed];
 //
 //}
-//
-//+ (UIColor *)appFontColorLight
-//{
-//    return [UIColor colorWithHexString:kAppFontColorLight];
-//
-//}
-//+ (UIColor *)appFontColorDark
-//{
-//    return [UIColor colorWithHexString:kAppFontColorDark];
-//
-//}
-//+ (UIColor *)appFontColor
-//{
-//    return [UIColor colorWithHexString:kAppFontColor];
-//
-//}
-////+ (UIColor *)appFontColorRed
-////{
-////    return [UIColor colorWithHexString:kAppFontColorRed];
-////
-////}
-//+ (UIColor *)appFontColorBlue
-//{
-//    return [UIColor colorWithHexString:kAppFontColorBlue];
-//    
-//}
++ (UIColor *)appFontColorBlue
+{
+    return [UIColor colorWithHexString:kAppFontColorBlue];
+    
+}
+
 + (UIColor *)realBarTintColor:(CGFloat)r G:(CGFloat)g B:(CGFloat)b A:(CGFloat)a
 {
     CGFloat red = r, green = g, blue = b, alpha = a;

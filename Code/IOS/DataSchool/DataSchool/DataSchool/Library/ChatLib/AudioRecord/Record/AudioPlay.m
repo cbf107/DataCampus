@@ -36,7 +36,7 @@
 
     dispatch_async(dispatch_queue_create("dfsfe", NULL), ^{
         
-        NSData *data = [NSData dataWithContentsOfURL: MAKE_IMG_URL(songUrl)];
+        NSData *data = [NSData dataWithContentsOfURL:MAKE_IMG_URL(songUrl)];
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.delegate audioPlayerFinishLoadVoice];

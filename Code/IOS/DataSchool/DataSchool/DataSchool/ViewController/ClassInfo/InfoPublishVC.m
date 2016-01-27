@@ -116,6 +116,14 @@
         [SVProgressHUD dismiss];
         _typeArray = nil;
     }];
+    
+    //音频
+    self.mChatMsgData = [[NSMutableArray alloc] init];
+    // add input region
+    self.mChatImputView = [[ChatInputFunctionView alloc] initWithSuperVC:self];
+    self.mChatImputView.delegate=self;
+    [self.view addSubview:self.mChatImputView];
+
 }
 
 -(void)typeTouchUpInside:(UITapGestureRecognizer *)recognizer{
@@ -373,4 +381,66 @@
     _mChooseClassLable.text = [NSString stringWithString:strName];
 }
 
+
+#pragma mark - InputFunctionViewDelegate
+- (void)chatInputFunctionView:(ChatInputFunctionView *)funcView sendVoiceWav:(NSData *)wav voiceAmr:(NSData *)amr time:(NSInteger)second
+{
+    /*ChatMessageFrame *messageFrame = [[ChatMessageFrame alloc]init];
+    
+    ChatMessage *msg = [[ChatMessage alloc] init];
+    msg.fromType = EChatMessageFromMe;
+    msg.messageType = EChatMessageTypeVoice;
+    msg.strName = [UserManager currentUser].sName;
+    msg.strId = [UserManager currentUser].iUser;
+    msg.strIcon = [UserManager currentUser].sIcon;
+    msg.voiceWav = wav;
+    msg.voiceAmr = amr;
+    msg.duration = second;
+    msg.strVoiceTime = [NSString stringWithFormat:@"%@\'",@(second)];
+    msg.voiceDataType = EChatVoiceDataTypeWAV;
+    
+    NSDateFormatter *f = [[NSDateFormatter alloc] init];
+    f.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+    msg.strTime = [f stringFromDate:[NSDate date]];
+    
+    //messageFrame.showTime = msg.showDate;
+    messageFrame.showTime = YES;
+    messageFrame.showName = NO;
+    messageFrame.firstMessage = (self.mCellFrames.count == 0);
+    
+    messageFrame.iconSize = CGSizeMake(40, 40);
+    
+    [messageFrame setMessage:msg];
+    
+    [self.mCellFrames addObject:messageFrame];
+    
+    [self scrollTable];
+    
+    [self deliverMessage:msg];*/
+}
+
+
+/*- (void)deliverMessage:(ChatMessage *)msg{
+    
+    MessageInfo *messageInfo = [MessageInfo initWithChatMsg:msg];
+    
+    messageInfo.iSendUser = [UserManager currentUser].iUser;
+    messageInfo.iClass = 0;
+    
+    if (_mFriendInfo) {
+        messageInfo.iRecType = 0; // 个人消息
+        messageInfo.sRecObj = _mFriendInfo.iUser;
+    } else if (_mSocialGroupInfo) {
+        messageInfo.iRecType = 1; // 圈子消息
+        messageInfo.sRecObj = _mSocialGroupInfo.iId;
+    }
+    
+    
+    SendMsgRequest *request = [[SendMsgRequest alloc] init];
+    request.mMessageInfo = messageInfo;
+    
+    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+    } failure:^(NSError *err) {
+    }];
+}*/
 @end

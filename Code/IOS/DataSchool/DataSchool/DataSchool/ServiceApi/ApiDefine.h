@@ -83,7 +83,8 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
+#define kAppMarginSpaceH  12//左右边距
 
-#define MAKE_IMG_URL(path) [NSURL URLWithString:path]]
+#define MAKE_IMG_URL(path) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kServerAddressTest, path]]
 
 #endif

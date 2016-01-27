@@ -27,6 +27,8 @@
 #import <UIKit/UIKit.h>
 #import "ZHPickView.h"
 #import "PublishClassNameVC.h"
+#import "ChatInputFunctionView.h"
+
 @interface InfoPublishVC : UIViewController<UIPickerViewDataSource,
 UIPickerViewDelegate,
 UIActionSheetDelegate,
@@ -35,7 +37,8 @@ UINavigationControllerDelegate,
 UIAlertViewDelegate,
 UITextViewDelegate,
 ZHPickViewDelegate,
-PassValueDelegate>{
+PassValueDelegate,
+ChatInputFunctionViewDelegate>{
     NSInteger mBtnIndex;
     
     UIImagePickerController *imagePicker1;
@@ -76,5 +79,9 @@ PassValueDelegate>{
 @property (nonatomic, copy)NSString *mType;
 @property (nonatomic, copy)NSArray *classNames;
 @property (nonatomic, retain)NSMutableArray *typeArray;
+
+//语音
+@property (strong, nonatomic) ChatInputFunctionView *mChatImputView;
+@property (retain, nonatomic) NSMutableArray *mChatMsgData;
 
 @end

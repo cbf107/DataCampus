@@ -14,17 +14,17 @@
 
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
-//+ (UIColor *)appBackgroundColor;
-//+ (UIColor *)appBackgroundColorDark;
-//+ (UIColor *)appBackgroundColorLight;
-//+ (UIColor *)appBackgroundColorYellow;
-//+ (UIColor *)appEdgeLineColor;
++ (UIColor *)appBackgroundColor;
++ (UIColor *)appBackgroundColorDark;
++ (UIColor *)appBackgroundColorLight;
++ (UIColor *)appBackgroundColorYellow;
++ (UIColor *)appEdgeLineColor;
 
-//+ (UIColor *)appFontColorLight;
-//+ (UIColor *)appFontColorDark;
-//+ (UIColor *)appFontColor;
-//+ (UIColor *)appFontColorRed;
-//+ (UIColor *)appFontColorBlue;
++ (UIColor *)appFontColorLight;
++ (UIColor *)appFontColorDark;
++ (UIColor *)appFontColor;
++ (UIColor *)appFontColorRed;
++ (UIColor *)appFontColorBlue;
 
 + (UIColor *)realBarTintColor:(CGFloat)r G:(CGFloat)g B:(CGFloat)b A:(CGFloat)a;
 @end

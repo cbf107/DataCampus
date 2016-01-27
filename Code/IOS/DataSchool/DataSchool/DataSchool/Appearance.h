@@ -32,6 +32,8 @@
 #define kAppFontColorRed @"ff0000"
 #define kAppFontColor  @"898989"//（用于正文文字的显示，所有正文都要使用的颜色)
 #define KAppFontColorTitle @"333e4c"//（一般用于标题类，例如列表的标题等）
+#define kAppFontColorOrange  @"ec8d13"//（使用范围：主色调之一，部分页面会使用到的颜色
+#define kAppFontColorBlue  @"#4092d1"//
 
 #define kAppFontSizeTitle  17//一级标题（最大）36px
 #define kAppFontSizeSubtitle  15//二级标题（大）30px
@@ -56,7 +58,7 @@
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 
-#define MAKE_IMG_URL(path) [NSURL URLWithString:path]]
+#define MAKE_IMG_URL(path) [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@", kServerURLAddress, kServerAPIPath, path]]
 
 
 #define Width self.view.frame.size.width
@@ -89,6 +91,7 @@
 #define CGRGBA(r,g,b,a)       RGBA(r,g,b,a).CGColor
 #define iCGRGBA(r,g,b,a)      (id)CGRGBA(r,g,b,a)
 #define ColorRGB(r,g,b) [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:1]
+#define kAppFontColorDark  @"#333e4c"//（使用范围：一级标题、二级标题、商品标题等）
 
 
 
