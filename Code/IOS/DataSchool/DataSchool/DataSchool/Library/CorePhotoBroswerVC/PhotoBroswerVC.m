@@ -16,39 +16,30 @@
 #import "CoreArchive.h"
 #import "PBScrollView.h"
 #import "CALayer+Transition.h"
-
+#import "AlbumRequest.h"
 
 
 @interface PhotoBroswerVC ()<UIScrollViewDelegate>
 
+@property (nonatomic, copy)NSString* AlbumRefId;
+@property (nonatomic, copy)NSString* ImgRefId;
 
 /** 外部操作控制器 */
 @property (nonatomic,weak) UIViewController *handleVC;
 
-
 /** 类型 */
 @property (nonatomic,assign) PhotoBroswerVCType type;
-
 
 /** scrollView */
 @property (weak, nonatomic) IBOutlet PBScrollView *scrollView;
 
-
 /** 顶部条管理视图 */
 @property (weak, nonatomic) IBOutlet UIView *topBarView;
 
-
 /** 顶部label */
 @property (weak, nonatomic) IBOutlet UILabel *topBarLabel;
-
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topBarHeightC;
-
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewRightMarginC;
-
-
-
 
 /** 相册数组 */
 @property (nonatomic,strong) NSMutableArray *mutablePhotoModels;
@@ -59,14 +50,11 @@
 /** page */
 @property (nonatomic,assign) NSUInteger page;
 
-
 /** 上一个页码 */
 @property (nonatomic,assign) NSUInteger lastPage;
 
-
 /** 初始显示的index */
 @property (nonatomic,assign) NSUInteger index;
-
 
 /** 可重用集合 */
 @property (nonatomic,strong) NSMutableSet *reusablePhotoItemViewSetM;
@@ -88,7 +76,7 @@
 @implementation PhotoBroswerVC
 
 
-+(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock{
++(void)show:(UIViewController *)handleVC type:(PhotoBroswerVCType)type AlbumRefid:(NSString *)albumID ImgRefid:(NSString*)imgID index:(NSUInteger)index photoModelBlock:(NSArray *(^)())photoModelBlock{
     
     //取出相册数组
     NSArray *photoModels = photoModelBlock();
@@ -102,8 +90,6 @@
         return;
     }
     
-    
-    
     PhotoBroswerVC *pbVC = [[self alloc] init];
     
     if(index >= photoModels.count){
@@ -113,13 +99,11 @@
     
     //记录
     pbVC.index = index;
-    
     pbVC.photoModels = photoModels;
-    
-    //记录
     pbVC.type =type;
-    
     pbVC.handleVC = handleVC;
+    pbVC.ImgRefId = imgID;
+    pbVC.AlbumRefId = albumID;
     
     //展示
     [pbVC show];
@@ -161,17 +145,13 @@
 
 /** push */
 -(void)pushPhotoVC{
-    
     [_handleVC.navigationController pushViewController:self animated:YES];
 }
 
-
 /** modal */
 -(void)modalPhotoVC{
-    
     [_handleVC presentViewController:self animated:YES completion:nil];
 }
-
 
 /** transition */
 -(void)transitionPhotoVC{
@@ -179,11 +159,8 @@
     [_handleVC.navigationController.view.layer transitionWithAnimType:TransitionAnimTypeRamdom subType:TransitionSubtypesFromRamdom curve:TransitionCurveRamdom duration:2.0f];
 }
 
-
 /** zoom */
 -(void)zoomPhotoVC{
-    
-    
     //拿到window
     UIWindow *window = _handleVC.view.window;
     
@@ -218,8 +195,6 @@
     });
 }
 
-
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -227,9 +202,6 @@
     //控制器准备
     [self vcPrepare];
 }
-
-
-
 
 -(void)viewWillDisappear:(BOOL)animated{
     
@@ -253,7 +225,6 @@
  *  控制器准备
  */
 -(void)vcPrepare{
-    
     //去除自动处理
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -264,11 +235,8 @@
     _scrollViewRightMarginC.constant = - PBMargin;
 }
 
-
-
 /** 每页准备 */
 -(void)pagesPrepare{
-
     __block CGRect frame = [UIScreen mainScreen].bounds;
     
     CGFloat widthEachPage = frame.size.width + PBMargin;
@@ -280,8 +248,6 @@
     self.scrollView.contentSize = CGSizeMake(widthEachPage * self.mutablePhotoModels.count, 0);
     self.scrollView.index = _index;
 }
-
-
 
 /*
  *  展示页码对应的页面
@@ -503,11 +469,6 @@
     });
 }
 
-
-
-
-
-
 -(UIStatusBarStyle)preferredStatusBarStyle{
  
     return UIStatusBarStyleLightContent;
@@ -520,34 +481,45 @@
 }
 
 - (IBAction)rightBtnClick:(id)sender {
-    //NSMutableArray *myMutableArray = [self.photoModels mutableCopy];
-    [_mutablePhotoModels removeObjectAtIndex:self.page];
-    //self.photoModels = myMutableArray;
-    if (_mutablePhotoModels.count == 0) {
-        [self dismiss];
-        return;
-    }
+    DeleateImageRequest *request = [[DeleateImageRequest alloc] init];
+    request.AlbumRefId = _AlbumRefId;
+    request.ImgRefId = _ImgRefId;
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        [SVProgressHUD dismiss];
+        
+        [_mutablePhotoModels removeObjectAtIndex:self.page];
+        
+        if (_mutablePhotoModels.count == 0) {
+            [self dismiss];
+            return;
+        }
+        
+        //删除最后一个的时候
+        if (self.page == self.mutablePhotoModels.count) {
+            self.page = self.page - 1;
+        }
+        
+        self.pageCount = self.mutablePhotoModels.count;
+        _index = self.page;
+        
+        [self reuserAndVisibleHandle:self.page];
+        
+        __block CGRect frame = [UIScreen mainScreen].bounds;
+        CGFloat widthEachPage = frame.size.width + PBMargin;
+        self.scrollView.contentSize = CGSizeMake(widthEachPage * self.pageCount, 0);
+        
+        //设置标题
+        NSString *text = [NSString stringWithFormat:@"%@ / %@", @(self.page + 1) , @(self.pageCount)];
+        self.topBarLabel.text = text;
+        
+        
+        [self showWithDeletePage:self.page];
 
-    //删除最后一个的时候
-    if (self.page == self.mutablePhotoModels.count) {
-        self.page = self.page - 1;
-    }
-    
-    self.pageCount = self.mutablePhotoModels.count;
-    _index = self.page;
-
-    [self reuserAndVisibleHandle:self.page];
-    
-    __block CGRect frame = [UIScreen mainScreen].bounds;
-    CGFloat widthEachPage = frame.size.width + PBMargin;
-    self.scrollView.contentSize = CGSizeMake(widthEachPage * self.pageCount, 0);
-
-    //设置标题
-    NSString *text = [NSString stringWithFormat:@"%@ / %@", @(self.page + 1) , @(self.pageCount)];
-    self.topBarLabel.text = text;
-
-    
-    [self showWithDeletePage:self.page];
+    } failure:^(NSError *err) {
+        [SVProgressHUD dismiss];
+        [[[UIAlertView alloc] initWithTitle:@"提示" message:err.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
 
 }
 
