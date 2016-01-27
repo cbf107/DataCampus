@@ -122,8 +122,7 @@
     // add input region
     self.mChatImputView = [[ChatInputFunctionView alloc] initWithSuperVC:self];
     self.mChatImputView.delegate=self;
-    [self.view addSubview:self.mChatImputView];
-
+    //[self.view addSubview:self.mChatImputView];
 }
 
 -(void)typeTouchUpInside:(UITapGestureRecognizer *)recognizer{

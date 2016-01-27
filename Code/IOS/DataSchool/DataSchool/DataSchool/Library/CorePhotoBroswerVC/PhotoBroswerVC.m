@@ -51,7 +51,7 @@
 
 
 /** 相册数组 */
-@property (nonatomic,strong) NSArray *photoModels;
+@property (nonatomic,strong) NSMutableArray *mutablePhotoModels;
 
 /** 总页数 */
 @property (nonatomic,assign) NSUInteger pageCount;
@@ -188,12 +188,12 @@
     UIWindow *window = _handleVC.view.window;
     
     if(window == nil){
-
+        
         NSLog(@"错误：窗口为空！");
         return;
     }
     
-    PhotoModel *photoModel = self.photoModels[self.index];
+    PhotoModel *photoModel = self.mutablePhotoModels[self.index];
     
     photoModel.sourceImageView.hidden = YES;
     
@@ -277,8 +277,7 @@
     [self showWithPage:self.index];
     
     //设置contentSize
-    self.scrollView.contentSize = CGSizeMake(widthEachPage * self.photoModels.count, 0);
-
+    self.scrollView.contentSize = CGSizeMake(widthEachPage * self.mutablePhotoModels.count, 0);
     self.scrollView.index = _index;
 }
 
@@ -316,7 +315,7 @@
     //设置页标
     photoItemView.pageIndex = page;
     photoItemView.type = self.type;
-    photoItemView.photoModel = self.photoModels[page];
+    photoItemView.photoModel = self.mutablePhotoModels[page];
 
     [self.scrollView addSubview:photoItemView];
     
@@ -377,7 +376,9 @@
     NSUInteger page = [self pageCalWithScrollView:scrollView];
     
     //记录dragPage
-    if(self.dragPage == 0) self.dragPage = page;
+    if(self.dragPage == 0){
+        self.dragPage = page;
+    }
     
     self.page = page;
     
@@ -388,7 +389,9 @@
     
     if(offsetX > pageOffsetX){//正在向左滑动，展示右边的页面
         
-        if(page >= self.pageCount - 1) return;
+        if(page >= self.pageCount - 1){
+            return;
+        }
         
         self.nextPage = page + 1;
         
@@ -439,26 +442,18 @@
 }
 
 
-
-
-
-
 -(NSUInteger)pageCalWithScrollView:(UIScrollView *)scrollView{
-    
     NSUInteger page = scrollView.contentOffset.x / scrollView.bounds.size.width + .5f;
     
     return page;
 }
 
 
-
-
-
-
 -(void)setPhotoModels:(NSArray *)photoModels{
     
-    _photoModels = photoModels;
+    //_photoModels = photoModels;
     
+    self.mutablePhotoModels = [photoModels mutableCopy];
     self.pageCount = photoModels.count;
     
     //设置源frame标记，以获得动画效果
@@ -474,13 +469,20 @@
 
 
 -(void)setPage:(NSUInteger)page{
+    if (page >= self.mutablePhotoModels.count) {
+        return;
+    }
     
-    if(_page !=0 && _page == page) return;
+    if(_page !=0 && _page == page){
+        return;
+    }
     
     _lastPage = page;
     
     _page = page;
     
+    self.pageCount = _mutablePhotoModels.count;
+
     //设置标题
     NSString *text = [NSString stringWithFormat:@"%@ / %@", @(page + 1) , @(self.pageCount)];
     
@@ -518,6 +520,74 @@
 }
 
 - (IBAction)rightBtnClick:(id)sender {
+    //NSMutableArray *myMutableArray = [self.photoModels mutableCopy];
+    [_mutablePhotoModels removeObjectAtIndex:self.page];
+    //self.photoModels = myMutableArray;
+    if (_mutablePhotoModels.count == 0) {
+        [self dismiss];
+        return;
+    }
+
+    //删除最后一个的时候
+    if (self.page == self.mutablePhotoModels.count) {
+        self.page = self.page - 1;
+    }
+    
+    self.pageCount = self.mutablePhotoModels.count;
+    _index = self.page;
+
+    [self reuserAndVisibleHandle:self.page];
+    
+    __block CGRect frame = [UIScreen mainScreen].bounds;
+    CGFloat widthEachPage = frame.size.width + PBMargin;
+    self.scrollView.contentSize = CGSizeMake(widthEachPage * self.pageCount, 0);
+
+    //设置标题
+    NSString *text = [NSString stringWithFormat:@"%@ / %@", @(self.page + 1) , @(self.pageCount)];
+    self.topBarLabel.text = text;
+
+    
+    [self showWithDeletePage:self.page];
+
+}
+
+
+-(void)showWithDeletePage:(NSUInteger)page{
+    
+    //取出重用photoItemView
+    PhotoItemView *photoItemView = [self dequeReusablePhotoItemView];
+    
+    if(photoItemView == nil){//没有取到
+        
+        //重新创建
+        photoItemView = [PhotoItemView viewFromXIB];
+    }
+    
+    NSLog(@"%p",&photoItemView);
+    
+    //数据覆盖
+    photoItemView.ItemViewSingleTapBlock = ^(){
+        [self singleTap];
+    };
+    
+    //到这里，photoItemView一定有值，而且一定显示为当前页
+    //加入到当前显示中的字典
+    [self.visiblePhotoItemViewDictM setObject:photoItemView forKey:@(page)];
+    
+    //传递数据
+    //设置页标
+    photoItemView.pageIndex = page;
+    photoItemView.type = self.type;
+    photoItemView.photoModel = self.mutablePhotoModels[page];
+    
+    [self.scrollView addSubview:photoItemView];
+    
+    //    [UIView animateWithDuration:.01 animations:^{
+    photoItemView.alpha=1;
+    //    }];
+}
+
+/*- (IBAction)rightBtnClick:(id)sender {
     
     //取出itemView
     PhotoItemView *itemView = self.currentItemView;
@@ -555,7 +625,7 @@
             [CoreSVP showSVPWithType:CoreSVPTypeError Msg:@"保存失败" duration:1.0f allowEdit:NO beginBlock:nil completeBlock:nil];
         }];
     }
-}
+}*/
 
 
 -(void)setIndex:(NSUInteger)index{
@@ -620,9 +690,6 @@
 
 
 -(void)dismiss{
-    
-    
-    
     switch (_type) {
         case PhotoBroswerVCTypePush://push
 
@@ -672,7 +739,7 @@
     }];
     
     
-    PhotoModel *photoModel = self.photoModels[self.page];
+    PhotoModel *photoModel = self.mutablePhotoModels[self.page];
     
     CGRect sourceF = photoModel.sourceFrame;
     
