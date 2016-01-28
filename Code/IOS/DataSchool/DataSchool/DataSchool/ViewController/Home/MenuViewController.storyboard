@@ -199,23 +199,23 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="dsn-me-40C"/>
-                                        <exclude reference="G68-Br-vuc"/>
-                                        <exclude reference="UYf-MG-DQQ"/>
-                                        <exclude reference="kpY-4c-CZP"/>
-                                        <exclude reference="t9x-ci-lDH"/>
-                                        <exclude reference="CHN-Jy-xNd"/>
-                                        <exclude reference="E5R-tX-Zq1"/>
-                                        <exclude reference="V9t-wz-UiC"/>
-                                        <exclude reference="tFZ-FD-wMc"/>
                                         <exclude reference="cX3-6X-vDk"/>
                                         <exclude reference="fnH-O2-g4q"/>
                                         <exclude reference="h1o-Xy-flk"/>
                                         <exclude reference="nW3-md-Aho"/>
                                         <exclude reference="ps3-Ct-MX2"/>
                                         <exclude reference="usc-cU-YOO"/>
+                                        <exclude reference="CHN-Jy-xNd"/>
+                                        <exclude reference="E5R-tX-Zq1"/>
+                                        <exclude reference="V9t-wz-UiC"/>
+                                        <exclude reference="tFZ-FD-wMc"/>
                                         <exclude reference="4Dl-3g-Y27"/>
                                         <exclude reference="UYq-Ed-ffH"/>
                                         <exclude reference="ZYm-Xu-D0h"/>
+                                        <exclude reference="G68-Br-vuc"/>
+                                        <exclude reference="UYf-MG-DQQ"/>
+                                        <exclude reference="kpY-4c-CZP"/>
+                                        <exclude reference="t9x-ci-lDH"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -227,23 +227,23 @@
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="dsn-me-40C"/>
-                                        <exclude reference="G68-Br-vuc"/>
-                                        <include reference="UYf-MG-DQQ"/>
-                                        <include reference="kpY-4c-CZP"/>
-                                        <exclude reference="t9x-ci-lDH"/>
-                                        <exclude reference="CHN-Jy-xNd"/>
-                                        <include reference="E5R-tX-Zq1"/>
-                                        <include reference="V9t-wz-UiC"/>
-                                        <include reference="tFZ-FD-wMc"/>
                                         <exclude reference="cX3-6X-vDk"/>
                                         <exclude reference="fnH-O2-g4q"/>
                                         <include reference="h1o-Xy-flk"/>
                                         <exclude reference="nW3-md-Aho"/>
                                         <include reference="ps3-Ct-MX2"/>
                                         <include reference="usc-cU-YOO"/>
+                                        <exclude reference="CHN-Jy-xNd"/>
+                                        <include reference="E5R-tX-Zq1"/>
+                                        <include reference="V9t-wz-UiC"/>
+                                        <include reference="tFZ-FD-wMc"/>
                                         <exclude reference="4Dl-3g-Y27"/>
                                         <include reference="UYq-Ed-ffH"/>
                                         <include reference="ZYm-Xu-D0h"/>
+                                        <exclude reference="G68-Br-vuc"/>
+                                        <include reference="UYf-MG-DQQ"/>
+                                        <include reference="kpY-4c-CZP"/>
+                                        <exclude reference="t9x-ci-lDH"/>
                                     </mask>
                                 </variation>
                             </view>

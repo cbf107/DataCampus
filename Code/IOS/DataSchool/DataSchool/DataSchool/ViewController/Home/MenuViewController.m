@@ -76,6 +76,7 @@
     _mTableView.delegate = self;
 
     self.mTableView.scrollsToTop = NO;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -179,7 +180,18 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        
+        UIImage* image = [UIImage imageNamed:@"redbubble_bg.png"];
+        UIImageView *icon = [[UIImageView alloc] initWithImage:image];
+        icon.frame = CGRectMake(100, 15, 10, 10);
+        icon.tag = 3;
+        [cell.contentView addSubview:icon];
+    }
+    
+    UIImageView *icon = (UIImageView *)[cell.contentView viewWithTag:3];
+    if (indexPath.row == 2) {
+        icon.hidden = YES;
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
