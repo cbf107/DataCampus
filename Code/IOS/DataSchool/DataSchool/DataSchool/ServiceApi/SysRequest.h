@@ -48,3 +48,9 @@
 @interface UpdateUserHeadRequest : BaseRequest
 @property(nonatomic, copy)NSString *HeadImg; //头像图片
 @end
+
+//判断首页是否有未读消息
+@interface GetReadLogRequest : BaseRequest
+@property(nonatomic, copy)NSString *ClassName; //当前用户所在班级
+@end
+

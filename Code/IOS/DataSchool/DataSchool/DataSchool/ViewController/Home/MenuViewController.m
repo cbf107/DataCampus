@@ -110,6 +110,28 @@
     [super viewDidAppear:animated];
     UserInfo *userInfo = [UserManager currentUser];
     _mClassLable.text = userInfo.CurrentUserClass;
+    
+    GetReadLogRequest *request = [[GetReadLogRequest alloc] init];
+    request.ClassName = userInfo.CurrentUserClass;
+    
+    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        id result = request.responseBodyJSON;
+        NSString *value = result[@"NewsIsRead"];
+        _iNewsRead = [value intValue];
+        
+        value = result[@"AlbumIsRead"];
+        _iAlbumRead = [value intValue];
+
+        value = result[@"NoticeIsRead"];
+        _iNoticeRead = [value intValue];
+
+        /*_iNewsRead   = result[@"NewsIsRead"];//AlbumIsRead   NoticeIsRead
+        _iAlbumRead  = result[@"AlbumIsRead"];
+        _iNoticeRead = result[@"NoticeIsRead"];*/
+        
+    } failure:^(NSError *err) {
+    }];
+
 }
 
 - (void)viewDidUnload
@@ -187,18 +209,36 @@
         icon.frame = CGRectMake(100, 15, 10, 10);
         icon.tag = 3;
         [cell.contentView addSubview:icon];
+        icon.hidden = YES;
     }
     
+    Menu *meunItem = _mMenuArr[indexPath.row];
+    cell.textLabel.text = meunItem.MenuName;
     UIImageView *icon = (UIImageView *)[cell.contentView viewWithTag:3];
-    if (indexPath.row == 2) {
-        icon.hidden = YES;
+
+    if ([meunItem.MenuFunction isEqualToString:@"SchoolNew"]) {
+        if (_iNewsRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
+    }else if ([meunItem.MenuFunction isEqualToString:@"Album"]) {
+        if (_iAlbumRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
+    }else if ([meunItem.MenuFunction isEqualToString:@"ClassNotice"]) {
+        if (_iNoticeRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //cell.textLabel.text = [NSString stringWithFormat:@"%ld:%ld", (long)indexPath.section-1, (long)indexPath.row];
     
-    Menu *meunItem = _mMenuArr[indexPath.row];
-    cell.textLabel.text = meunItem.MenuName;
     return cell;
 }
 

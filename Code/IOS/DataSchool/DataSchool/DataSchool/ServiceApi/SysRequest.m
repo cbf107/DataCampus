@@ -175,3 +175,19 @@
 }
 
 @end
+
+//判断首页是否有未读消息
+@implementation GetReadLogRequest
+- (NSString *)requestUrl {
+    return kApiGetReadLog;
+}
+
+- (id)requestParameters {
+    return @{@"ClassName":self.ClassName?:[NSNull null]};
+}
+
+- (id)parseResult {
+    id result = self.responseBodyJSON;
+    return result;
+}
+@end

@@ -68,6 +68,8 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define kApiDeleteImage             @"/schoolAlbums/DeleteImage.ashx"
 
 #define kApiUpdateHeadImg           @"/user/updateUserHead.ashx"
+#define kApiGetReadLog              @"/user/GetReadLog.ashx"
+
 //判断IOS机型
 #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
