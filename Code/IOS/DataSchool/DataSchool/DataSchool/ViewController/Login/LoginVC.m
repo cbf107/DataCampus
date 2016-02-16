@@ -88,8 +88,12 @@
                 userInfo.UserClasses = userProfile.UserClasses;
                 userInfo.UserQRURL = userProfile.UserQRCode;
                 
-                UserClass *userClass = userInfo.UserClasses[0];
-                userInfo.CurrentUserClass = userClass.ClassName;
+                if(userInfo.UserClasses.count > 0){
+                    UserClass *userClass = userInfo.UserClasses[0];
+                    userInfo.CurrentUserClass = userClass.ClassName;
+                }else{
+                    userInfo.CurrentUserClass = @"";
+                }
                 
                 if (userInfo != nil) {
                     [UserManager loginSuccessWithUserInfo:userInfo];

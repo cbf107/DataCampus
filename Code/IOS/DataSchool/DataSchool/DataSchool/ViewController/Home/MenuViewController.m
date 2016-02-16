@@ -110,6 +110,7 @@
     [super viewDidAppear:animated];
     UserInfo *userInfo = [UserManager currentUser];
     _mClassLable.text = userInfo.CurrentUserClass;
+    _mNameLable.text = userInfo.UserName;
     
     GetReadLogRequest *request = [[GetReadLogRequest alloc] init];
     request.ClassName = userInfo.CurrentUserClass;
@@ -125,6 +126,7 @@
         value = result[@"NoticeIsRead"];
         _iNoticeRead = [value intValue];
 
+        [_mTableView reloadData];
         /*_iNewsRead   = result[@"NewsIsRead"];//AlbumIsRead   NoticeIsRead
         _iAlbumRead  = result[@"AlbumIsRead"];
         _iNoticeRead = result[@"NoticeIsRead"];*/
