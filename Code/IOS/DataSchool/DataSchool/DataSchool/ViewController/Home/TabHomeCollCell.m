@@ -45,9 +45,11 @@
     }
     view.frame = frame;
     if (_mActivityInfoArr.count > 0) {
-        //[view sd_setImageWithURL:[NSURL URLWithString:((ActiveInfo*)_mActivityInfoArr[itemIndex]).sImgPath] placeholderImage:[UIImage imageNamed:@"bannerImage"]];
+        ActiveInfo *info = ((ActiveInfo*)_mActivityInfoArr[itemIndex]);
+        NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, info.Cover];
+        [view sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"bannerImage"]];
         
-        [view setImage:[UIImage imageNamed:@"bannerImage"]];
+        //[view setImage:[UIImage imageNamed:@"bannerImage"]];
     }
     
     return view;
