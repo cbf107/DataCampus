@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScanViewController.h"
 
-@interface EvaluationVC : UIViewController<UIWebViewDelegate>
+@interface EvaluationVC : UIViewController<UIWebViewDelegate, PassValueDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *mContentWebView;
 @property (nonatomic, strong) UIImageView * line;
+@property (nonatomic, copy)NSString *mURL;
 
 @end

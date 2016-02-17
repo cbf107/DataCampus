@@ -162,6 +162,7 @@
     }
     
     [_session stopRunning];
+    [self.passDelegate passValue:stringValue];
    [self dismissViewControllerAnimated:YES completion:^
     {
         [timer invalidate];

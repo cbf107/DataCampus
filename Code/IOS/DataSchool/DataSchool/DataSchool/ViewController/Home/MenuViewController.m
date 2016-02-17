@@ -262,9 +262,10 @@
                 self.viewDeckController.centerController = navController;
                 
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
-            }else if ([menuItem.MenuFunction isEqualToString:@"School.aspx"]) {
+            }else if ([menuItem.MenuType isEqualToString:@"HTMLA"]) {
                 EvaluationVC *evaluate = (EvaluationVC *)[UIViewController viewControllerWithStoryboard:@"Evaluation" identifier:@"EvaluationVC"];
-
+                
+                evaluate.mURL = menuItem.MenuFunction;
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:evaluate];
                 self.viewDeckController.centerController = navController;
 

@@ -9,12 +9,12 @@
 #import "EvaluationVC.h"
 #import "SysRequest.h"
 #import "IIViewDeckController.h"
-#import "ScanViewController.h"
 
 @interface EvaluationVC ()
 @end
 
 @implementation EvaluationVC
+@synthesize mURL = _mURL;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,7 +26,7 @@
     // Do any additional setup after loading the view.
     [_mContentWebView setDelegate:self];
     
-    NSURL *url = [NSURL URLWithString:@"http://115.28.85.127:8084/wdpm/agreement.html"];
+    NSURL *url = [NSURL URLWithString:_mURL];
     
     [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:url]];
 
@@ -62,11 +62,22 @@
     ScanViewController * scanVC = [[ScanViewController alloc]init];
     //[self presentViewController:scanVC animated:YES completion:^{
     //}];
+    scanVC.passDelegate = self;
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:scanVC];
     
     [self presentViewController:navController animated:YES completion:^{
     }];
 
+}
+
+//PassValueDelegate
+- (void)passValue:(NSString *)studentNum{
+    UserInfo *info = [UserManager currentUser];
+    NSString *value = [NSString stringWithFormat:@"%@?SutdentNum=%@&MemberRefId=%@", _mURL, studentNum, info.MemberRefId];
+    NSURL *url = [NSURL URLWithString:value];
+    
+    [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:url]];
+    
 }
 
 

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@protocol PassValueDelegate
+- (void)passValue:(NSString *)studentNum;
+@end
+
+
 @interface ScanViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
 {
     int num;
@@ -21,4 +26,7 @@
 @property (strong,nonatomic)AVCaptureSession * session;
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer * preview;
 @property (nonatomic, retain) UIImageView * line;
+
+@property(nonatomic, retain) id<PassValueDelegate> passDelegate;
+
 @end
