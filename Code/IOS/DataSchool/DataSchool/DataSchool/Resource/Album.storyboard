@@ -459,6 +459,9 @@
                                 <exclude reference="qWn-7M-XAp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Bmt-SN-DWa"/>
+                                <exclude reference="MQp-cU-DLX"/>
+                                <exclude reference="ZGX-ai-xhA"/>
                                 <exclude reference="Aby-0l-553"/>
                                 <exclude reference="HCn-6N-77F"/>
                                 <exclude reference="NBQ-RO-S8R"/>
@@ -467,9 +470,6 @@
                                 <exclude reference="rEx-Bv-WY2"/>
                                 <exclude reference="vA9-FG-Wq9"/>
                                 <exclude reference="vav-CB-blk"/>
-                                <exclude reference="Bmt-SN-DWa"/>
-                                <exclude reference="MQp-cU-DLX"/>
-                                <exclude reference="ZGX-ai-xhA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -478,6 +478,9 @@
                                 <include reference="qWn-7M-XAp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Bmt-SN-DWa"/>
+                                <include reference="MQp-cU-DLX"/>
+                                <include reference="ZGX-ai-xhA"/>
                                 <include reference="Aby-0l-553"/>
                                 <exclude reference="HCn-6N-77F"/>
                                 <include reference="NBQ-RO-S8R"/>
@@ -486,9 +489,6 @@
                                 <include reference="rEx-Bv-WY2"/>
                                 <include reference="vA9-FG-Wq9"/>
                                 <include reference="vav-CB-blk"/>
-                                <include reference="Bmt-SN-DWa"/>
-                                <include reference="MQp-cU-DLX"/>
-                                <include reference="ZGX-ai-xhA"/>
                             </mask>
                         </variation>
                     </view>
