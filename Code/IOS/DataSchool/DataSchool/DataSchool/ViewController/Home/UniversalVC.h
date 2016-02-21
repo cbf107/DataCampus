@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *mContentWebView;
 @property (nonatomic, copy)NSString *mURL;
 
-@property (nonatomic, assign)int iType;// 0 - 通用型， 1 - 班主任
+@property (nonatomic, assign)int iType;// 0 - 通用型， 1 - 班主任 2 - 最顶层增加返回按钮
 @property (nonatomic, copy)NSString *mPhone;//班主任的时候需要
 
 @end

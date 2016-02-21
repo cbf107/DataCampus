@@ -22,6 +22,10 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"电话联系" style:UIBarButtonItemStyleBordered target:self action:@selector(phoneAction)];
     }
 
+    if(_iType == 2){
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
+    }
+
     // Do any additional setup after loading the view.
     [_mContentWebView setDelegate:self];
     

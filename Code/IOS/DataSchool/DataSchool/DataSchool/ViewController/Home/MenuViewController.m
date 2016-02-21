@@ -297,10 +297,11 @@
                 
                 universal.mURL = menuItem.MenuFunction;
                 universal.title = menuItem.MenuName;
+                universal.iType = 2;
                 
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:universal];
+                
                 self.viewDeckController.centerController = navController;
-                universal.title = menuItem.MenuName;
             }
         }
         [NSThread sleepForTimeInterval:(300+arc4random()%700)/1000000.0]; // mimic delay... not really necessary

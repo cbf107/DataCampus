@@ -144,7 +144,7 @@
             universal.title = menuItem.MenuName;
             
             centerController = [[UINavigationController alloc] initWithRootViewController:universal];
-            universal.title = menuItem.MenuName;
+            universal.iType = 2;
 
         }else if([menuItem.MenuFunction isEqualToString:@"Album"]){
             AlbumViewController *albumVC = (AlbumViewController *)[UIViewController viewControllerWithStoryboard:@"Album" identifier:@"AlbumVC"];
