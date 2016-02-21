@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.title = _mTitle;
     UserInfo *info = [UserManager currentUser];
     
     if ([info.UserType isEqualToString:@"教师"]) {

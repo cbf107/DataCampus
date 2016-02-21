@@ -71,6 +71,11 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setupHeader];
+}
+
 - (void)setupHeader
 {
     if (!self.pullRequest) {
