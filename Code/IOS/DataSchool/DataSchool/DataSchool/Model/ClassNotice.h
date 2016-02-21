@@ -28,6 +28,7 @@
 @property (nonatomic, copy)NSString *Content;
 @property (nonatomic, copy)NSString *InsertTime;
 @property (nonatomic, copy)NSString *Type;
+@property (nonatomic, copy)NSString *TypeIcon;
 @property (nonatomic, copy)NSString *Img;
 @property (nonatomic, copy)NSString *Url;
 @property (nonatomic, copy)NSString *CreateUserRefId;
@@ -35,7 +36,6 @@
 @property (nonatomic, copy)NSString *ReadTime;
 @property (nonatomic, copy)NSString *ClassRefid;
 @property (nonatomic, copy)NSString *StatusUrl;
-
 @end
 
 

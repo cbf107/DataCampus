@@ -36,23 +36,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-io-ChB">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="LxJ-Hz-H2B"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="LxJ-Hz-H2B"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="LxJ-Hz-H2B"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBU-uv-E1e">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -314,16 +297,40 @@
                                     <action selector="login:" destination="9q4-o0-DA3" eventType="touchUpInside" id="DTm-Jr-KQ0"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-io-ChB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="LxJ-Hz-H2B">
+                                        <variation key="widthClass=compact" constant="120"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="120" id="xpF-XW-WIe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LxJ-Hz-H2B"/>
+                                        <exclude reference="xpF-XW-WIe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="LxJ-Hz-H2B"/>
+                                        <include reference="xpF-XW-WIe"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="pDc-io-ChB" secondAttribute="trailing" constant="6" id="0NR-PE-8I4">
-                                <variation key="widthClass=compact" constant="-16"/>
+                                <variation key="widthClass=compact" constant="124"/>
                             </constraint>
                             <constraint firstItem="u2c-bq-6vT" firstAttribute="trailing" secondItem="AfA-5D-xcA" secondAttribute="trailingMargin" id="5Rr-7Y-fG2"/>
                             <constraint firstItem="rhN-Vs-1rh" firstAttribute="top" secondItem="u2c-bq-6vT" secondAttribute="bottom" constant="75" id="6bg-Ck-xVm"/>
-                            <constraint firstItem="pDc-io-ChB" firstAttribute="top" secondItem="PIk-4K-BW7" secondAttribute="bottom" id="D4y-Dd-4Fz"/>
+                            <constraint firstItem="pDc-io-ChB" firstAttribute="top" secondItem="PIk-4K-BW7" secondAttribute="bottom" id="D4y-Dd-4Fz">
+                                <variation key="widthClass=compact" constant="19"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="rhN-Vs-1rh" secondAttribute="trailing" constant="134" id="Dtf-v7-d9F">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -338,55 +345,60 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="pDc-io-ChB" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="7" id="cSx-xo-E6n">
-                                <variation key="widthClass=compact" constant="-16"/>
+                                <variation key="widthClass=compact" constant="124"/>
                             </constraint>
+                            <constraint firstAttribute="centerX" secondItem="pDc-io-ChB" secondAttribute="centerX" id="rJT-RZ-MJ7"/>
                             <constraint firstItem="u2c-bq-6vT" firstAttribute="top" secondItem="rBU-uv-E1e" secondAttribute="bottom" constant="18" id="tu1-M7-FYi">
                                 <variation key="widthClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="rBU-uv-E1e" firstAttribute="top" secondItem="pDc-io-ChB" secondAttribute="bottom" constant="8" id="wss-eU-QGL"/>
+                            <constraint firstItem="rBU-uv-E1e" firstAttribute="top" secondItem="pDc-io-ChB" secondAttribute="bottom" constant="8" id="wss-eU-QGL">
+                                <variation key="widthClass=compact" constant="19"/>
+                            </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="pDc-io-ChB"/>
                                 <exclude reference="rBU-uv-E1e"/>
                                 <exclude reference="u2c-bq-6vT"/>
                                 <exclude reference="rhN-Vs-1rh"/>
+                                <exclude reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6bg-Ck-xVm"/>
-                                <exclude reference="Dtf-v7-d9F"/>
-                                <exclude reference="TDG-fy-QP8"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <exclude reference="D4y-Dd-4Fz"/>
                                 <exclude reference="cSx-xo-E6n"/>
+                                <exclude reference="rJT-RZ-MJ7"/>
                                 <exclude reference="I5t-wM-VkY"/>
                                 <exclude reference="IsP-EY-oGn"/>
                                 <exclude reference="wss-eU-QGL"/>
                                 <exclude reference="5Rr-7Y-fG2"/>
                                 <exclude reference="JeA-06-OCw"/>
                                 <exclude reference="tu1-M7-FYi"/>
+                                <exclude reference="6bg-Ck-xVm"/>
+                                <exclude reference="Dtf-v7-d9F"/>
+                                <exclude reference="TDG-fy-QP8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="pDc-io-ChB"/>
                                 <include reference="rBU-uv-E1e"/>
                                 <include reference="u2c-bq-6vT"/>
                                 <include reference="rhN-Vs-1rh"/>
+                                <include reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6bg-Ck-xVm"/>
-                                <include reference="Dtf-v7-d9F"/>
-                                <include reference="TDG-fy-QP8"/>
-                                <include reference="0NR-PE-8I4"/>
+                                <exclude reference="0NR-PE-8I4"/>
                                 <include reference="D4y-Dd-4Fz"/>
                                 <include reference="cSx-xo-E6n"/>
+                                <include reference="rJT-RZ-MJ7"/>
                                 <include reference="I5t-wM-VkY"/>
                                 <include reference="IsP-EY-oGn"/>
                                 <include reference="wss-eU-QGL"/>
                                 <include reference="5Rr-7Y-fG2"/>
                                 <include reference="JeA-06-OCw"/>
                                 <include reference="tu1-M7-FYi"/>
+                                <include reference="6bg-Ck-xVm"/>
+                                <include reference="Dtf-v7-d9F"/>
+                                <include reference="TDG-fy-QP8"/>
                             </mask>
                         </variation>
                     </view>

@@ -129,9 +129,12 @@
         if ([menuItem.MenuFunction isEqualToString:@"SchoolNew"]) {
             NewsViewController *newsVC = (NewsViewController *)[UIViewController viewControllerWithStoryboard:@"NewsViewController" identifier:@"NewsView"];
             centerController = [[UINavigationController alloc] initWithRootViewController:newsVC];
+            newsVC.title = menuItem.MenuName;
+
         }else if([menuItem.MenuFunction isEqualToString:@"ClassNotice"]){
             ClassInfoVC *classInfo = (ClassInfoVC *)[UIViewController viewControllerWithStoryboard:@"ClassInfo" identifier:@"ClassInfoVC"];
             centerController = [[UINavigationController alloc] initWithRootViewController:classInfo];
+            classInfo.title = menuItem.MenuName;
 
         }else if([menuItem.MenuType isEqualToString:kHTML]){
             //打开网页
@@ -141,11 +144,13 @@
             universal.title = menuItem.MenuName;
             
             centerController = [[UINavigationController alloc] initWithRootViewController:universal];
+            universal.title = menuItem.MenuName;
 
         }else if([menuItem.MenuFunction isEqualToString:@"Album"]){
             AlbumViewController *albumVC = (AlbumViewController *)[UIViewController viewControllerWithStoryboard:@"Album" identifier:@"AlbumVC"];
             centerController = [[UINavigationController alloc] initWithRootViewController:albumVC];
-            
+            albumVC.title = menuItem.MenuName;
+
         }
         
         leftController.mMenuArr = userMenu.Menus;

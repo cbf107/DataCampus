@@ -113,8 +113,9 @@
             SettingWebVC *settingWebVC = (SettingWebVC *)[UIViewController viewControllerWithStoryboard:@"Setting" identifier:@"SettingWebVC"];
             settingWebVC.sTitle = @"我的二维码";
             
-            UserInfo *userInfo = [UserManager currentUser];
-            settingWebVC.sURL = userInfo.UserQRURL;
+            //UserInfo *userInfo = [UserManager currentUser];
+            
+            settingWebVC.sURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, [UserManager currentUser].UserQRURL];
             [self.navigationController pushViewController:settingWebVC animated:YES];
         }else if([indexPath row] == 2) {
             UniversalVC *universal = (UniversalVC *)[UIViewController viewControllerWithStoryboard:@"Universal" identifier:@"UniversalVC"];
@@ -123,7 +124,9 @@
             for (int i = 0; i < userInfo.UserClasses.count; i++) {
                 UserClass *class = userInfo.UserClasses[i];
                 if ([userInfo.CurrentUserClass isEqualToString:class.ClassName]) {
-                    universal.mURL = class.URL;
+                    universal.mURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, class.URL];
+
+                    //universal.mURL = class.URL;
                     universal.mPhone = class.PhoneNum;
                     universal.iType = 1;
                     break;

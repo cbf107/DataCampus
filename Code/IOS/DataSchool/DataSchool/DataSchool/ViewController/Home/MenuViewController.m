@@ -261,6 +261,7 @@
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:newsVC];
                 self.viewDeckController.centerController = navController;
                 
+                newsVC.title = menuItem.MenuName;
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
             }else if ([menuItem.MenuType isEqualToString:@"HTMLA"]) {
                 EvaluationVC *evaluate = (EvaluationVC *)[UIViewController viewControllerWithStoryboard:@"Evaluation" identifier:@"EvaluationVC"];
@@ -268,6 +269,7 @@
                 evaluate.mURL = menuItem.MenuFunction;
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:evaluate];
                 self.viewDeckController.centerController = navController;
+                evaluate.title = menuItem.MenuName;
 
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
             }else if([menuItem.MenuFunction isEqualToString:@"ClassNotice"]){
@@ -275,12 +277,15 @@
                 
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:classInfo];
                 self.viewDeckController.centerController = navController;
+                classInfo.title = menuItem.MenuName;
+
             }else if ([menuItem.MenuFunction isEqualToString:@"Album"]) {
                 AlbumViewController *album = (AlbumViewController *)[UIViewController viewControllerWithStoryboard:@"Album" identifier:@"AlbumVC"];
                 
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:album];
                 self.viewDeckController.centerController = navController;
-                
+                album.title = menuItem.MenuName;
+
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
             }else{
                 /*UITableViewController* cc = (UITableViewController*)((UINavigationController*)controller.centerController).topViewController;
@@ -295,7 +300,7 @@
                 
                 UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:universal];
                 self.viewDeckController.centerController = navController;
-
+                universal.title = menuItem.MenuName;
             }
         }
         [NSThread sleepForTimeInterval:(300+arc4random()%700)/1000000.0]; // mimic delay... not really necessary

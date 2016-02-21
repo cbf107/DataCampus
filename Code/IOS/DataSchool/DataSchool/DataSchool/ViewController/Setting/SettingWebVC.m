@@ -21,7 +21,7 @@
     NSURL *url = [NSURL URLWithString:_sURL];
     
     [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:url]];
-    self.navigationController.title = _sTitle;
+    self.title = _sTitle;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
