@@ -99,6 +99,7 @@
     
     AlbumFolder *info = [[((RefreshTableView*) tableView) dataArray] objectAtIndex:indexPath.row];
     thumbVC.sAlbumRefId = info.AlbumRefId;
+    thumbVC.mTitle = info.AlbumName;
     [self.navigationController pushViewController:thumbVC animated:YES];
 }
 

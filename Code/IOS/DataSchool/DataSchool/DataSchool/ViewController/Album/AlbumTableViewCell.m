@@ -21,7 +21,7 @@
 
 - (void)setInfo:(AlbumFolder *)info {
     //NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,info.Thumbnail];
-    [self.mInfoIcon sd_setImageWithURL:[NSURL URLWithString:info.Thumbnail] placeholderImage:[UIImage imageNamed:@"bannerImage"]];
+    [self.mInfoIcon sd_setImageWithURL:[NSURL URLWithString:info.Thumbnail] placeholderImage:[UIImage imageNamed:@"cellIcon"]];
 
     [self.mTitleLable setText:info.AlbumName];
     

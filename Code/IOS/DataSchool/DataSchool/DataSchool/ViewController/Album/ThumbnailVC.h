@@ -45,4 +45,6 @@ UIImagePickerControllerDelegate>{
 //collectionView将来静止可见的区域，同时也是标识CollectionView当前是正在被用户拖拽还是退拽完毕正在减速
 @property (nonatomic, assign) NSValue *targetRect;
 
+@property (nonatomic, copy)NSString *mTitle;
+
 @end

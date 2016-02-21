@@ -27,6 +27,6 @@
     
     //NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,info.Img];
     NSString *strURL = info.TypeIcon;
-    [self.mInfoIcon sd_setImageWithURL:[NSURL URLWithString:strURL] placeholderImage:[UIImage imageNamed:@"bannerImage"]];
+    [self.mInfoIcon sd_setImageWithURL:[NSURL URLWithString:strURL] placeholderImage:[UIImage imageNamed:@"cellIcon"]];
 }
 @end

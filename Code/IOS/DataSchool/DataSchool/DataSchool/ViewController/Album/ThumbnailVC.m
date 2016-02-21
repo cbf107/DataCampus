@@ -49,6 +49,8 @@
 {
     [super viewDidLoad];
 
+    self.title = _mTitle;
+    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
     
     UserInfo *info = [UserManager currentUser];

@@ -297,7 +297,7 @@
                                     <action selector="login:" destination="9q4-o0-DA3" eventType="touchUpInside" id="DTm-Jr-KQ0"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-io-ChB">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="schoolIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-io-ChB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -363,6 +363,9 @@
                                 <exclude reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6bg-Ck-xVm"/>
+                                <exclude reference="Dtf-v7-d9F"/>
+                                <exclude reference="TDG-fy-QP8"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <exclude reference="D4y-Dd-4Fz"/>
                                 <exclude reference="cSx-xo-E6n"/>
@@ -373,9 +376,6 @@
                                 <exclude reference="5Rr-7Y-fG2"/>
                                 <exclude reference="JeA-06-OCw"/>
                                 <exclude reference="tu1-M7-FYi"/>
-                                <exclude reference="6bg-Ck-xVm"/>
-                                <exclude reference="Dtf-v7-d9F"/>
-                                <exclude reference="TDG-fy-QP8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -386,6 +386,9 @@
                                 <include reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="6bg-Ck-xVm"/>
+                                <include reference="Dtf-v7-d9F"/>
+                                <include reference="TDG-fy-QP8"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <include reference="D4y-Dd-4Fz"/>
                                 <include reference="cSx-xo-E6n"/>
@@ -396,9 +399,6 @@
                                 <include reference="5Rr-7Y-fG2"/>
                                 <include reference="JeA-06-OCw"/>
                                 <include reference="tu1-M7-FYi"/>
-                                <include reference="6bg-Ck-xVm"/>
-                                <include reference="Dtf-v7-d9F"/>
-                                <include reference="TDG-fy-QP8"/>
                             </mask>
                         </variation>
                     </view>
@@ -419,6 +419,6 @@
     <resources>
         <image name="icon_mobile" width="30" height="25"/>
         <image name="icon_password" width="30" height="25"/>
-        <image name="logo" width="177" height="33"/>
+        <image name="schoolIcon" width="120" height="120"/>
     </resources>
 </document>
