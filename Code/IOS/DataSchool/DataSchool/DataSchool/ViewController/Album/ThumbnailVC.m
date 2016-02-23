@@ -214,7 +214,13 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(110, 110);
+    if (IS_IPHONE_4_OR_LESS || IS_IPHONE_5) {
+        return CGSizeMake(95, 95);
+    }else if(IS_IPHONE_6 || IS_IPHONE_6P){
+        return CGSizeMake(110, 110);
+    }else{
+        return CGSizeMake(110, 110);
+    }
 }
 
 //定义每个UICollectionView 的 margin
