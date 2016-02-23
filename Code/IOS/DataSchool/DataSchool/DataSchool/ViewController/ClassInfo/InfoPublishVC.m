@@ -45,6 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"新建";
     
     _mImageBtn1.tag = 500;
     _mImageBtn2.tag = 501;

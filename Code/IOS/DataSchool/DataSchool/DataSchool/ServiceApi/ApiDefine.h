@@ -35,11 +35,13 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 //#define kServerAddressTestProduct   @"http://115.28.85.127:8084/wdpm/WDServlet/"
 //#define kServerAddressProduct       @"http://115.28.85.127:8084/wdpm/WDServlet/"
 
-#if DEBUG
+#define kServerAddress kServerAddressTest
+
+/*#if DEBUG
 #define kServerAddress kServerAddressTest
 #else
 #define kServerAddress kServerAddressProduct
-#endif
+#endif*/
 
 //对应菜单页面是APP还是网页
 #define kAPP                        @"APP"
