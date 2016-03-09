@@ -78,7 +78,7 @@
 }
 
 -(void)logOutSuccess{
-    UIViewController *launchVC = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVC"];
+    UIViewController *launchVC = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVCNav"];
     AppDelegate *d = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [d.window setRootViewController:launchVC];
     
