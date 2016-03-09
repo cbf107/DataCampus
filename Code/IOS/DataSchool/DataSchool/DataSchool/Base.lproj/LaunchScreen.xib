@@ -19,7 +19,9 @@
             <constraints>
                 <constraint firstItem="fFp-bf-xPq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TLX-Cc-tP2"/>
                 <constraint firstAttribute="bottom" secondItem="fFp-bf-xPq" secondAttribute="bottom" id="beZ-jG-G2R"/>
-                <constraint firstAttribute="trailing" secondItem="fFp-bf-xPq" secondAttribute="trailing" id="eB8-rC-FWb"/>
+                <constraint firstAttribute="trailing" secondItem="fFp-bf-xPq" secondAttribute="trailing" id="eB8-rC-FWb">
+                    <variation key="widthClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="fFp-bf-xPq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hbO-oc-kAf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

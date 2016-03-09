@@ -254,7 +254,9 @@
                             <constraint firstItem="Jui-oT-iRe" firstAttribute="top" secondItem="KyL-3n-auQ" secondAttribute="bottom" constant="1" id="F0V-IE-PQm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jui-oT-iRe" secondAttribute="trailing" constant="-16" id="HaO-H8-GKp"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Jui-oT-iRe" secondAttribute="bottom" id="J0k-9L-HEu"/>
-                            <constraint firstItem="KyL-3n-auQ" firstAttribute="top" secondItem="fsB-ek-NKi" secondAttribute="topMargin" id="MbZ-4g-NJn"/>
+                            <constraint firstItem="KyL-3n-auQ" firstAttribute="top" secondItem="fsB-ek-NKi" secondAttribute="topMargin" id="MbZ-4g-NJn">
+                                <variation key="widthClass=compact" constant="-8"/>
+                            </constraint>
                             <constraint firstItem="Jui-oT-iRe" firstAttribute="top" secondItem="KyL-3n-auQ" secondAttribute="bottom" constant="1" id="Omr-gD-FPj">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>

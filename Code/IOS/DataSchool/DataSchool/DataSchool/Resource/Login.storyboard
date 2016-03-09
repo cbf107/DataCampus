@@ -213,8 +213,12 @@
                                     <constraint firstItem="Uzf-Dp-AIn" firstAttribute="top" secondItem="u2c-bq-6vT" secondAttribute="top" id="ibd-8u-zla"/>
                                     <constraint firstItem="TvE-uA-pct" firstAttribute="bottom" secondItem="Uzf-Dp-AIn" secondAttribute="bottom" id="ieW-aw-reZ"/>
                                     <constraint firstAttribute="trailing" secondItem="TvE-uA-pct" secondAttribute="trailing" id="mnj-Qi-7Sb"/>
-                                    <constraint firstItem="TvE-uA-pct" firstAttribute="leading" secondItem="Uzf-Dp-AIn" secondAttribute="trailing" id="oaa-G3-H03"/>
-                                    <constraint firstAttribute="trailing" secondItem="TvE-uA-pct" secondAttribute="trailing" id="pC3-5C-P49"/>
+                                    <constraint firstItem="TvE-uA-pct" firstAttribute="leading" secondItem="Uzf-Dp-AIn" secondAttribute="trailing" id="oaa-G3-H03">
+                                        <variation key="widthClass=compact" constant="8"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="TvE-uA-pct" secondAttribute="trailing" id="pC3-5C-P49">
+                                        <variation key="widthClass=compact" constant="-8"/>
+                                    </constraint>
                                     <constraint firstItem="TvE-uA-pct" firstAttribute="top" secondItem="Uzf-Dp-AIn" secondAttribute="top" id="q94-Ih-lVV"/>
                                     <constraint firstAttribute="bottom" secondItem="QAG-aq-CEf" secondAttribute="bottom" id="u9h-m8-yVe"/>
                                     <constraint firstAttribute="bottom" secondItem="Uzf-Dp-AIn" secondAttribute="bottom" id="vMs-Ls-k0m"/>
