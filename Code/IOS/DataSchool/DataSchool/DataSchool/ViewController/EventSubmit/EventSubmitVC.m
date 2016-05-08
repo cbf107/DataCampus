@@ -23,14 +23,18 @@
 //  SOFTWARE.
 //
 
-#import "InfoPublishVC.h"
+#import "EventSubmitVC.h"
 #import "UIImage+Extended.h"
 #import "Base64.h"
 #import "NoticeRequest.h"
 #import "SysRequest.h"
 #import "ClassNotice.h"
+#import "EventType.h"
+#import "EventRequest.h"
+#import "UniversalVC.h"
+#import "IIViewDeckController.h"
 
-@implementation InfoPublishVC
+@implementation EventSubmitVC
 
 - (void)didReceiveMemoryWarning
 {
@@ -45,7 +49,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"新建";
+    //self.title = @"报事报修";
     
     _mImageBtn1.tag = 500;
     _mImageBtn2.tag = 501;
@@ -75,40 +79,25 @@
     [_mImageDelBtn5 addTarget:self action:@selector(clickImageDelButton:) forControlEvents:UIControlEventTouchUpInside];
     [_mImageDelBtn6 addTarget:self action:@selector(clickImageDelButton:) forControlEvents:UIControlEventTouchUpInside];
 
-    UserInfo *info = [UserManager currentUser];
-    
-    if (![info.UserType isEqualToString:@"教师"]) {
-        _mPublishBtn.hidden = YES;
-    }
-    
     _mImageArray = [[NSMutableArray alloc]init];
     _mImageDataArray = [[NSMutableArray alloc]init];
     _mImageViewArray = [[NSMutableArray alloc] initWithObjects:_mImageBtn1, _mImageBtn2, _mImageBtn3, _mImageBtn4, _mImageBtn5, _mImageBtn6, nil];
     _mImageDelViewArray = [[NSMutableArray alloc] initWithObjects:_mImageDelBtn1, _mImageDelBtn2, _mImageDelBtn3, _mImageDelBtn4, _mImageDelBtn5, _mImageDelBtn6, nil];
     
     _mTextContent.tag = 100;
-    _mTitleTextContent.tag = 101;
     [self updataImageRegionUI];
 
     self.mChooseTypeLable.userInteractionEnabled = YES;
     UITapGestureRecognizer *typeTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(typeTouchUpInside:)];
     [self.mChooseTypeLable addGestureRecognizer:typeTapGestureRecognizer];
     
-    self.mChooseClassLable.userInteractionEnabled = YES;
-    UITapGestureRecognizer *classTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(classTouchUpInside:)];
-    [self.mChooseClassLable addGestureRecognizer:classTapGestureRecognizer];
-    
-    UserInfo *userInfo = [UserManager currentUser];
-    _mChooseClassLable.text = userInfo.CurrentUserClass;
-    _classNames = [NSArray arrayWithObjects:userInfo.CurrentUserClass, nil];
-    
     _typeArray = [[NSMutableArray alloc] init];
-    GetUserNotifyTypeRequest *request = [[GetUserNotifyTypeRequest alloc] init];
+    GetEventTypeRequest *request = [[GetEventTypeRequest alloc] init];
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         NSArray *type = request.parseResult;
         for (int i = 0; i < type.count; i++) {
-            [_typeArray addObject:((ClassNoticeType *)type[i]).Type];
+            [_typeArray addObject:((EventType *)type[i]).ItemName];
         }
         
         [SVProgressHUD dismiss];
@@ -118,33 +107,22 @@
         _typeArray = nil;
     }];
     
-    //音频
-    self.mChatMsgData = [[NSMutableArray alloc] init];
-    // add input region
-    self.mChatImputView = [[ChatInputFunctionView alloc] initWithSuperVC:self];
-    self.mChatImputView.delegate=self;
-    //[self.view addSubview:self.mChatImputView];
+    GetEventHistory *historyRequest = [[GetEventHistory alloc] init];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    [historyRequest startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        [SVProgressHUD dismiss];
+        id result = request.parseResult;
+        _mUrl = result[@"url"];
+    } failure:^(NSError *err) {
+        [SVProgressHUD dismiss];
+    }];
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
+
 }
 
 -(void)typeTouchUpInside:(UITapGestureRecognizer *)recognizer{
     [self showPickView];
-}
-
--(void)classTouchUpInside:(UITapGestureRecognizer *)recognizer{
-    PublishClassNameVC *className = [[PublishClassNameVC alloc] init];
-    className.passDelegate = self;
-    
-    if(_classNames.count > 0){
-        className.checkedName = _classNames;
-    }else{
-        UserInfo *userInfo = [UserManager currentUser];
-        NSString *currentClassName = userInfo.CurrentUserClass;
-        
-        NSArray *data = [[NSArray alloc] initWithObjects:currentClassName, nil];
-        className.checkedName = data;
-    }
-    
-    [self.navigationController pushViewController:className animated:YES];
 }
 
 
@@ -283,24 +261,12 @@
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    if (textView.tag == 100) {
-        if (![text isEqualToString:@""]){
-            _mPlaceholderLabel.hidden = YES;
-        }
-        
-        if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
-            _mPlaceholderLabel.hidden = NO;
-        }
+    if (![text isEqualToString:@""]){
+        _mPlaceholderLabel.hidden = YES;
     }
     
-    if (textView.tag == 101) {
-        if (![text isEqualToString:@""]){
-            _mTitlePlaceholderLabel.hidden = YES;
-        }
-        
-        if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
-            _mTitlePlaceholderLabel.hidden = NO;
-        }
+    if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
+        _mPlaceholderLabel.hidden = NO;
     }
 
     return YES;
@@ -310,29 +276,25 @@
 - (IBAction)publishAction:(id)sender {
     NSString *errMsg = nil;
     
-    /*if (nil == _mTextContent.text || _mTextContent.text.length == 0) {
-        errMsg = @"请填写话题类容";
-    } else if (_mTextContent.text.length > 140) {
-        errMsg = @"话题内容不能超过140字";
-    } else if (_mImageDataArray.count == 0) {
-        errMsg = @"请选择话题图片";
-    }*/
+    if ([_mChooseTypeLable.text isEqualToString:@"请选择报事报修类别"]) {
+        errMsg = @"请选择报事报修类别";
+    } else if (nil == _mTextContent.text || _mTextContent.text.length == 0) {
+        errMsg = @"请填写报事报修内容";
+    }
     
     if (errMsg) {
         [[[UIAlertView alloc] initWithTitle:nil message:errMsg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     } else {
-        SendNoticeRequest *request = [[SendNoticeRequest alloc] init];
-        request.Title = _mTitleTextContent.text;
+        EventSendRequest *request = [[EventSendRequest alloc] init];
         request.Content = _mTextContent.text;
         request.Imgs = _mImageDataArray;
         request.Type = _mType;
-        request.ClassName = _classNames;
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
         [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
             [SVProgressHUD dismiss];
             [_mTextContent resignFirstResponder];
-            [[[UIAlertView alloc] initWithTitle:nil message:@"发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:nil message:@"提交成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
             
             [self.navigationController popViewControllerAnimated:YES];
         } failure:^(NSError *err) {
@@ -341,6 +303,35 @@
         }];
     }
     
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    _mChooseTypeLable.text = @"请选择报事报修类别";
+    _mChooseTypeLable.textColor = [UIColor lightGrayColor];
+
+    _mTextContent.text = @"";
+    _mPlaceholderLabel.hidden = NO;
+    
+    [_mImageArray removeAllObjects];
+    [_mImageDataArray removeAllObjects];
+    [self updataImageRegionUI];
+
+    UniversalVC *universal = (UniversalVC *)[UIViewController viewControllerWithStoryboard:@"Universal" identifier:@"UniversalVC"];
+    
+    universal.mURL = _mUrl;
+    universal.title = @"报事报修";
+    
+    [self.navigationController pushViewController:universal animated:YES];
+}
+
+
+- (IBAction)historyAction:(id)sender {
+    UniversalVC *universal = (UniversalVC *)[UIViewController viewControllerWithStoryboard:@"Universal" identifier:@"UniversalVC"];
+    
+    universal.mURL = _mUrl;
+    universal.title = @"报事报修";
+    
+    [self.navigationController pushViewController:universal animated:YES];
 }
 
 #pragma mark ZhpickVIewDelegate
@@ -364,83 +355,4 @@
 
     }
 }
-
-//PassValueDelegate
-- (void)passValue:(NSArray *)classNames{
-    _classNames = classNames;
-    
-    NSMutableString *strName = [[NSMutableString alloc] init];
-    for(int i = 0; i<classNames.count; i++){
-        if (i > 0) {
-            [strName appendString:@"，"];
-        }
-
-        NSString *name = classNames[i];
-        [strName appendString:name];
-    }
-    _mChooseClassLable.text = [NSString stringWithString:strName];
-}
-
-
-#pragma mark - InputFunctionViewDelegate
-- (void)chatInputFunctionView:(ChatInputFunctionView *)funcView sendVoiceWav:(NSData *)wav voiceAmr:(NSData *)amr time:(NSInteger)second
-{
-    /*ChatMessageFrame *messageFrame = [[ChatMessageFrame alloc]init];
-    
-    ChatMessage *msg = [[ChatMessage alloc] init];
-    msg.fromType = EChatMessageFromMe;
-    msg.messageType = EChatMessageTypeVoice;
-    msg.strName = [UserManager currentUser].sName;
-    msg.strId = [UserManager currentUser].iUser;
-    msg.strIcon = [UserManager currentUser].sIcon;
-    msg.voiceWav = wav;
-    msg.voiceAmr = amr;
-    msg.duration = second;
-    msg.strVoiceTime = [NSString stringWithFormat:@"%@\'",@(second)];
-    msg.voiceDataType = EChatVoiceDataTypeWAV;
-    
-    NSDateFormatter *f = [[NSDateFormatter alloc] init];
-    f.dateFormat = @"yyyy-MM-dd hh:mm:ss";
-    msg.strTime = [f stringFromDate:[NSDate date]];
-    
-    //messageFrame.showTime = msg.showDate;
-    messageFrame.showTime = YES;
-    messageFrame.showName = NO;
-    messageFrame.firstMessage = (self.mCellFrames.count == 0);
-    
-    messageFrame.iconSize = CGSizeMake(40, 40);
-    
-    [messageFrame setMessage:msg];
-    
-    [self.mCellFrames addObject:messageFrame];
-    
-    [self scrollTable];
-    
-    [self deliverMessage:msg];*/
-}
-
-
-/*- (void)deliverMessage:(ChatMessage *)msg{
-    
-    MessageInfo *messageInfo = [MessageInfo initWithChatMsg:msg];
-    
-    messageInfo.iSendUser = [UserManager currentUser].iUser;
-    messageInfo.iClass = 0;
-    
-    if (_mFriendInfo) {
-        messageInfo.iRecType = 0; // 个人消息
-        messageInfo.sRecObj = _mFriendInfo.iUser;
-    } else if (_mSocialGroupInfo) {
-        messageInfo.iRecType = 1; // 圈子消息
-        messageInfo.sRecObj = _mSocialGroupInfo.iId;
-    }
-    
-    
-    SendMsgRequest *request = [[SendMsgRequest alloc] init];
-    request.mMessageInfo = messageInfo;
-    
-    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
-    } failure:^(NSError *err) {
-    }];
-}*/
 @end

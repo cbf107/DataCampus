@@ -58,7 +58,7 @@
     [self setShowsHorizontalScrollIndicator:NO];
     
     ExPageControl *pageCtrl = [[ExPageControl alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.75,
-                                                                self.bounds.size.height - PAGECTRL_OFF_SET - PAGECTRL_HEIGHT,
+                                                                self.bounds.size.height - PAGECTRL_OFF_SET - PAGECTRL_HEIGHT-40,
                                                                 self.bounds.size.width * 0.25,
                                                                 PAGECTRL_HEIGHT)];
     [pageCtrl setBackgroundColor:[UIColor clearColor]];
@@ -67,7 +67,10 @@
     pageCtrl.hidesForSinglePage = YES;
     [pageCtrl setIndicatorDiameter: 8.0f] ;
     [pageCtrl setIndicatorSpace: 8.0f] ;
-    pageCtrl.onColor = [UIColor colorWithHexString:@"e4e4e9"];
+    
+    //    pageCtrl.onColor = [UIColor colorWithHexString:@"00"];
+    //alex
+    pageCtrl.onColor = [UIColor colorWithHexString:@"00beff"];
     pageCtrl.offColor = [UIColor whiteColor];
     
 //    [pageCtrl addTarget: self

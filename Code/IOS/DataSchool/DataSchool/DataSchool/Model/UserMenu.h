@@ -17,6 +17,7 @@
 @property (nonatomic, copy)NSString *MenuType;
 @property (nonatomic, copy)NSString *MenuFunction;
 @property (nonatomic, copy)NSString *CurrentVersion;
+@property (nonatomic, copy)NSString *MenuImage;
 @end
 
 

@@ -25,18 +25,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //[self RadiusView:_mMobileView byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     
-    _mMobileView.layer.cornerRadius = 5;
-    _mMobileView.layer.masksToBounds = YES;
-    
-    _mPwdView.layer.cornerRadius = 5;
-    _mPwdView.layer.masksToBounds = YES;
+    //[self RadiusView:_mPwdView byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight];
+
+    //_mPwdView.layer.cornerRadius = 5;
+    //_mPwdView.layer.masksToBounds = YES;
     
     _mBtnLogin.layer.cornerRadius = 5;
     _mBtnLogin.layer.masksToBounds = YES;
     
-    _mEditMobile.text = @"";//@"18382429837";//@"18382329840";//18583625888
+    _mEditMobile.text = @"";
     _mEditPwd.text = @"";
+}
+
+-(void)RadiusView:(UIView *)view byRoundingCorners:(UIRectCorner)corners{
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:corners cornerRadii:CGSizeMake(6, 6)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+    //view.layer.masksToBounds = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -61,7 +70,7 @@
         
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
         [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
-            [SVProgressHUD dismiss];
+            //[SVProgressHUD dismiss];
             
             UserInfo *userInfo = request.parseResult;
             if (userInfo != nil) {
@@ -74,7 +83,7 @@
             //regFinishFlow.mCheckStatus = [result[@"body"][@"iCheck"] intValue];
             
             GetUserProfileRequest *getProfileRequest = [[GetUserProfileRequest alloc] init];
-            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+            //[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
             [getProfileRequest startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
                 [SVProgressHUD dismiss];
                 UserProfile *userProfile = request.parseResult;
@@ -87,6 +96,7 @@
                 userInfo.UserNum = userProfile.UserNum;
                 userInfo.UserClasses = userProfile.UserClasses;
                 userInfo.UserQRURL = userProfile.UserQRCode;
+                userInfo.UserAboutURL = userProfile.UserAboutURL;
                 
                 if(userInfo.UserClasses.count > 0){
                     UserClass *userClass = userInfo.UserClasses[0];

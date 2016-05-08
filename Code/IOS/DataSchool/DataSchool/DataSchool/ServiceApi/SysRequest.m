@@ -10,6 +10,7 @@
 #import "UserProfile.h"
 #import "UserMenu.h"
 #import "ClassNotice.h"
+#import "EventType.h"
 //#import "SysCode.h"
 
 /*@implementation SysCodeRequest
@@ -124,7 +125,6 @@
 
 }
 @end
-
 
 //GetChangePWDRequest
 @implementation GetChangePWDRequest

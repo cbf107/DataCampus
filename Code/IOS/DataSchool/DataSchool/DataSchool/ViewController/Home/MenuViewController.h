@@ -30,6 +30,8 @@
 @interface MenuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,RSKImageCropViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *userHeadImage;
+@property (nonatomic, weak) IBOutlet UIImageView *photoPicker;
+
 @property (nonatomic, retain) IBOutlet UITableView *mTableView;
 @property (nonatomic, retain) IBOutlet UILabel *mNameLable;
 @property (nonatomic, retain) IBOutlet UILabel *mClassLable;

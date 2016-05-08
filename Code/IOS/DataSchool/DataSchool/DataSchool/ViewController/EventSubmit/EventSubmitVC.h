@@ -26,35 +26,27 @@
 
 #import <UIKit/UIKit.h>
 #import "ZHPickView.h"
-#import "PublishClassNameVC.h"
-#import "ChatInputFunctionView.h"
 
-@interface InfoPublishVC : UIViewController<UIPickerViewDataSource,
+@interface EventSubmitVC : UIViewController<UIPickerViewDataSource,
 UIPickerViewDelegate,
 UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 UIAlertViewDelegate,
 UITextViewDelegate,
-ZHPickViewDelegate,
-PassValueDelegate,
-ChatInputFunctionViewDelegate>{
+ZHPickViewDelegate>{
     NSInteger mBtnIndex;
     
     UIImagePickerController *imagePicker1;
     UIImagePickerController *imagePicker2;
 }
 
-@property (nonatomic, retain) IBOutlet UILabel*  mChooseClassLable;
-
 @property (nonatomic, retain) IBOutlet UILabel*  mChooseTypeLable;
 @property (nonatomic, retain) ZHPickView *mPushPickview;
 
 @property (weak, nonatomic) IBOutlet UILabel *mPlaceholderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mTitlePlaceholderLabel;
-
-@property (weak, nonatomic) IBOutlet UITextView *mTitleTextContent;
 @property (weak, nonatomic) IBOutlet UITextView *mTextContent;
+
 @property (weak, nonatomic) IBOutlet UIButton *mImageBtn1;
 @property (weak, nonatomic) IBOutlet UIButton *mImageBtn2;
 @property (weak, nonatomic) IBOutlet UIButton *mImageBtn3;
@@ -69,19 +61,14 @@ ChatInputFunctionViewDelegate>{
 @property (weak, nonatomic) IBOutlet UIButton *mImageDelBtn5;
 @property (weak, nonatomic) IBOutlet UIButton *mImageDelBtn6;
 
-@property (weak, nonatomic) IBOutlet UIButton *mPublishBtn;
-
 @property (nonatomic, strong) NSMutableArray *mImageViewArray;
 @property (nonatomic, strong) NSMutableArray *mImageDelViewArray;
 @property (nonatomic, strong) NSMutableArray *mImageArray;
 @property (nonatomic, strong) NSMutableArray *mImageDataArray;
 
 @property (nonatomic, copy)NSString *mType;
-@property (nonatomic, copy)NSArray *classNames;
 @property (nonatomic, retain)NSMutableArray *typeArray;
 
-//语音
-@property (strong, nonatomic) ChatInputFunctionView *mChatImputView;
-@property (retain, nonatomic) NSMutableArray *mChatMsgData;
+@property (nonatomic, copy)NSString *mUrl;
 
 @end

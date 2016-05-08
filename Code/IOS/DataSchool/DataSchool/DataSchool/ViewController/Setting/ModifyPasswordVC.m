@@ -123,6 +123,8 @@
     
     [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"密码更新成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [SVProgressHUD dismiss];
+
         alert.tag = 1;
         
         [alert show];

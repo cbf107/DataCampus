@@ -86,7 +86,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
     
-    self.mTableView.separatorStyle = UITableViewCellSelectionStyleDefault;
+    //self.mTableView.separatorStyle = UITableViewCellSelectionStyleDefault;
 }
 
 - (void)previewBounceLeftView {
@@ -194,10 +194,10 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0:
-            return 140;
+            return 239;
             
         case 1:
-            return 90;
+            return 106;
             
         default:
             return 0;
@@ -205,11 +205,12 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (1 == section) {
-        return 22;
+    /*if (1 == section) {
+        return 0.1;
     } else {
-        return 0;
-    }
+        return 0.1;
+    }*/
+    return 0.1;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -228,6 +229,7 @@
         {
             TabHomeActiveCell *cell = (TabHomeActiveCell*)[tableView dequeueReusableCellWithIdentifier:@"TabHomeActiveCell"];
             [cell setInfo:_mActiveArr[indexPath.row]];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
             

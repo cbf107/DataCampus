@@ -39,6 +39,7 @@
 @property (nonatomic, copy)NSString *UserName;
 @property (nonatomic, copy)NSString *UserNum;
 @property (nonatomic, copy)NSString *UserQRURL;
+@property (nonatomic, copy)NSString *UserAboutURL;
 
 
 +(BOOL)propertyIsOptional:(NSString*)propertyName;

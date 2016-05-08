@@ -1,0 +1,7 @@
+1. 更换图片(images.xcassets里面的图 以及 Login.storyboard里面的图200*200)
+2. info.plist更改Bundle display name
+3. info.plist更改Bundle identifier
+4. info.plist更改Bundle versions string, short
+5. ApiDefine.h更改MemberRefID
+6. ApiDefine.h更改kServerAddressTest
+7. 更改checkupdate里面的APP ID

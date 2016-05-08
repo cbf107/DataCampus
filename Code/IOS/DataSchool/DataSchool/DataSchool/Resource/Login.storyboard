@@ -36,6 +36,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bkg" translatesAutoresizingMaskIntoConstraints="NO" id="ukh-QM-g62">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBU-uv-E1e">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
@@ -78,7 +81,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Ct-QE1">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Ct-QE1">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -194,7 +197,7 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-uA-pct">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-uA-pct">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -274,14 +277,17 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhN-Vs-1rh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.074509803921568626" green="0.58823529411764708" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.74509803921568629" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="159-Ke-z8h">
                                         <variation key="widthClass=compact" constant="100"/>
                                     </constraint>
-                                    <constraint firstAttribute="height" constant="40" id="8o1-Gh-e0Y"/>
+                                    <constraint firstAttribute="height" constant="40" id="8o1-Gh-e0Y">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
                                 </constraints>
-                                <state key="normal" title="快速登陆">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -306,9 +312,11 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="LxJ-Hz-H2B">
-                                        <variation key="widthClass=compact" constant="120"/>
+                                        <variation key="widthClass=compact" constant="140"/>
                                     </constraint>
-                                    <constraint firstAttribute="width" constant="120" id="xpF-XW-WIe"/>
+                                    <constraint firstAttribute="width" constant="120" id="xpF-XW-WIe">
+                                        <variation key="widthClass=compact" constant="140"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -331,9 +339,11 @@
                                 <variation key="widthClass=compact" constant="124"/>
                             </constraint>
                             <constraint firstItem="u2c-bq-6vT" firstAttribute="trailing" secondItem="AfA-5D-xcA" secondAttribute="trailingMargin" id="5Rr-7Y-fG2"/>
-                            <constraint firstItem="rhN-Vs-1rh" firstAttribute="top" secondItem="u2c-bq-6vT" secondAttribute="bottom" constant="75" id="6bg-Ck-xVm"/>
+                            <constraint firstItem="rhN-Vs-1rh" firstAttribute="top" secondItem="u2c-bq-6vT" secondAttribute="bottom" constant="75" id="6bg-Ck-xVm">
+                                <variation key="widthClass=compact" constant="44"/>
+                            </constraint>
                             <constraint firstItem="pDc-io-ChB" firstAttribute="top" secondItem="PIk-4K-BW7" secondAttribute="bottom" id="D4y-Dd-4Fz">
-                                <variation key="widthClass=compact" constant="19"/>
+                                <variation key="widthClass=compact" constant="48"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="rhN-Vs-1rh" secondAttribute="trailing" constant="134" id="Dtf-v7-d9F">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -345,31 +355,38 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="u2c-bq-6vT" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" id="JeA-06-OCw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ukh-QM-g62" secondAttribute="trailing" constant="-16" id="P9n-Xu-cYs"/>
                             <constraint firstItem="rhN-Vs-1rh" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="134" id="TDG-fy-QP8">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="pDc-io-ChB" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="7" id="cSx-xo-E6n">
-                                <variation key="widthClass=compact" constant="124"/>
+                                <variation key="widthClass=compact" constant="114"/>
                             </constraint>
+                            <constraint firstItem="ukh-QM-g62" firstAttribute="leading" secondItem="AfA-5D-xcA" secondAttribute="leadingMargin" constant="-16" id="cwP-1T-6R3"/>
+                            <constraint firstItem="0CR-vx-bqb" firstAttribute="top" secondItem="ukh-QM-g62" secondAttribute="bottom" id="f2F-fH-Wj5"/>
                             <constraint firstAttribute="centerX" secondItem="pDc-io-ChB" secondAttribute="centerX" id="rJT-RZ-MJ7"/>
+                            <constraint firstItem="ukh-QM-g62" firstAttribute="top" secondItem="PIk-4K-BW7" secondAttribute="bottom" id="toW-h1-O1Z">
+                                <variation key="widthClass=compact" constant="-64"/>
+                            </constraint>
                             <constraint firstItem="u2c-bq-6vT" firstAttribute="top" secondItem="rBU-uv-E1e" secondAttribute="bottom" constant="18" id="tu1-M7-FYi">
-                                <variation key="widthClass=compact" constant="10"/>
+                                <variation key="widthClass=compact" constant="1"/>
                             </constraint>
                             <constraint firstItem="rBU-uv-E1e" firstAttribute="top" secondItem="pDc-io-ChB" secondAttribute="bottom" constant="8" id="wss-eU-QGL">
-                                <variation key="widthClass=compact" constant="19"/>
+                                <variation key="widthClass=compact" constant="43"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="ukh-QM-g62"/>
                                 <exclude reference="rBU-uv-E1e"/>
                                 <exclude reference="u2c-bq-6vT"/>
                                 <exclude reference="rhN-Vs-1rh"/>
                                 <exclude reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6bg-Ck-xVm"/>
-                                <exclude reference="Dtf-v7-d9F"/>
-                                <exclude reference="TDG-fy-QP8"/>
+                                <exclude reference="P9n-Xu-cYs"/>
+                                <exclude reference="cwP-1T-6R3"/>
+                                <exclude reference="toW-h1-O1Z"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <exclude reference="D4y-Dd-4Fz"/>
                                 <exclude reference="cSx-xo-E6n"/>
@@ -380,19 +397,24 @@
                                 <exclude reference="5Rr-7Y-fG2"/>
                                 <exclude reference="JeA-06-OCw"/>
                                 <exclude reference="tu1-M7-FYi"/>
+                                <exclude reference="6bg-Ck-xVm"/>
+                                <exclude reference="Dtf-v7-d9F"/>
+                                <exclude reference="TDG-fy-QP8"/>
+                                <exclude reference="f2F-fH-Wj5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="ukh-QM-g62"/>
                                 <include reference="rBU-uv-E1e"/>
                                 <include reference="u2c-bq-6vT"/>
                                 <include reference="rhN-Vs-1rh"/>
                                 <include reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6bg-Ck-xVm"/>
-                                <include reference="Dtf-v7-d9F"/>
-                                <include reference="TDG-fy-QP8"/>
+                                <include reference="P9n-Xu-cYs"/>
+                                <include reference="cwP-1T-6R3"/>
+                                <include reference="toW-h1-O1Z"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <include reference="D4y-Dd-4Fz"/>
                                 <include reference="cSx-xo-E6n"/>
@@ -403,6 +425,10 @@
                                 <include reference="5Rr-7Y-fG2"/>
                                 <include reference="JeA-06-OCw"/>
                                 <include reference="tu1-M7-FYi"/>
+                                <include reference="6bg-Ck-xVm"/>
+                                <include reference="Dtf-v7-d9F"/>
+                                <include reference="TDG-fy-QP8"/>
+                                <include reference="f2F-fH-Wj5"/>
                             </mask>
                         </variation>
                     </view>
@@ -421,8 +447,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pwdIcon" width="16" height="12"/>
-        <image name="schoolIcon" width="120" height="120"/>
-        <image name="usernameIcon" width="13" height="16"/>
+        <image name="login_bkg" width="414" height="736"/>
+        <image name="pwdIcon" width="25" height="25"/>
+        <image name="schoolIcon" width="140" height="140"/>
+        <image name="usernameIcon" width="25" height="25"/>
     </resources>
 </document>

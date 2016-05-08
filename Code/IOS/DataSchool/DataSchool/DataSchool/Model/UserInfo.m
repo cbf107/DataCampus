@@ -53,6 +53,7 @@
     userInfo.UserName = [NSString stringWithString:self.UserName];
     userInfo.UserNum = [NSString stringWithString:self.UserNum];
     userInfo.UserQRURL = [NSString stringWithString:self.UserQRURL];
+    userInfo.UserAboutURL = [NSString stringWithString:self.UserAboutURL];
     return userInfo;
 }
 
@@ -73,6 +74,7 @@
         self.UserName = [aDecoder decodeObjectForKey:@"UserName"];
         self.UserNum = [aDecoder decodeObjectForKey:@"UserNum"];
         self.UserQRURL = [aDecoder decodeObjectForKey:@"UserQRURL"];
+        self.UserAboutURL = [aDecoder decodeObjectForKey:@"UserAboutURL"];
     }
     return self;
 }
@@ -92,5 +94,7 @@
     [aCoder encodeObject:self.UserName forKey:@"UserName"];
     [aCoder encodeObject:self.UserNum forKey:@"UserNum"];
     [aCoder encodeObject:self.UserQRURL forKey:@"UserQRURL"];
+    [aCoder encodeObject:self.UserAboutURL forKey:@"UserAboutURL"];
+
 }
 @end

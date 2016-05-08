@@ -8,23 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-//获取学校新闻banner图片
-@interface SendNoticeRequest : BaseRequest
-@property(nonatomic, copy)NSString *Title;
+@interface EventSendRequest : BaseRequest
 @property(nonatomic, copy)NSString *Content;
-@property(nonatomic, copy)NSArray *ClassName;
 @property(nonatomic, copy)NSString *Type;
 @property(nonatomic, copy)NSArray  *Imgs;//话题对应图片,格式：[“xxxx”,“xxxx”,“xxxx”}]格式为二进制base64编码串(格式：data:image/jpg;base64,二进制base64编码)
 @property(nonatomic, copy)NSString *CreateUserRefid;
 @end
 
-//获取学校新闻
-@interface GetClassNoticeRequest : BaseRequest
-@property(nonatomic, copy)NSString *Type;
-@property (nonatomic, copy)NSString *className;
+////获取报修报事类型
+@interface GetEventTypeRequest : BaseRequest
 @end
 
-//删除消息
-@interface DeleteNoticeRequest : BaseRequest
-@property(nonatomic, copy)NSString *NoticeRefId;
+//获取报事报修历史记录
+@interface GetEventHistory : BaseRequest
 @end

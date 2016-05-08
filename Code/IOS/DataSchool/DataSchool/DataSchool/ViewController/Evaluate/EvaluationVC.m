@@ -73,7 +73,7 @@
 //PassValueDelegate
 - (void)passValue:(NSString *)studentNum{
     UserInfo *info = [UserManager currentUser];
-    NSString *value = [NSString stringWithFormat:@"%@?SutdentNum=%@&MemberRefId=%@", _mURL, studentNum, info.MemberRefId];
+    NSString *value = [NSString stringWithFormat:@"%@&Num=%@&MemberRefId=%@", _mURL, studentNum, info.MemberRefId];
     NSURL *url = [NSURL URLWithString:value];
     
     [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:url]];

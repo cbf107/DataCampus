@@ -33,6 +33,8 @@
 @interface GetUserNotifyTypeRequest : BaseRequest
 @end
 
+
+//baoshibaoxiu
 //修改密码
 @interface GetChangePWDRequest : BaseRequest
 @property(nonatomic, copy)NSString *OldPassword; //老密码

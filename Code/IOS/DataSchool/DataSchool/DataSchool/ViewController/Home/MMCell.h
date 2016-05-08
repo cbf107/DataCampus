@@ -7,16 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ActiveInfo.h"
-#import "InfiniteScrollContainer.h"
-#import "SchoolNews.h"
 
-@interface TabHomeImgScrollCell : UITableViewCell<InfiniteScrollContainerDelegate, InfiniteScrollContainerDataSource>
--(void)setInfo:(NSArray*) activeInfoArr;
-
-@end
-
-
-@interface TabHomeActiveCell : UITableViewCell
--(void)setInfo:(School_News*) activeInfo;
+@interface MMCell : UITableViewCell
 @end

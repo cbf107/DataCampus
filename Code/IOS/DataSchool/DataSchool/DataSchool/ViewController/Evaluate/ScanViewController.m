@@ -32,8 +32,8 @@
     //创建一个左边按钮
     //UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"左边" style:UIBarButtonItemStyleBordered target:self action:@selector(backAction)];
     
-    UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(backAction)];
-    
+    //UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(backAction)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
 
     //设置导航栏内容
     [navigationItem setTitle:@"扫描二维码"];
@@ -49,7 +49,9 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];//grayColor
-    UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(backAction)];
+    //UIBarButtonItem *leftButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(backAction)];
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+
     self.navigationItem.leftBarButtonItem = leftButton;
     
     [self.navigationItem setTitle:@"扫描二维码"];
@@ -60,7 +62,8 @@
     [scanButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:scanButton];*/
     
-    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(15, 100, 290, 50)];
+    //UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(15, 100, 290, 50)];
+    UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(15, 100, self.view.frame.size.width - 30, 50)];
     labIntroudction.backgroundColor = [UIColor clearColor];
     labIntroudction.numberOfLines=2;
     labIntroudction.textColor=[UIColor whiteColor];
@@ -68,13 +71,15 @@
     [self.view addSubview:labIntroudction];
     
     
-    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 160, 300, 300)];
+    //UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 160, 300, 300)];
+    UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 160, self.view.frame.size.width - 20, self.view.frame.size.width - 20)];
     imageView.image = [UIImage imageNamed:@"pick_bg"];
     [self.view addSubview:imageView];
     
     upOrdown = NO;
     num =0;
-    _line = [[UIImageView alloc] initWithFrame:CGRectMake(50, 170, 220, 2)];
+    //_line = [[UIImageView alloc] initWithFrame:CGRectMake(50, 170, 220, 2)];
+    _line = [[UIImageView alloc] initWithFrame:CGRectMake(50, 170, self.view.frame.size.width - 100, 2)];
     _line.image = [UIImage imageNamed:@"line.png"];
     [self.view addSubview:_line];
     
@@ -85,14 +90,22 @@
 {
     if (upOrdown == NO) {
         num ++;
-        _line.frame = CGRectMake(50, 170+2*num, 220, 2);
-        if (2*num == 280) {
+        //_line.frame = CGRectMake(50, 170+2*num, 220, 2);
+        //if (2*num == 280) {
+        //    upOrdown = YES;
+        //}
+        
+        _line.frame = CGRectMake(50, 170+2*num, self.view.frame.size.width - 100, 2);
+        if (2*num >= self.view.frame.size.width - 40) {
             upOrdown = YES;
         }
+        
     }
     else {
         num --;
-        _line.frame = CGRectMake(50, 170+2*num, 220, 2);
+        //_line.frame = CGRectMake(50, 170+2*num, 220, 2);
+        _line.frame = CGRectMake(50, 170+2*num, self.view.frame.size.width - 100, 2);
+
         if (num == 0) {
             upOrdown = NO;
         }
@@ -112,6 +125,22 @@
 }
 - (void)setupCamera
 {
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        NSDictionary *TheAppVersion=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"]];
+        
+        NSString *appName = [TheAppVersion valueForKey:@"CFBundleDisplayName"];
+        NSString *string = @"请在iPhone的“设置-隐私-相机”选项中，允许";
+        string = [string stringByAppendingString:appName];
+        string = [string stringByAppendingString:@"访问你的相机"];
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:string delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    
     // Device
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
@@ -142,7 +171,8 @@
     // Preview
     _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
     _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    _preview.frame =CGRectMake(20,170,280,280);
+    //_preview.frame =CGRectMake(20,170,280,280);
+    _preview.frame = CGRectMake(20, 170, self.view.frame.size.width - 40, self.view.frame.size.width - 40);
     [self.view.layer insertSublayer:self.preview atIndex:0];
     
     // Start

@@ -8,44 +8,9 @@
 
 #import "JSONModel.h"
 
-@protocol ClassNoticeType
+@protocol EventType
 @end
 
-@interface ClassNoticeType : JSONModel
-@property (nonatomic, copy)NSString *Type;
-@end
-
-
-
-
-
-@protocol ClassNotice
-@end
-
-@interface ClassNotice : JSONModel
-@property (nonatomic, copy)NSString *RefId;
-@property (nonatomic, copy)NSString *Title;
-@property (nonatomic, copy)NSString *Content;
-@property (nonatomic, copy)NSString *InsertTime;
-@property (nonatomic, copy)NSString *Type;
-@property (nonatomic, copy)NSString *TypeIcon;
-@property (nonatomic, copy)NSString *Img;
-@property (nonatomic, copy)NSString *Url;
-@property (nonatomic, copy)NSString *CreateUserRefId;
-@property (nonatomic, copy)NSString *IsRead;
-@property (nonatomic, copy)NSString *ReadTime;
-@property (nonatomic, copy)NSString *ClassRefid;
-@property (nonatomic, copy)NSString *StatusUrl;
-@end
-
-
-
-
-
-@protocol ClassNotices
-@end
-
-@interface ClassNotices : JSONModel
-@property (nonatomic, copy)NSArray<ClassNotice> *ClassNotices;
-
+@interface EventType : JSONModel
+@property (nonatomic, copy)NSString *ItemName;
 @end

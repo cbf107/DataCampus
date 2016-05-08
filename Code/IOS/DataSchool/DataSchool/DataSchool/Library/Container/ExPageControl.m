@@ -92,8 +92,9 @@
     CGFloat y = CGRectGetMidY(currentBounds) - diameter / 2 ;
 	
 	// get the caller's colors it they have been set or use the defaults
-	CGColorRef onColorCG = onColor ? onColor.CGColor : [UIColor colorWithWhite: 1.0f alpha: 1.0f].CGColor ;
-	
+	//CGColorRef onColorCG = onColor ? onColor.CGColor : [UIColor colorWithWhite: 1.0f alpha: 1.0f].CGColor ;
+    CGColorRef onColorCG = onColor ? onColor.CGColor : [UIColor colorWithWhite: 1.0f alpha: 1.0f].CGColor ;
+
     CGColorRef offColorCG = offColor ? offColor.CGColor : [UIColor colorWithWhite: 0.7f alpha: 0.5f].CGColor ;
     
     UIFont *font;

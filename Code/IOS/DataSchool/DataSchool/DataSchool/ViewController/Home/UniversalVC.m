@@ -22,15 +22,22 @@
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"电话联系" style:UIBarButtonItemStyleBordered target:self action:@selector(phoneAction)];
     }
 
+    NSString *strURL;
     if(_iType == 2){
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
+        
+        strURL = [NSString stringWithFormat:@"%@", _mURL];
+    }else{
+        strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,_mURL];
+
     }
 
     // Do any additional setup after loading the view.
     [_mContentWebView setDelegate:self];
     
-    //NSURL *url = [NSURL URLWithString:@"http://115.28.85.127:8084/wdpm/agreement.html"];
-    NSURL *url = [NSURL URLWithString:_mURL];
+    //NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,_mURL];
+    //NSString *strURL = [NSString stringWithFormat:@"%@", _mURL];
+    NSURL *url = [NSURL URLWithString:strURL];
     [self.mContentWebView loadRequest:[NSURLRequest requestWithURL:url]];
 
 }

@@ -18,6 +18,7 @@
 #import "ClassInfoVC.h"
 #import "AlbumViewController.h"
 #import "UniversalVC.h"
+#import "EventSubmitVC.h"
 
 @interface AppDelegate ()
 
@@ -43,8 +44,8 @@
 
     [UserManager userManager];
     
-    //[self launchToLogin];
-    
+    //[self checkUpdate];
+
     if ([UserManager isLogin]) {
         [self launchToMainPage];
         //        if ([UserManager currentUser].iNewUser == 2) {
@@ -121,9 +122,13 @@
     [getMenuRequest startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
         [SVProgressHUD dismiss];
         UserMenu *userMenu = request.parseResult;
+        
+        if (userMenu.Menus.count == 0) {
+            return;
+        }
 
         MenuViewController *leftController = (MenuViewController *)[UIViewController viewControllerWithStoryboard:@"MenuViewController" identifier:@"MenuView"];
-        
+
         UINavigationController* centerController;
         Menu *menuItem = userMenu.Menus[0];
         if ([menuItem.MenuFunction isEqualToString:@"SchoolNew"]) {
@@ -151,6 +156,10 @@
             centerController = [[UINavigationController alloc] initWithRootViewController:albumVC];
             albumVC.title = menuItem.MenuName;
 
+        }else if([menuItem.MenuFunction isEqualToString:@"EventSubmit"]){
+            EventSubmitVC *eventVC = (EventSubmitVC *)[UIViewController viewControllerWithStoryboard:@"EventSubmit" identifier:@"EventSubmitVC"];
+            centerController = [[UINavigationController alloc] initWithRootViewController:eventVC];
+            eventVC.title = menuItem.MenuName;
         }
         
         leftController.mMenuArr = userMenu.Menus;
@@ -176,7 +185,8 @@
 
 - (void)launchToLogin
 {
-    UIViewController *vc = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVCNav"];
+    //UIViewController *vc = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVCNav"];
+    UIViewController *vc = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVC"];
     [self.window setRootViewController:vc];
 }
 
@@ -201,4 +211,66 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:18], NSFontAttributeName, nil]];
 }
 
+- (void)checkUpdate {
+    
+    NSString *LastCheckUpDateTimeString =[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]] ;
+    [[NSUserDefaults standardUserDefaults] setObject:LastCheckUpDateTimeString forKey:@"LastCheckUpDateTime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
+        NSString *AppStoreVersion = nil;
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=1035167299"]];
+        NSError *error=nil;
+        NSString* versionRequest = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+        if (!error) {
+            NSDictionary *responseDic = [NSJSONSerialization JSONObjectWithData:[versionRequest dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:&error];
+            if (!error) {
+                NSArray *configData = [responseDic valueForKey:@"results"];
+                
+                for (id config in configData) {
+                    AppStoreVersion = [config valueForKey:@"version"];
+                }
+                NSDictionary *TheAppVersion=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"]];
+                
+                NSLog(@"AppStore version => %@,  The current APP version => %@",AppStoreVersion,[TheAppVersion valueForKey:@"CFBundleShortVersionString"]);
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSArray *arrayAppStore = [AppStoreVersion componentsSeparatedByString:@"."];
+
+                    NSArray *arrayAppLocal = [[TheAppVersion valueForKey:@"CFBundleShortVersionString"] componentsSeparatedByString:@"."];
+
+                    if ([arrayAppStore[0] intValue] > [arrayAppLocal[0] intValue]) {
+                        
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"存在新的版本是否升级？" delegate:self cancelButtonTitle:@"暂不升级" otherButtonTitles:@"立即升级",nil];
+                        alert.tag = 530;
+                        [alert show];
+                    }else if([arrayAppStore[1] intValue] > [arrayAppLocal[1] intValue]){
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"存在新的版本是否升级？" delegate:self cancelButtonTitle:@"暂不升级" otherButtonTitles:@"立即升级",nil];
+                        alert.tag = 530;
+                        [alert show];
+
+                    }
+                    
+                    /*if ([AppStoreVersion floatValue] > [[TheAppVersion valueForKey:@"CFBundleShortVersionString"] floatValue]) {
+                        
+                        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"存在新的版本是否升级？" delegate:self cancelButtonTitle:@"暂不升级" otherButtonTitles:@"立即升级",nil];
+                        alert.tag = 530;
+                        [alert show];
+                        
+                    }*/
+                });
+            }
+        }
+    });
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (alertView.tag == 530) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/bao-le/id1035167299?l=zh&ls=1&mt=8"]];
+        }
+    }
+}
 @end

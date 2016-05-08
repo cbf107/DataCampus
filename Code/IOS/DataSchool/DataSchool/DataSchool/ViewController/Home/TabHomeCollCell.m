@@ -13,6 +13,8 @@
 
 @interface TabHomeImgScrollCell()
 @property (nonatomic, weak) IBOutlet InfiniteScrollContainer *mImgContainer;
+@property (nonatomic, weak) IBOutlet UILabel *mTitle;
+
 @property (nonatomic, retain) NSMutableArray *mActivityInfoArr;
 @end
 
@@ -25,10 +27,16 @@
 }
 
 -(void)setInfo:(NSArray*) activeInfoArr {
-    if (activeInfoArr) {
+    if (activeInfoArr.count > 0) {
         [_mActivityInfoArr removeAllObjects];
         [_mActivityInfoArr addObjectsFromArray:activeInfoArr];
         [_mImgContainer reloadData];
+    }else{
+        UIImageView *bkg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bannerImage"]];
+        bkg.contentMode = UIViewContentModeScaleToFill;
+
+        [self addSubview:bkg];
+        
     }
 }
 
@@ -44,11 +52,13 @@
         view.contentMode = UIViewContentModeScaleToFill;
     }
     view.frame = frame;
+
     if (_mActivityInfoArr.count > 0) {
         ActiveInfo *info = ((ActiveInfo*)_mActivityInfoArr[itemIndex]);
         NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, info.Cover];
         [view sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"bannerImage"]];
-        
+
+        _mTitle.text = info.Title;
         //[view setImage:[UIImage imageNamed:@"bannerImage"]];
     }
     
@@ -95,6 +105,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *mTitle;
 @property (nonatomic, weak) IBOutlet UILabel *mContent;
 @property (nonatomic, weak) IBOutlet UILabel *mTime;
+@property (nonatomic, weak) IBOutlet UIImageView *mImage;
+
 @end
 @implementation TabHomeActiveCell
 /*-(void)setInfo:(ActiveInfo*) activeInfo {
@@ -108,6 +120,10 @@
     [_mTitle setText:activeInfo.Title];
     [_mContent setText:activeInfo.Content];
     [_mTime setText:activeInfo.PublicTime];
+    
+    NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, activeInfo.Cover];
+    NSLog(@"coverURL = %@", coverURL);
+    [_mImage sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"schoolIcon"]];
 }
 
 @end

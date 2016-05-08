@@ -6,17 +6,8 @@
 //  Copyright (c) 2015年 darktech. All rights reserved.
 //
 
-#import "ClassNotice.h"
+#import "EventType.h"
 
-@implementation ClassNoticeType
-
-@end
-
-
-@implementation ClassNotice
-
-@end
-
-@implementation ClassNotices
+@implementation EventType
 
 @end

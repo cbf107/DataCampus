@@ -78,7 +78,9 @@
 }
 
 -(void)logOutSuccess{
-    UIViewController *launchVC = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVCNav"];
+    //UIViewController *launchVC = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVCNav"];
+    UIViewController *launchVC = [UIViewController viewControllerWithStoryboard:@"Login" identifier:@"LoginVC"];
+
     AppDelegate *d = (AppDelegate *)[UIApplication sharedApplication].delegate;
     [d.window setRootViewController:launchVC];
     
@@ -86,7 +88,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 50;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -124,9 +126,9 @@
             for (int i = 0; i < userInfo.UserClasses.count; i++) {
                 UserClass *class = userInfo.UserClasses[i];
                 if ([userInfo.CurrentUserClass isEqualToString:class.ClassName]) {
-                    universal.mURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, class.URL];
+                    //universal.mURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, class.URL];
 
-                    //universal.mURL = class.URL;
+                    universal.mURL = class.URL;
                     universal.mPhone = class.PhoneNum;
                     universal.iType = 1;
                     break;
@@ -136,6 +138,14 @@
             universal.title = @"班主任";
             
             [self.navigationController pushViewController:universal animated:YES];
+        }else if([indexPath row] == 3){
+            //关于
+            SettingWebVC *settingWebVC = (SettingWebVC *)[UIViewController viewControllerWithStoryboard:@"Setting" identifier:@"SettingWebVC"];
+            settingWebVC.sTitle = @"关于";
+                        
+            settingWebVC.sURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, [UserManager currentUser].UserAboutURL];
+            [self.navigationController pushViewController:settingWebVC animated:YES];
+
         }
         
     }

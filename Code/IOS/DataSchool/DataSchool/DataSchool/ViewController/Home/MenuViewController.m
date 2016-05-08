@@ -36,9 +36,12 @@
 #import "SettingViewController.h"
 #import "UserMenu.h"
 #import "AlbumViewController.h"
+#import "EventSubmitVC.h"
 //#import <ViewDeck/ViewDeck.h>
 #import "UniversalVC.h"
 #import "SysRequest.h"
+#import "UIImage+Extended.h"
+#import "MMCell.h"
 
 @implementation MenuViewController
 @synthesize mTableView = _mTableView;
@@ -76,7 +79,8 @@
     _mTableView.delegate = self;
 
     self.mTableView.scrollsToTop = NO;
-    
+    self.mTableView.tableFooterView = [[UIView alloc]init];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -98,8 +102,13 @@
     [self.userHeadImage addGestureRecognizer:singleTap];
     //[self.userHeadImage sd_setImageWithURL:MAKE_IMG_URL(userInfo.Icon) placeholderImage:[ImageManager imageOfType:EImage_Default_Photo]];
     
+    UITapGestureRecognizer *singleTap2 =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onSelectHeadImage:)];
+    self.photoPicker.userInteractionEnabled = YES;
+    [_photoPicker addGestureRecognizer:singleTap2];
+    
+    
     if (nil != [UserManager currentUser] ){
-        [self.userHeadImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kServerAddressTest, [UserManager currentUser].Icon]] placeholderImage:[ImageManager imageOfType:EImage_Default_Photo]];
+        [self.userHeadImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", kServerAddressTest, [UserManager currentUser].Icon]] placeholderImage:[UIImage imageNamed:@"headImage"]];
 
     }
     
@@ -200,12 +209,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MMCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MMCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
-        
+        cell = [[MMCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+
         UIImage* image = [UIImage imageNamed:@"redbubble_bg.png"];
         UIImageView *icon = [[UIImageView alloc] initWithImage:image];
         icon.frame = CGRectMake(100, 15, 10, 10);
@@ -216,6 +225,33 @@
     
     Menu *meunItem = _mMenuArr[indexPath.row];
     cell.textLabel.text = meunItem.MenuName;
+    
+    NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,meunItem.MenuImage];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:strURL] placeholderImage:[UIImage imageNamed:@"menu_icon_default"]];
+    
+    /*UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake(50,
+                                                                  0,
+                                                                  self.view.frame.size.width - 50,
+                                                                  55)];
+    [cell addSubview:titleLab];
+    titleLab.text = meunItem.MenuName;*/
+
+    /*NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,meunItem.MenuImage];
+    UIImageView *coverImg = [[UIImageView alloc] initWithFrame:CGRectMake(10,
+                                                                          14,
+                                                                          27,
+                                                                          27)];
+    [coverImg sd_setImageWithURL:[NSURL URLWithString:strURL] placeholderImage:[UIImage imageNamed:@"menu_icon_default"]];
+    [cell addSubview:coverImg];*/
+    
+    //arrow Icon
+    UIImageView *arrowIcon = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 70,
+                                                                           20,
+                                                                           10,
+                                                                           10)];
+    [arrowIcon setImage:[UIImage imageNamed:@"arrowIcon"]];
+    [cell addSubview:arrowIcon];
+    
     UIImageView *icon = (UIImageView *)[cell.contentView viewWithTag:3];
 
     if ([meunItem.MenuFunction isEqualToString:@"SchoolNew"]) {
@@ -238,7 +274,6 @@
         }
     }
     
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //cell.textLabel.text = [NSString stringWithFormat:@"%ld:%ld", (long)indexPath.section-1, (long)indexPath.row];
     
     return cell;
@@ -286,6 +321,14 @@
                 self.viewDeckController.centerController = navController;
                 album.title = menuItem.MenuName;
 
+                //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
+            }else if ([menuItem.MenuFunction isEqualToString:@"EventSubmit"]) {
+                EventSubmitVC *event = (EventSubmitVC *)[UIViewController viewControllerWithStoryboard:@"EventSubmit" identifier:@"EventSubmitVC"];
+                
+                UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:event];
+                self.viewDeckController.centerController = navController;
+                event.title = menuItem.MenuName;
+                
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
             }else{
                 /*UITableViewController* cc = (UITableViewController*)((UINavigationController*)controller.centerController).topViewController;
@@ -414,7 +457,10 @@
     //头像
     NSString *avatarString;
     if (headImg) {  //self.avatar
-        NSData *data = UIImagePNGRepresentation(headImg);
+        UIImage *image1 = [UIImage imageWithImageSimple:headImg scaledToSize:CGSizeMake(320, 568)];
+        NSData *data = UIImageJPEGRepresentation(image1, 0.1);
+
+        //NSData *data = UIImagePNGRepresentation(headImg);
         NSString *head = @"data:image/jpg;base64,";
         avatarString = [head stringByAppendingString:[MEBase64 stringByEncodingData:data]];
         //userinfo.Icon = avatarString;

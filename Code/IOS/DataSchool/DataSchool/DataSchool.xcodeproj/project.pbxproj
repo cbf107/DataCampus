@@ -50,6 +50,12 @@
 		9CCD8ABA1C3BD50E00AED8B4 /* ClassNotice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD8AB91C3BD50E00AED8B4 /* ClassNotice.m */; };
 		9CCD8ABD1C3D5B6300AED8B4 /* PublishClassNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCD8ABC1C3D5B6300AED8B4 /* PublishClassNameVC.m */; };
 		9CCFAF3A1C22DDDC00A1F30D /* DetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CCFAF391C22DDDC00A1F30D /* DetailInfoVC.m */; };
+		9CD99B8C1CA69C7E002C9531 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD99B8B1CA69C7E002C9531 /* AVFoundation.framework */; };
+		9CD99B901CA6BBF2002C9531 /* EventSubmit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD99B8F1CA6BBF2002C9531 /* EventSubmit.storyboard */; };
+		9CD99B931CA6BE4B002C9531 /* EventSubmitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD99B921CA6BE4B002C9531 /* EventSubmitVC.m */; };
+		9CD99B961CA6CE28002C9531 /* EventType.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD99B951CA6CE28002C9531 /* EventType.m */; };
+		9CD99B991CA6D28B002C9531 /* EventRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD99B981CA6D28B002C9531 /* EventRequest.m */; };
+		9CDAB6B11CD8B58A009DEDE9 /* MMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CDAB6B01CD8B58A009DEDE9 /* MMCell.m */; };
 		9CE0CAD41C0DDED80059C247 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0CAD31C0DDED80059C247 /* main.m */; };
 		9CE0CAD71C0DDED80059C247 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0CAD61C0DDED80059C247 /* AppDelegate.m */; };
 		9CE0CADD1C0DDED80059C247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CE0CADB1C0DDED80059C247 /* Main.storyboard */; };
@@ -379,6 +385,16 @@
 		9CCD8ABC1C3D5B6300AED8B4 /* PublishClassNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishClassNameVC.m; sourceTree = "<group>"; };
 		9CCFAF381C22DDDC00A1F30D /* DetailInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoVC.h; sourceTree = "<group>"; };
 		9CCFAF391C22DDDC00A1F30D /* DetailInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoVC.m; sourceTree = "<group>"; };
+		9CD99B8B1CA69C7E002C9531 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9CD99B8F1CA6BBF2002C9531 /* EventSubmit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventSubmit.storyboard; sourceTree = "<group>"; };
+		9CD99B911CA6BE4B002C9531 /* EventSubmitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventSubmitVC.h; path = EventSubmit/EventSubmitVC.h; sourceTree = "<group>"; };
+		9CD99B921CA6BE4B002C9531 /* EventSubmitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventSubmitVC.m; path = EventSubmit/EventSubmitVC.m; sourceTree = "<group>"; };
+		9CD99B941CA6CE28002C9531 /* EventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventType.h; sourceTree = "<group>"; };
+		9CD99B951CA6CE28002C9531 /* EventType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventType.m; sourceTree = "<group>"; };
+		9CD99B971CA6D28B002C9531 /* EventRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventRequest.h; sourceTree = "<group>"; };
+		9CD99B981CA6D28B002C9531 /* EventRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventRequest.m; sourceTree = "<group>"; };
+		9CDAB6AF1CD8B58A009DEDE9 /* MMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCell.h; sourceTree = "<group>"; };
+		9CDAB6B01CD8B58A009DEDE9 /* MMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCell.m; sourceTree = "<group>"; };
 		9CE0CACE1C0DDED80059C247 /* DataSchool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataSchool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE0CAD21C0DDED80059C247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE0CAD31C0DDED80059C247 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -817,6 +833,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD99B8C1CA69C7E002C9531 /* AVFoundation.framework in Frameworks */,
 				9CE0CCB71C0DE1680059C247 /* libz.dylib in Frameworks */,
 				9CF14BB01C58776300303F77 /* libopencore-amrnb.a in Frameworks */,
 				9CE0CCB51C0DE15E0059C247 /* libstdc++.dylib in Frameworks */,
@@ -857,6 +874,8 @@
 		9C39ACBC1C128F2A0068189B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9CD99B941CA6CE28002C9531 /* EventType.h */,
+				9CD99B951CA6CE28002C9531 /* EventType.m */,
 				9CEAE8761C4E1EC500978887 /* FolderInfo.h */,
 				9CEAE8771C4E1EC500978887 /* FolderInfo.m */,
 				9CEAE7C81C47C2A200978887 /* AlbumFolder.h */,
@@ -886,6 +905,7 @@
 		9C39ACC61C15240F0068189B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				9CD99B8F1CA6BBF2002C9531 /* EventSubmit.storyboard */,
 				9CEAE7B71C453F3300978887 /* Album.storyboard */,
 				9CCD8AB01C3A67CF00AED8B4 /* Universal.storyboard */,
 				9C1B02E91C21518300D6C3AD /* Setting.storyboard */,
@@ -916,6 +936,8 @@
 		9C39AD091C1547900068189B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9CDAB6AF1CD8B58A009DEDE9 /* MMCell.h */,
+				9CDAB6B01CD8B58A009DEDE9 /* MMCell.m */,
 				9CCD8AB21C3A68A900AED8B4 /* UniversalVC.h */,
 				9CCD8AB31C3A68A900AED8B4 /* UniversalVC.m */,
 				9CC577D61C19C994001C7217 /* ClassNameVC.h */,
@@ -1044,6 +1066,8 @@
 		9CE0CAF71C0DDF250059C247 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9CD99B911CA6BE4B002C9531 /* EventSubmitVC.h */,
+				9CD99B921CA6BE4B002C9531 /* EventSubmitVC.m */,
 				9CEAE7B31C453E0300978887 /* Album */,
 				9C1B02EB1C2153BE00D6C3AD /* Setting */,
 				9C39B02D1C16FEA80068189B /* ClassInfo */,
@@ -1522,6 +1546,8 @@
 		9CE0CBF21C0DE0370059C247 /* ServiceApi */ = {
 			isa = PBXGroup;
 			children = (
+				9CD99B971CA6D28B002C9531 /* EventRequest.h */,
+				9CD99B981CA6D28B002C9531 /* EventRequest.m */,
 				9CEAE7C51C46871700978887 /* AlbumRequest.h */,
 				9CEAE7C61C46871700978887 /* AlbumRequest.m */,
 				9CCD8AB51C3BD3E500AED8B4 /* NoticeRequest.h */,
@@ -1601,6 +1627,7 @@
 				9CE0CCB41C0DE15E0059C247 /* libstdc++.dylib */,
 				9CE0CCB21C0DE1520059C247 /* libicucore.dylib */,
 				9CE0CCB01C0DE1480059C247 /* libsqlite3.dylib */,
+				9CD99B8B1CA69C7E002C9531 /* AVFoundation.framework */,
 				9CE0CCAE1C0DE13E0059C247 /* Security.framework */,
 				9CE0CCAC1C0DE1370059C247 /* ImageIO.framework */,
 				9CE0CCAA1C0DE12E0059C247 /* QuartzCore.framework */,
@@ -2203,6 +2230,7 @@
 				9CF14BC51C58776300303F77 /* RecordingSignal002@2x.png in Resources */,
 				9CE0CADD1C0DDED80059C247 /* Main.storyboard in Resources */,
 				9CF14BD11C58776300303F77 /* RecordingSignal008@2x.png in Resources */,
+				9CD99B901CA6BBF2002C9531 /* EventSubmit.storyboard in Resources */,
 				9CEAE8861C53200800978887 /* SVProgressHUD.bundle in Resources */,
 				9CF14BC71C58776300303F77 /* RecordingSignal003@2x.png in Resources */,
 				9CF14BD31C58776300303F77 /* voice_icon@2x.png in Resources */,
@@ -2332,6 +2360,7 @@
 				9C1B02FB1C215A6000D6C3AD /* SettingWebVC.m in Sources */,
 				9CE0CC431C0DE0370059C247 /* ViewContainer.m in Sources */,
 				9CE0CC301C0DE0370059C247 /* UIColor+WXUtil.m in Sources */,
+				9CD99B961CA6CE28002C9531 /* EventType.m in Sources */,
 				9CE0CC8B1C0DE0380059C247 /* UIView+WebCacheOperation.m in Sources */,
 				9CE0CC601C0DE0380059C247 /* MJRefreshFooterView.m in Sources */,
 				9CE0CC351C0DE0370059C247 /* UILabel+GNUtil.m in Sources */,
@@ -2397,6 +2426,7 @@
 				9CE0CC2B1C0DE0370059C247 /* NSString+WXUtil.m in Sources */,
 				9CE0CC3A1C0DE0370059C247 /* UIView+GNUtil.m in Sources */,
 				9C1B02F71C2155B700D6C3AD /* GNUtil.m in Sources */,
+				9CD99B931CA6BE4B002C9531 /* EventSubmitVC.m in Sources */,
 				9CF14BB71C58776300303F77 /* ChatMessageCell.m in Sources */,
 				9CE0CCA61C0DE0380059C247 /* RefreshTableView.m in Sources */,
 				9CE0CC441C0DE0380059C247 /* IQNSArray+Sort.m in Sources */,
@@ -2448,6 +2478,7 @@
 				9CEAE84A1C48D97000978887 /* NSObject+Extend.m in Sources */,
 				9CEAE7BE1C454B0C00978887 /* ThumbnailVC.m in Sources */,
 				9CE0CC3E1C0DE0370059C247 /* NSData+Compression.m in Sources */,
+				9CD99B991CA6D28B002C9531 /* EventRequest.m in Sources */,
 				9CE0CC801C0DE0380059C247 /* SDWebImageCompat.m in Sources */,
 				9CEAE7BB1C4544C500978887 /* RefreshCollectionView.m in Sources */,
 				9CE0CC391C0DE0370059C247 /* UITextField+WXUtil.m in Sources */,
@@ -2475,6 +2506,7 @@
 				9CE0CC911C0DE0380059C247 /* ZHPickView.m in Sources */,
 				9C1B02F41C21540C00D6C3AD /* GNKeyboardUtil.m in Sources */,
 				9CEAE86B1C48D97000978887 /* PhotoImageView.m in Sources */,
+				9CDAB6B11CD8B58A009DEDE9 /* MMCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2535,7 +2567,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bing Gao (UAL9PHHWN5)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2576,8 +2608,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2601,7 +2633,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bing Gao (UAL9PHHWN5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DataSchool/CasuallyStop.pch";
 				INFOPLIST_FILE = DataSchool/Info.plist;
@@ -2620,7 +2652,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DataSchool/CasuallyStop.pch";
 				INFOPLIST_FILE = DataSchool/Info.plist;

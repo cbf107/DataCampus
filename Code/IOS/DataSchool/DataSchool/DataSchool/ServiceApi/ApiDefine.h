@@ -27,9 +27,9 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 
 };
 
-
-#define kServerAddressTest          @"http://develop.dtech-school.com"
-#define MemberRefID                 @"11111111-1111-1111-1111-111111111111"
+//@"http://develop.dtech-school.com"
+#define kServerAddressTest          @"http://www.dtech-school.com/SchoolApps"
+#define MemberRefID                 @"7E5E0D36-142D-4F76-9E9E-49D9FC0005EE"
 
 //#define kServerURLAddress           @"http://115.28.85.127:8084"
 //#define kServerAddressTestProduct   @"http://115.28.85.127:8084/wdpm/WDServlet/"
@@ -59,6 +59,11 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define kApiGetShoolNewsCover       @"/schoolnews/GetSchoolNewsCover.ashx"
 #define kApiGetShoolNews            @"/schoolnews/GetSchoolNews.ashx"
 #define kApiGetNotifyType           @"/schoolnews/GetNoticeType.ashx"
+
+#define kApiGetEventType            @"/EventsManage/GetEventCategoriesHandler.ashx"
+#define kApiSendEvent               @"/EventsManage/SubmitEvent.ashx"
+#define kApiGetEventHistory         @"/EventsManage/GetViewPage.ashx"
+
 #define kApiSendNotice              @"/schoolnews/SendNotice.ashx"
 #define kApiGetClassNotice          @"/schoolnews/GetClassNotice.ashx"
 #define kApiDeleteNotice            @"/schoolnews/DeleteNotice.ashx"

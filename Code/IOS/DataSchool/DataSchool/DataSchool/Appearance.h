@@ -14,8 +14,8 @@
 /*
  * 颜色
  */
-#define AppColorNavBkg       @"005ca6"        //tabbar背景颜色
-#define AppColorTabBarBkg    @"005ca6"        //tabbar背景颜色
+#define AppColorNavBkg       @"00beff"//@"005ca6"        //tabbar背景颜色
+#define AppColorTabBarBkg    @"00beff"//@"005ca6"        //tabbar背景颜色
 #define AppColorTabBarFocus  @"e50012"        //tabbar选中颜色
 #define AppColorNormalBkg  @"dbdbdb"          //通用背景颜色
 
@@ -39,7 +39,7 @@
 #define kAppFontSizeSubtitle  15//二级标题（大）30px
 #define kAppFontSizeContent  14//正文（中）26px
 
-#define kAppColorNavBkg  @"008af7"          //导航栏背景
+#define kAppColorNavBkg  @"00beff"//@"008af7"          //导航栏背景
 
 
 //判断IOS机型

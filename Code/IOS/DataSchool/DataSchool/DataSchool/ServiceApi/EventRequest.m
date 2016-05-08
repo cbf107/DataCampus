@@ -6,29 +6,21 @@
 //  Copyright (c) 2015年 mac. All rights reserved.
 //
 
-#import "NoticeRequest.h"
+#import "EventRequest.h"
 #import "ClassNotice.h"
+#import "EventType.h"
 
-@implementation SendNoticeRequest
+@implementation EventSendRequest
 - (NSString *)requestUrl {
-    return kApiSendNotice;
+    return kApiSendEvent;
 }
 
 - (id)requestParameters {
-    return @{@"Title":self.Title?:[NSNull null],
-             @"Content":self.Content?:[NSNull null],
-             @"ClassName":[self makeClassNames],
+    return @{@"Content":self.Content?:[NSNull null],
              @"Type":self.Type?:[NSNull null],
              @"Imgs":[self makeImages],
              @"CreateUserRefid":self.CreateUserRefid?:[NSNull null]};
 
-}
-
--(id)makeClassNames{
-    if (nil != self.ClassName) {
-        return self.ClassName;
-    }
-    return [NSNull null];
 }
 
 - (id)makeImages {
@@ -62,54 +54,41 @@
 @end
 
 
-
-
-@implementation GetClassNoticeRequest
+//GetEventTypeRequest
+@implementation GetEventTypeRequest
 - (NSString *)requestUrl {
-    return kApiGetClassNotice;
+    return kApiGetEventType;
 }
 
 - (id)requestParameters {
-    return @{@"Type":self.Type?:[NSNull null],
-             @"className":self.className?:[NSNull null],
-             @"start":@(self.pageStart),
-             @"length":@(self.pageLength)};
-
+    return @{};
 }
 
 - (id)parseResult {
-    /*id result = self.responseBodyJSON;
-    if ([result isKindOfClass:[NSDictionary class]]) {
-        ClassNotices *classNotices = [[ClassNotices alloc] initWithDictionary:result error:nil];
-        return classNotices;
-    }
-    
-    return nil;*/
+    //return (NSArray *)self.responseBodyJSON;
     
     NSMutableArray *data = [[NSMutableArray alloc] init];
     NSArray *list = (NSArray *)self.responseBodyJSON;
     for(int i = 0; i<list.count; i++){
-        [data addObject:[[ClassNotice alloc] initWithDictionary:list[i] error:nil]];
+        [data addObject:[[EventType alloc] initWithDictionary:list[i] error:nil]];
     }
     
     return data;
+    
 }
 @end
 
-
-
-@implementation DeleteNoticeRequest
+//GetEventHistory
+@implementation GetEventHistory
 - (NSString *)requestUrl {
-    return kApiDeleteNotice;
+    return kApiGetEventHistory;
 }
 
 - (id)requestParameters {
-    return @{@"NoticeRefId":self.NoticeRefId?:[NSNull null]};
-    
+    return @{};
 }
 
 - (id)parseResult {
-    return self.responseBodyJSON;
+    return self.responseBodyJSON;    
 }
 @end
-
