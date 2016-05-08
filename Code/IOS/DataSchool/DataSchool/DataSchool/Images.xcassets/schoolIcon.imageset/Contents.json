@@ -7,11 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "240_240(2).png"
+      "filename" : "7_logo.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "7_logo-1.png"
     }
   ],
   "info" : {
