@@ -8,11 +8,11 @@
 #import "SearchVC.h"
 #import "LeaveRequest.h"
 #import "LeaveInfo.h"
+#import "MMCell2.h"
 
 @interface SearchVC()< UITableViewDataSource , UITableViewDelegate , UISearchDisplayDelegate , UISearchBarDelegate >
 
-//@property ( nonatomic , strong ) NSMutableArray *dataArr; // 数据源
-@property ( nonatomic , strong ) NSArray *dataArr; // 数据源
+@property ( nonatomic , strong ) NSMutableArray *dataArr; // 数据源
 @property ( nonatomic , strong ) NSArray *resultsArr; // 搜索结果
 @property ( nonatomic , strong ) UISearchBar *search;
 @property ( nonatomic , strong ) UISearchDisplayController * searchPlay;
@@ -38,13 +38,12 @@
     [ super viewDidLoad ];
     
     self.title = _mTitle;
-    _dataArr = [[ NSArray alloc ] initWithObjects : @"aaa" , @"abc" , @"aqq" , @"bdc" , @"gcd" , @"mnb" , @"zzz" , nil ];
-    
+    [self initData];
     [self createView];
     // Do any additional setup after loading the view.
 }
 
-/*-(void)initData{
+-(void)initData{
     LeaveTeacherRequest *request = [[LeaveTeacherRequest alloc]init];
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
@@ -55,17 +54,17 @@
         
         NSArray *leaveArray = request.parseResult;
         for (int i = 0; i < leaveArray.count; i++) {
-            LeaveTeacher *type = leaveArray[i];
-            [_dataArr addObject:type.ItemName];
+            [_dataArr addObject:leaveArray[i]];
         }
         
-        [self createView];
+        [self.aTableView reloadData];
+        
     }failure:^(NSError *err) {
         [SVProgressHUD dismiss];
         [[[UIAlertView alloc] initWithTitle:@"提示" message:err.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
     }];
 
-}*/
+}
 
 
 -(void)createView
@@ -91,6 +90,10 @@
 }
 
 #pragma mark -
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 
 #pragma mark UITableViewDelegate
 - (BOOL)searchBarShouldEndEditing:( UISearchBar *)searchBar
@@ -113,17 +116,26 @@
 
 - ( UITableViewCell *)tableView:( UITableView *)tableView cellForRowAtIndexPath:( NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell" ;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier :CellIdentifier];
+    static NSString *CellIdentifier = @"MMCell2" ;
+    MMCell2 *cell = [tableView dequeueReusableCellWithIdentifier :CellIdentifier];
     
     if (!cell) {
-        cell = [[ UITableViewCell alloc ] initWithStyle : UITableViewCellStyleDefault reuseIdentifier :CellIdentifier];
+        cell = [[MMCell2 alloc] initWithStyle : UITableViewCellStyleDefault reuseIdentifier :CellIdentifier];
     }
     
     if ([tableView isEqual:self.searchPlay.searchResultsTableView ]) {
-        cell.textLabel.text = [ self.resultsArr objectAtIndex:indexPath.row ];
+        LeaveTeacher *type = [_resultsArr objectAtIndex:indexPath.row];
+        cell.textLabel.text = type.TeacherName;
+        
+        NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, type.TeacherPic];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"schoolIcon"]];
+
     } else {
-        cell.textLabel.text = [self.dataArr objectAtIndex:indexPath.row ];
+        LeaveTeacher *type = [_dataArr objectAtIndex:indexPath.row];
+        cell.textLabel.text = type.TeacherName;
+        
+        NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, type.TeacherPic];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"schoolIcon"]];
     }
     
     return cell;
@@ -138,9 +150,12 @@
 - (void)searchText:(NSString *)text andWithScope:(NSString *)scope
 {
     //CONTAINS 是字符串比较操作符，
-    NSPredicate *result = [ NSPredicate predicateWithFormat:@"SELF contains[cd] %@" ,text];
-    
-    self.resultsArr = [ self.dataArr filteredArrayUsingPredicate:result];
+    //NSPredicate *result = [ NSPredicate predicateWithFormat:@"SELF contains[cd] %@" ,text];
+    //self.resultsArr = [ self.dataArr filteredArrayUsingPredicate:result];
+
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"TeacherName contains[cd] %@" ,text];
+    self.resultsArr=[self.dataArr filteredArrayUsingPredicate:pre];
+
 }
 
 - (BOOL) searchDisplayController:( UISearchDisplayController *)controller shouldReloadTableForSearchString:( NSString *)searchString
@@ -170,9 +185,11 @@
     NSString *name;
     
     if ([tableView isEqual:self.searchPlay.searchResultsTableView ]) {
-        name = [_resultsArr objectAtIndex:indexPath.row];;
+        LeaveTeacher *type = [_resultsArr objectAtIndex:indexPath.row];
+        name = type.TeacherName;
     } else {
-        name = [_dataArr objectAtIndex:indexPath.row];;
+        LeaveTeacher *type = [_dataArr objectAtIndex:indexPath.row];
+        name = type.TeacherName;
     }
     
     if (self.delegate) {

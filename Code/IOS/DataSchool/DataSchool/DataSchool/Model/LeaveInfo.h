@@ -18,6 +18,9 @@
 @end
 
 
+
+
+
 @protocol LeaveWork
 @end
 
@@ -27,11 +30,15 @@
 //@property (nonatomic, copy)NSString *ItemComment;
 @end
 
+
+
+
+
 @protocol LeaveTeacher
 @end
 
 @interface LeaveTeacher : JSONModel
-@property (nonatomic, copy)NSString *ItemName;
-//@property (nonatomic, copy)NSString *ItemValue;
-//@property (nonatomic, copy)NSString *ItemComment;
+@property (nonatomic, copy)NSString *TeacherName;
+@property (nonatomic, copy)NSString *TeacherPic;
+@property (nonatomic, copy)NSString *RefId;
 @end

@@ -66,6 +66,9 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 
 #define kApiLeaveType               @"/SchoolOA/GetAttendanceCategoriesHandler.ashx"
 #define kApiLeaveWork               @"/SchoolOA/GetAttendanceWorksHandler.ashx"
+#define kApiLeaveHistory            @"/SchoolOA/GetViewPage.ashx"
+#define kApiLeaveTeacher            @"/TeacherService/GetTeachersHandler.ashx"
+#define kApiLeaveSubmit             @"/SchoolOA/SubmitAttendance.ashx"
 
 
 #define kApiSendNotice              @"/schoolnews/SendNotice.ashx"

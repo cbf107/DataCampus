@@ -12,8 +12,10 @@
 #import "LeaveTypeCell.h"
 #import "LeaveMsgCell.h"
 #import "LeaveFlowCell.h"
+#import "LeaveImgCell.h"
 #import "LeaveRequest.h"
 #import "LeaveInfo.h"
+#import "UniversalVC.h"
 
 @interface TeacherLeaveVC ()
 @property (nonatomic, retain) ZHPickView *mDataPickview;
@@ -25,6 +27,7 @@
 
 @property (nonatomic, copy)NSMutableArray *workArray;
 @property (nonatomic, copy)NSMutableArray *nameArray;
+@property (nonatomic, copy)NSMutableArray *worknameArray;
 
 @property (nonatomic, retain) NSIndexPath *workIndex;
 @end
@@ -34,7 +37,7 @@
     [super viewDidLoad];
     //self.tableView.sectionIndexColor=[UIColor colorWithHexString:@"168afc"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleBordered target:self action:@selector(doneAction)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStyleBordered target:self action:@selector(reviewAction)];
 
     // 点击listview 关闭键盘
     UITapGestureRecognizer *tableViewGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(exitEditMode)];
@@ -46,7 +49,23 @@
     _endTime = @"请选择请假结束时间";
     _leaveType = @"请假类型";
     
+    [self initFooterView];
     [self initWorkInfo];
+}
+
+-(void)initFooterView{
+    UIView *footer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 54)];
+    
+    UIButton *submitBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, 0, self.tableView.bounds.size.width - 40, 44)];
+    submitBtn.backgroundColor = [UIColor colorWithHexString:AppColorNavBkg];
+    submitBtn.titleLabel.font = [UIFont systemFontOfSize:kAppFontSizeTitle];
+    //[submitBtn setTitleColor:[UIColor appFontColorDark] forState:UIControlStateNormal];
+    [submitBtn setTitle:@"提交" forState:UIControlStateNormal];
+    [submitBtn addTarget:self action:@selector(submitLeave:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [footer addSubview:submitBtn];
+    self.tableView.tableFooterView = footer;
+
 }
 
 -(void)initWorkInfo{
@@ -92,9 +111,68 @@
 
 }
 
+-(void)submitLeave:(id)sender{
+    NSLog(@"submit");
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
 
-- (void)doneAction {
-    NSLog(@"doneAction");
+    _worknameArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i < _workArray.count; i++) {
+        NSString *work = _workArray[i];
+        NSString *name = _nameArray[i];
+        [_worknameArray addObject:@{@"WorkName":work, @"AssignedTeacher":name}];
+
+    }
+    
+    
+    LeaveTypeCell *typeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+
+    
+    LeaveMsgCell *msgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+
+    LeaveImgCell *imgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]];
+
+    LeaveSubmitRequest *request = [[LeaveSubmitRequest alloc]init];
+    request.Content = msgCell.mFieldMsg.text;
+    request.Imgs = imgCell.mImageDataArray;
+    request.Type = _leaveType;
+    request.StartDateTime = _startTime;
+    request.EndDateTime = _endTime;
+    request.AttendanceCount = typeCell.mFieldTime.text;
+    request.Works = _worknameArray;
+    
+    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        [SVProgressHUD dismiss];
+        [[[UIAlertView alloc] initWithTitle:nil message:@"提交成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+
+    }failure:^(NSError *err) {
+        [SVProgressHUD dismiss];
+        [[[UIAlertView alloc] initWithTitle:@"提示" message:err.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
+
+}
+
+- (void)reviewAction {
+    NSLog(@"reviewAciton");
+    LeaveHistoryRequest *request = [[LeaveHistoryRequest alloc]init];
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+    [request startWithCompletionBlockWithSuccess:^(BaseRequest *request) {
+        [SVProgressHUD dismiss];
+        UniversalVC *universal = (UniversalVC *)[UIViewController viewControllerWithStoryboard:@"Universal" identifier:@"UniversalVC"];
+        id result = request.parseResult;
+        universal.mURL = result[@"url"];
+        universal.title = @"查看状态";
+        
+        [self.navigationController pushViewController:universal animated:YES];
+        
+    }failure:^(NSError *err) {
+        [SVProgressHUD dismiss];
+        [[[UIAlertView alloc] initWithTitle:@"提示" message:err.localizedDescription delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    }];
+    
+
 }
 
 //ZHPickView
@@ -150,9 +228,60 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 5;
+    return 20;
     
 }
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, 20)];
+    //lab.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
+    lab.backgroundColor = [UIColor lightGrayColor];
+    lab.textColor = [UIColor whiteColor];//colorWithHexString:AppColorNavBkg
+    lab.font = [UIFont boldSystemFontOfSize:14];
+    
+    if (section == 0) {
+        lab.text = @"请假开始时间";
+    }else if (section == 1){
+        lab.text = @"请假结束时间";
+    }else if (section == 2){
+        lab.text = @"请假类型";
+    }else if (section == 3){
+        lab.text = @"请假内容";
+    }else if (section == 4){
+        lab.text = @"上传图片";
+    }else if (section == 5){
+        lab.text = @"工作交接";
+    }
+    
+    [self resetContent:lab start:0 length:[lab.text length]];
+    return lab;
+}
+
+//自适应计算间距
+- ( void )resetContent:(UILabel *)contentLabel start:(int)iStart length:(NSUInteger)iLength{
+    NSMutableAttributedString *attributedString = [[ NSMutableAttributedString alloc ] initWithString : contentLabel.text ];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[ NSMutableParagraphStyle alloc ] init ];
+    
+    paragraphStyle.alignment = NSTextAlignmentLeft ;
+    
+    [paragraphStyle setFirstLineHeadIndent:16]; //首行缩进16个像素
+    
+    if (iStart > 0) {
+        [attributedString addAttribute:NSForegroundColorAttributeName
+                                 value:[UIColor colorWithHexString:@"ED6122"]
+                                 range:NSMakeRange(iStart, iLength)];
+        
+    }
+    
+    [attributedString addAttribute : NSParagraphStyleAttributeName value:paragraphStyle range : NSMakeRange (0 , [contentLabel.text length])];
+    
+    contentLabel.attributedText = attributedString;
+    
+    [contentLabel sizeToFit];
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 5) {
@@ -305,11 +434,13 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_currentIndex]];
 
     if (_currentIndex == 0) {
-        _startTime = [NSString stringWithFormat:@"请假开始时间:%@", strDate];
+        //_startTime = [NSString stringWithFormat:@"请假开始时间:%@", strDate];
+        _startTime = strDate;
         cell.textLabel.text = _startTime;
 
     }else if(_currentIndex == 1) {
-        _endTime = [NSString stringWithFormat:@"请假结束时间:%@", strDate];
+        //_endTime = [NSString stringWithFormat:@"请假结束时间:%@", strDate];
+        _endTime = strDate;
         cell.textLabel.text = _endTime;
 
     }

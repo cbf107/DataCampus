@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0C1F931CF5E0FF00CDAFBB /* MMCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1F921CF5E0FF00CDAFBB /* MMCell2.m */; };
 		9C1B02D91C1E79C600D6C3AD /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B02D81C1E79C600D6C3AD /* InfoTableViewCell.m */; };
 		9C1B02DC1C1E7A8600D6C3AD /* ClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B02DB1C1E7A8600D6C3AD /* ClassInfo.m */; };
 		9C1B02EA1C21518300D6C3AD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1B02E91C21518300D6C3AD /* Setting.storyboard */; };
@@ -312,6 +313,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C0C1F911CF5E0FF00CDAFBB /* MMCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCell2.h; sourceTree = "<group>"; };
+		9C0C1F921CF5E0FF00CDAFBB /* MMCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCell2.m; sourceTree = "<group>"; };
 		9C1B02D71C1E79C600D6C3AD /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
 		9C1B02D81C1E79C600D6C3AD /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
 		9C1B02DA1C1E7A8600D6C3AD /* ClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfo.h; sourceTree = "<group>"; };
@@ -1018,6 +1021,8 @@
 		9C82B57A1CF330F6006400AD /* Leave */ = {
 			isa = PBXGroup;
 			children = (
+				9C0C1F911CF5E0FF00CDAFBB /* MMCell2.h */,
+				9C0C1F921CF5E0FF00CDAFBB /* MMCell2.m */,
 				9C82B59A1CF479AD006400AD /* SearchVC.h */,
 				9C82B59B1CF479AD006400AD /* SearchVC.m */,
 				9C82B5971CF43BAB006400AD /* LeaveImgCell.h */,
@@ -2458,6 +2463,7 @@
 				9C82B59C1CF479AD006400AD /* SearchVC.m in Sources */,
 				9CE0CC761C0DE0380059C247 /* UIWebView+AFNetworking.m in Sources */,
 				9CE0CCA01C0DE0380059C247 /* CustomPickerView.m in Sources */,
+				9C0C1F931CF5E0FF00CDAFBB /* MMCell2.m in Sources */,
 				9CEAE86A1C48D97000978887 /* PBScrollView.m in Sources */,
 				9CEAE8651C48D97000978887 /* PhotoModel.m in Sources */,
 				9CCD8AAC1C34FB5D00AED8B4 /* SchoolNewsRequest.m in Sources */,
@@ -2697,7 +2703,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "2420f973-4e3b-4ae3-a148-476a29307c70";
+				PROVISIONING_PROFILE = "1a019ea3-bb80-4b1c-ae3f-8b42d9bd2e86";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2729,8 +2735,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: cbf107@163.com (M5LHPTZ47M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DataSchool/CasuallyStop.pch";
 				INFOPLIST_FILE = DataSchool/Info.plist;
@@ -2741,7 +2747,7 @@
 					"$(PROJECT_DIR)/DataSchool/Library/ChatLib/AudioRecord/opencore_amr/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2420f973-4e3b-4ae3-a148-476a29307c70";
+				PROVISIONING_PROFILE = "1a019ea3-bb80-4b1c-ae3f-8b42d9bd2e86";
 			};
 			name = Release;
 		};
