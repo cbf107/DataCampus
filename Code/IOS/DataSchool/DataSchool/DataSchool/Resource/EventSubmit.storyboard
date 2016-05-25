@@ -224,28 +224,6 @@
                                             </mask>
                                         </variation>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYS-qb-e1s">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="93" id="0gT-RE-F41"/>
-                                            <constraint firstAttribute="width" constant="94" id="5Hy-Q0-04d"/>
-                                        </constraints>
-                                        <state key="normal" image="topic_photo_img">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="0gT-RE-F41"/>
-                                                <exclude reference="5Hy-Q0-04d"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="0gT-RE-F41"/>
-                                                <include reference="5Hy-Q0-04d"/>
-                                            </mask>
-                                        </variation>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee6-Og-CEd">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <constraints>
@@ -488,6 +466,28 @@
                                             </mask>
                                         </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYS-qb-e1s">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="93" id="0gT-RE-F41"/>
+                                            <constraint firstAttribute="width" constant="94" id="5Hy-Q0-04d"/>
+                                        </constraints>
+                                        <state key="normal" image="topic_photo_img">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0gT-RE-F41"/>
+                                                <exclude reference="5Hy-Q0-04d"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="0gT-RE-F41"/>
+                                                <include reference="5Hy-Q0-04d"/>
+                                            </mask>
+                                        </variation>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -558,7 +558,6 @@
                                         <exclude reference="ZBs-VV-TrW"/>
                                         <exclude reference="1gE-KW-DqZ"/>
                                         <exclude reference="2EY-UU-39h"/>
-                                        <exclude reference="tYS-qb-e1s"/>
                                         <exclude reference="Ee6-Og-CEd"/>
                                         <exclude reference="IPc-oR-2xC"/>
                                         <exclude reference="wrS-kr-wbg"/>
@@ -570,6 +569,7 @@
                                         <exclude reference="7WR-u9-MOM"/>
                                         <exclude reference="jBD-KY-2CY"/>
                                         <exclude reference="CRP-I7-Cda"/>
+                                        <exclude reference="tYS-qb-e1s"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="281-R9-QoG"/>
@@ -625,7 +625,6 @@
                                         <include reference="ZBs-VV-TrW"/>
                                         <include reference="1gE-KW-DqZ"/>
                                         <include reference="2EY-UU-39h"/>
-                                        <include reference="tYS-qb-e1s"/>
                                         <include reference="Ee6-Og-CEd"/>
                                         <include reference="IPc-oR-2xC"/>
                                         <include reference="wrS-kr-wbg"/>
@@ -637,6 +636,7 @@
                                         <include reference="7WR-u9-MOM"/>
                                         <include reference="jBD-KY-2CY"/>
                                         <include reference="CRP-I7-Cda"/>
+                                        <include reference="tYS-qb-e1s"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="281-R9-QoG"/>
