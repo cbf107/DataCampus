@@ -42,6 +42,7 @@
 #import "SysRequest.h"
 #import "UIImage+Extended.h"
 #import "MMCell.h"
+#import "TeacherLeaveVC.h"
 
 @implementation MenuViewController
 @synthesize mTableView = _mTableView;
@@ -215,17 +216,55 @@
     if (cell == nil) {
         cell = [[MMCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 
+        //表示已读，未读红点
         UIImage* image = [UIImage imageNamed:@"redbubble_bg.png"];
         UIImageView *icon = [[UIImageView alloc] initWithImage:image];
-        icon.frame = CGRectMake(100, 15, 10, 10);
+        /*icon.frame = CGRectMake(self.view.frame.size.width - 90,
+                                20,
+                                10,
+                                10);*/
+        
         icon.tag = 3;
         [cell.contentView addSubview:icon];
         icon.hidden = YES;
+
     }
     
     Menu *meunItem = _mMenuArr[indexPath.row];
     cell.textLabel.text = meunItem.MenuName;
     
+    CGSize fontSize =[cell.textLabel.text sizeWithFont:cell.textLabel.font
+                                            forWidth:cell.textLabel.frame.size.width
+                                       lineBreakMode:NSLineBreakByTruncatingTail];
+    UIImageView *icon = (UIImageView *)[cell.contentView viewWithTag:3];
+    icon.frame = CGRectMake(fontSize.width + 70,
+                            20,
+                            10,
+                            10);
+    
+    if ([meunItem.MenuFunction isEqualToString:@"SchoolNew"]) {
+        if (_iNewsRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
+    }else if ([meunItem.MenuFunction isEqualToString:@"Album"]) {
+        if (_iAlbumRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
+    }else if ([meunItem.MenuFunction isEqualToString:@"ClassNotice"]) {
+        if (_iNoticeRead) {
+            icon.hidden = NO;
+        }else{
+            icon.hidden = YES;
+        }
+    }
+
+    
+    
+    //左边图标
     NSString *strURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest,meunItem.MenuImage];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:strURL] placeholderImage:[UIImage imageNamed:@"menu_icon_default"]];
     
@@ -252,27 +291,6 @@
     [arrowIcon setImage:[UIImage imageNamed:@"arrowIcon"]];
     [cell addSubview:arrowIcon];
     
-    UIImageView *icon = (UIImageView *)[cell.contentView viewWithTag:3];
-
-    if ([meunItem.MenuFunction isEqualToString:@"SchoolNew"]) {
-        if (_iNewsRead) {
-            icon.hidden = NO;
-        }else{
-            icon.hidden = YES;
-        }
-    }else if ([meunItem.MenuFunction isEqualToString:@"Album"]) {
-        if (_iAlbumRead) {
-            icon.hidden = NO;
-        }else{
-            icon.hidden = YES;
-        }
-    }else if ([meunItem.MenuFunction isEqualToString:@"ClassNotice"]) {
-        if (_iNoticeRead) {
-            icon.hidden = NO;
-        }else{
-            icon.hidden = YES;
-        }
-    }
     
     //cell.textLabel.text = [NSString stringWithFormat:@"%ld:%ld", (long)indexPath.section-1, (long)indexPath.row];
     
@@ -330,7 +348,15 @@
                 event.title = menuItem.MenuName;
                 
                 //[((UINavigationController*)controller.centerController) pushViewController:evaluate animated:YES];
-            }else{
+            }else if([menuItem.MenuFunction isEqualToString:@"TeacherAttendance"]){
+                TeacherLeaveVC *leaveVC = (TeacherLeaveVC *)[UIViewController viewControllerWithStoryboard:@"TeacherLeave" identifier:@"TeacherLeaveVC"];
+                UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:leaveVC];
+                self.viewDeckController.centerController = navController;
+                leaveVC.title = menuItem.MenuName;
+            }
+            
+            
+            else{
                 /*UITableViewController* cc = (UITableViewController*)((UINavigationController*)controller.centerController).topViewController;
                 cc.navigationItem.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
                 if ([cc respondsToSelector:@selector(tableView)]) {

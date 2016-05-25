@@ -1,7 +1,277 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="KEH-KU-YKe">
+            <objects>
+                <tableViewController storyboardIdentifier="TeacherLeaveVC" id="9cY-gk-HEG" customClass="TeacherLeaveVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="DJ1-U5-58a">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveTimeCell" rowHeight="57" id="Ke2-BR-02R" customClass="LeaveTimeCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ke2-BR-02R" id="vZm-dl-4de">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="JJ6-cO-gz1" customClass="LeaveTimeCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JJ6-cO-gz1" id="JoC-p9-KTC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveTypeCell" rowHeight="57" id="oXr-6c-ziA" customClass="LeaveTypeCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oXr-6c-ziA" id="xlr-IA-71Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nus-j7-mbM">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" title="公假"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="20" y="0.0" width="127" height="56"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="onSelectData:" destination="9cY-gk-HEG" eventType="touchUpInside" id="64x-S4-AGZ"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="总共请假时间" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sF5-8O-5GR">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="189" y="8" width="96" height="40"/>
+                                            </variation>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2i-iV-Uc6">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="291" y="0.0" width="20" height="56"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Nus-j7-mbM"/>
+                                            <exclude reference="sF5-8O-5GR"/>
+                                            <exclude reference="T2i-iV-Uc6"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="Nus-j7-mbM"/>
+                                            <include reference="sF5-8O-5GR"/>
+                                            <include reference="T2i-iV-Uc6"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mBtnType" destination="Nus-j7-mbM" id="pC4-zK-acX"/>
+                                    <outlet property="mFieldTime" destination="sF5-8O-5GR" id="rf3-da-AUj"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveMsgCell" rowHeight="110" id="jD8-fi-zn4" customClass="LeaveMsgCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jD8-fi-zn4" id="41q-UQ-TNh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请假描述" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-ol-h4K">
+                                            <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="8" y="8" width="384" height="93"/>
+                                            </variation>
+                                        </textField>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="aJJ-ol-h4K"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="aJJ-ol-h4K"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mFieldMsg" destination="aJJ-ol-h4K" id="gW4-As-SKc"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveImgCell" rowHeight="119" id="l4d-o9-5bE" customClass="LeaveImgCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l4d-o9-5bE" id="Tjx-Jb-IN4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZ7-zO-Jcv">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_photo_img"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="24" y="9" width="100" height="100"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbm-Nk-SmL">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_delete_icon"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="107" y="9" width="17" height="22"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPO-fh-lz4">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_photo_img"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="150" y="10" width="100" height="100"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rl-8z-tQf">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_delete_icon"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="233" y="10" width="17" height="22"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6X-u2-NJZ">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_photo_img"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="283" y="10" width="100" height="100"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Kl-HN-Sqw">
+                                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                            <state key="normal" image="topic_delete_icon"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="366" y="10" width="17" height="22"/>
+                                            </variation>
+                                        </button>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="KZ7-zO-Jcv"/>
+                                            <exclude reference="Dbm-Nk-SmL"/>
+                                            <exclude reference="gPO-fh-lz4"/>
+                                            <exclude reference="5rl-8z-tQf"/>
+                                            <exclude reference="m6X-u2-NJZ"/>
+                                            <exclude reference="9Kl-HN-Sqw"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="KZ7-zO-Jcv"/>
+                                            <include reference="Dbm-Nk-SmL"/>
+                                            <include reference="gPO-fh-lz4"/>
+                                            <include reference="5rl-8z-tQf"/>
+                                            <include reference="m6X-u2-NJZ"/>
+                                            <include reference="9Kl-HN-Sqw"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mImageBtn1" destination="KZ7-zO-Jcv" id="dgz-ba-3ho"/>
+                                    <outlet property="mImageBtn2" destination="gPO-fh-lz4" id="HuZ-Zi-AEG"/>
+                                    <outlet property="mImageBtn3" destination="m6X-u2-NJZ" id="vVB-DB-EPu"/>
+                                    <outlet property="mImageDelBtn1" destination="Dbm-Nk-SmL" id="MiP-kJ-i9g"/>
+                                    <outlet property="mImageDelBtn2" destination="5rl-8z-tQf" id="e8y-bb-Avc"/>
+                                    <outlet property="mImageDelBtn3" destination="9Kl-HN-Sqw" id="hwZ-m7-ABd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaveFlowCell" rowHeight="60" id="TID-or-t9b" customClass="LeaveFlowCell">
+                                <rect key="frame" x="0.0" y="92" width="600" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TID-or-t9b" id="KzW-Qa-2JP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gh-1l-fmJ">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="28" y="0.0" width="124" height="59"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egZ-Em-B22">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="247" y="0.0" width="107" height="59"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="2Gh-1l-fmJ"/>
+                                            <exclude reference="egZ-Em-B22"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="2Gh-1l-fmJ"/>
+                                            <include reference="egZ-Em-B22"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mNameLabel" destination="egZ-Em-B22" id="GoE-45-ukG"/>
+                                    <outlet property="mWorkLabel" destination="2Gh-1l-fmJ" id="ch5-JI-Gly"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="9cY-gk-HEG" id="fNd-NH-P7q"/>
+                            <outlet property="delegate" destination="9cY-gk-HEG" id="NmX-Aa-hxL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ifb-HG-Gt7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CW2-Uq-moL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165" y="220"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Cpr-U9-caA">
+            <objects>
+                <navigationController storyboardIdentifier="TeacherLeave" id="YUu-i2-AIe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L4B-1Q-QxX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9cY-gk-HEG" kind="relationship" relationship="rootViewController" id="kAY-9f-U0n"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IxH-2W-HVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655" y="220"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="topic_delete_icon" width="17" height="17"/>
+        <image name="topic_photo_img" width="100" height="100"/>
+    </resources>
 </document>

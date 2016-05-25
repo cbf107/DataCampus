@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ZHPickView.h"
+#import "PopDatePickerView.h"
+#import "SearchVC.h"
 
-@interface FillPersonInfoVC : UITableViewController<UIActionSheetDelegate, UITextFieldDelegate, ZHPickViewDelegate>
+@interface TeacherLeaveVC : UITableViewController<UIActionSheetDelegate, UITextFieldDelegate, ZHPickViewDelegate, PopDatePickerViewDelegate, SearchVCDelegate>
 
 @end

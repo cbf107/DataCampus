@@ -19,6 +19,7 @@
 #import "AlbumViewController.h"
 #import "UniversalVC.h"
 #import "EventSubmitVC.h"
+#import "TeacherLeaveVC.h"
 
 @interface AppDelegate ()
 
@@ -44,7 +45,7 @@
 
     [UserManager userManager];
     
-    //[self checkUpdate];
+    [self checkUpdate];
 
     if ([UserManager isLogin]) {
         [self launchToMainPage];
@@ -160,6 +161,10 @@
             EventSubmitVC *eventVC = (EventSubmitVC *)[UIViewController viewControllerWithStoryboard:@"EventSubmit" identifier:@"EventSubmitVC"];
             centerController = [[UINavigationController alloc] initWithRootViewController:eventVC];
             eventVC.title = menuItem.MenuName;
+        }else if([menuItem.MenuFunction isEqualToString:@"TeacherAttendance"]){
+            TeacherLeaveVC *leaveVC = (TeacherLeaveVC *)[UIViewController viewControllerWithStoryboard:@"TeacherLeave" identifier:@"TeacherLeaveVC"];
+            centerController = [[UINavigationController alloc] initWithRootViewController:leaveVC];
+            leaveVC.title = menuItem.MenuName;
         }
         
         leftController.mMenuArr = userMenu.Menus;
@@ -219,7 +224,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         NSString *AppStoreVersion = nil;
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=1035167299"]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=1110237739"]];
         NSError *error=nil;
         NSString* versionRequest = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
         if (!error) {
@@ -269,7 +274,9 @@
     if (alertView.tag == 530) {
         if (buttonIndex != alertView.cancelButtonIndex) {
             
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/bao-le/id1035167299?l=zh&ls=1&mt=8"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/qi-zhong-fu-xiao/id1110237739?l=zh&ls=1&mt=8"]];
+            
+            
         }
     }
 }
