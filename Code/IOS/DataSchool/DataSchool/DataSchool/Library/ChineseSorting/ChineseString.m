@@ -9,7 +9,7 @@
 #import "ChineseString.h"
 
 @implementation ChineseString
-@synthesize addressBook;
+@synthesize leaveTeacher;
 @synthesize pinYin;
 
 #pragma mark - 返回tableview右方 indexArray
@@ -47,7 +47,7 @@
     for (NSString* object in tempArray) {
         if (((ChineseString*)object).pinYin.length > 0) {
             NSString *pinyin = [((ChineseString*)object).pinYin substringToIndex:1];
-            TKAddressBook *contact = ((ChineseString*)object).addressBook;
+            LeaveTeacher *contact = ((ChineseString*)object).leaveTeacher;
             //不同
             if(![tempString isEqualToString:pinyin])
             {
@@ -92,35 +92,35 @@
         //TKAddressBook *sContact = [contactArr objectAtIndex:i];
         //chineseString.addressBook.name=sContact.name;
         
-        TKAddressBook *sContact = [contactArr objectAtIndex:i];
-        chineseString.addressBook = sContact;
-        if(chineseString.addressBook.name.length == 0){
-            chineseString.addressBook.name=@"";
+        LeaveTeacher *sContact = [contactArr objectAtIndex:i];
+        chineseString.leaveTeacher = sContact;
+        if(chineseString.leaveTeacher.TeacherName.length == 0){
+            chineseString.leaveTeacher.TeacherName=@"";
         }
         //去除两端空格和回车
-        chineseString.addressBook.name  = [chineseString.addressBook.name stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        chineseString.leaveTeacher.TeacherName  = [chineseString.leaveTeacher.TeacherName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         //这里我自己写了一个递归过滤指定字符串   RemoveSpecialCharacter
-        chineseString.addressBook.name =[ChineseString RemoveSpecialCharacter:chineseString.addressBook.name];
+        chineseString.leaveTeacher.TeacherName =[ChineseString RemoveSpecialCharacter:chineseString.leaveTeacher.TeacherName];
         // NSLog(@"string====%@",chineseString.string);
         
         
         //判断首字符是否为字母
         NSString *regex = @"[A-Za-z]+";
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
-        NSString *initialStr = [chineseString.addressBook.name length]?[chineseString.addressBook.name substringToIndex:1]:@"";
+        NSString *initialStr = [chineseString.leaveTeacher.TeacherName length]?[chineseString.leaveTeacher.TeacherName substringToIndex:1]:@"";
         if ([predicate evaluateWithObject:initialStr])
         {
-            NSLog(@"chineseString.string== %@",chineseString.addressBook.name);
+            NSLog(@"chineseString.string== %@",chineseString.leaveTeacher.TeacherName);
             //首字母大写
-            chineseString.pinYin = [chineseString.addressBook.name capitalizedString] ;
+            chineseString.pinYin = [chineseString.leaveTeacher.TeacherName capitalizedString] ;
         }else{
-            if(![chineseString.addressBook.name isEqualToString:@""]){
+            if(![chineseString.leaveTeacher.TeacherName isEqualToString:@""]){
                 NSString *pinYinResult=[NSString string];
-                for(int j=0;j<chineseString.addressBook.name.length;j++){
+                for(int j=0;j<chineseString.leaveTeacher.TeacherName.length;j++){
                     NSString *singlePinyinLetter=[[NSString stringWithFormat:@"%c",
                                                    
-                                                   pinyinFirstLetter([chineseString.addressBook.name characterAtIndex:j])]uppercaseString];
+                                                   pinyinFirstLetter([chineseString.leaveTeacher.TeacherName characterAtIndex:j])]uppercaseString];
                     //                    NSLog(@"singlePinyinLetter ==%@",singlePinyinLetter);
                     
                     pinYinResult=[pinYinResult stringByAppendingString:singlePinyinLetter];
@@ -154,7 +154,7 @@
     //把排序好的内容从ChineseString类中提取出来
     NSMutableArray *result=[NSMutableArray array];
     for(int i=0;i<[contactArr count];i++){
-        [result addObject:((ChineseString*)[tempArray objectAtIndex:i]).addressBook.name];
+        [result addObject:((ChineseString*)[tempArray objectAtIndex:i]).leaveTeacher.TeacherName];
     }
     return result;
 }

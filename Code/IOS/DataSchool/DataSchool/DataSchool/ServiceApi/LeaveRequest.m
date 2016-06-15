@@ -104,7 +104,7 @@
              @"StartDateTime":self.StartDateTime?:[NSNull null],
              @"EndDateTime":self.EndDateTime?:[NSNull null],
              @"AttendanceCount":self.AttendanceCount?:[NSNull null],
-             @"Works":[NSNull null]};
+             @"Works":self.Works?:[NSNull null]};
     
 }
 

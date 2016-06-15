@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		9C0C1F931CF5E0FF00CDAFBB /* MMCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1F921CF5E0FF00CDAFBB /* MMCell2.m */; };
+		9C0C1FAC1CFA015D00CDAFBB /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0C1FAB1CFA015D00CDAFBB /* AddressBook.framework */; };
+		9C0C1FAE1CFA016C00CDAFBB /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C0C1FAD1CFA016C00CDAFBB /* AddressBookUI.framework */; };
+		9C0C1FB61CFA095600CDAFBB /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1FB11CFA095600CDAFBB /* ChineseString.m */; };
+		9C0C1FB71CFA095600CDAFBB /* CityString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1FB31CFA095600CDAFBB /* CityString.m */; };
+		9C0C1FBD1CFA0B4400CDAFBB /* CommPropData.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1FBA1CFA0B4400CDAFBB /* CommPropData.m */; };
+		9C0C1FBE1CFA0B4400CDAFBB /* TKAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C1FBC1CFA0B4400CDAFBB /* TKAddressBook.m */; };
 		9C1B02D91C1E79C600D6C3AD /* InfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B02D81C1E79C600D6C3AD /* InfoTableViewCell.m */; };
 		9C1B02DC1C1E7A8600D6C3AD /* ClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1B02DB1C1E7A8600D6C3AD /* ClassInfo.m */; };
 		9C1B02EA1C21518300D6C3AD /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C1B02E91C21518300D6C3AD /* Setting.storyboard */; };
@@ -315,6 +321,16 @@
 /* Begin PBXFileReference section */
 		9C0C1F911CF5E0FF00CDAFBB /* MMCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCell2.h; sourceTree = "<group>"; };
 		9C0C1F921CF5E0FF00CDAFBB /* MMCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCell2.m; sourceTree = "<group>"; };
+		9C0C1FAB1CFA015D00CDAFBB /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		9C0C1FAD1CFA016C00CDAFBB /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		9C0C1FB01CFA095600CDAFBB /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
+		9C0C1FB11CFA095600CDAFBB /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
+		9C0C1FB21CFA095600CDAFBB /* CityString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityString.h; sourceTree = "<group>"; };
+		9C0C1FB31CFA095600CDAFBB /* CityString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityString.m; sourceTree = "<group>"; };
+		9C0C1FB91CFA0B4400CDAFBB /* CommPropData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommPropData.h; sourceTree = "<group>"; };
+		9C0C1FBA1CFA0B4400CDAFBB /* CommPropData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommPropData.m; sourceTree = "<group>"; };
+		9C0C1FBB1CFA0B4400CDAFBB /* TKAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKAddressBook.h; sourceTree = "<group>"; };
+		9C0C1FBC1CFA0B4400CDAFBB /* TKAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAddressBook.m; sourceTree = "<group>"; };
 		9C1B02D71C1E79C600D6C3AD /* InfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTableViewCell.h; sourceTree = "<group>"; };
 		9C1B02D81C1E79C600D6C3AD /* InfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTableViewCell.m; sourceTree = "<group>"; };
 		9C1B02DA1C1E7A8600D6C3AD /* ClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassInfo.h; sourceTree = "<group>"; };
@@ -868,6 +884,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C0C1FAE1CFA016C00CDAFBB /* AddressBookUI.framework in Frameworks */,
+				9C0C1FAC1CFA015D00CDAFBB /* AddressBook.framework in Frameworks */,
 				9CD99B8C1CA69C7E002C9531 /* AVFoundation.framework in Frameworks */,
 				9CE0CCB71C0DE1680059C247 /* libz.dylib in Frameworks */,
 				9CF14BB01C58776300303F77 /* libopencore-amrnb.a in Frameworks */,
@@ -891,6 +909,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C0C1FAF1CFA095600CDAFBB /* ChineseSorting */ = {
+			isa = PBXGroup;
+			children = (
+				9C0C1FB01CFA095600CDAFBB /* ChineseString.h */,
+				9C0C1FB11CFA095600CDAFBB /* ChineseString.m */,
+				9C0C1FB21CFA095600CDAFBB /* CityString.h */,
+				9C0C1FB31CFA095600CDAFBB /* CityString.m */,
+			);
+			path = ChineseSorting;
+			sourceTree = "<group>";
+		};
 		9C1B02EB1C2153BE00D6C3AD /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +938,10 @@
 		9C39ACBC1C128F2A0068189B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9C0C1FB91CFA0B4400CDAFBB /* CommPropData.h */,
+				9C0C1FBA1CFA0B4400CDAFBB /* CommPropData.m */,
+				9C0C1FBB1CFA0B4400CDAFBB /* TKAddressBook.h */,
+				9C0C1FBC1CFA0B4400CDAFBB /* TKAddressBook.m */,
 				9C82B5941CF3FE31006400AD /* LeaveInfo.h */,
 				9C82B5951CF3FE31006400AD /* LeaveInfo.m */,
 				9CD99B941CA6CE28002C9531 /* EventType.h */,
@@ -1203,6 +1236,7 @@
 		9CE0CB241C0DE0370059C247 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				9C0C1FAF1CFA095600CDAFBB /* ChineseSorting */,
 				9CF14B671C58776300303F77 /* ChatLib */,
 				9CEAE7CE1C48D97000978887 /* CorePhotoBroswerVC */,
 				9CC577C51C180559001C7217 /* RSKImageCropper */,
@@ -1693,6 +1727,8 @@
 				9CE0CCB41C0DE15E0059C247 /* libstdc++.dylib */,
 				9CE0CCB21C0DE1520059C247 /* libicucore.dylib */,
 				9CE0CCB01C0DE1480059C247 /* libsqlite3.dylib */,
+				9C0C1FAD1CFA016C00CDAFBB /* AddressBookUI.framework */,
+				9C0C1FAB1CFA015D00CDAFBB /* AddressBook.framework */,
 				9CD99B8B1CA69C7E002C9531 /* AVFoundation.framework */,
 				9CE0CCAE1C0DE13E0059C247 /* Security.framework */,
 				9CE0CCAC1C0DE1370059C247 /* ImageIO.framework */,
@@ -2383,6 +2419,7 @@
 				9CEAE8481C48D97000978887 /* NSArray+Extend.m in Sources */,
 				9CE0CC771C0DE0380059C247 /* YTKBaseRequest.m in Sources */,
 				9CE0CC5E1C0DE0380059C247 /* MJRefreshBaseView.m in Sources */,
+				9C0C1FBD1CFA0B4400CDAFBB /* CommPropData.m in Sources */,
 				9CEAE84E1C48D97000978887 /* UIDevice+Extend.m in Sources */,
 				9CEAE85E1C48D97000978887 /* SVIndefiniteAnimatedView.m in Sources */,
 				9CE0CC2E1C0DE0370059C247 /* UIAlertView+GNUtil.m in Sources */,
@@ -2395,6 +2432,7 @@
 				9C1B02D91C1E79C600D6C3AD /* InfoTableViewCell.m in Sources */,
 				9CE0CC4A1C0DE0380059C247 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				9CEAE86E1C48D97000978887 /* PhotoBroswerVC.m in Sources */,
+				9C0C1FBE1CFA0B4400CDAFBB /* TKAddressBook.m in Sources */,
 				9CE0CC521C0DE0380059C247 /* JSBadgeView.m in Sources */,
 				9CF14BB61C58776300303F77 /* ChatMessage.m in Sources */,
 				9CE0CC891C0DE0380059C247 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2426,6 +2464,7 @@
 				9CEAE84C1C48D97000978887 /* NSString+Password.m in Sources */,
 				9CE0CC811C0DE0380059C247 /* SDWebImageDecoder.m in Sources */,
 				9CEAE8491C48D97000978887 /* NSDate+Extend.m in Sources */,
+				9C0C1FB71CFA095600CDAFBB /* CityString.m in Sources */,
 				9CEAE8631C48D97000978887 /* PBConst.m in Sources */,
 				9C1B02FB1C215A6000D6C3AD /* SettingWebVC.m in Sources */,
 				9CE0CC431C0DE0370059C247 /* ViewContainer.m in Sources */,
@@ -2585,6 +2624,7 @@
 				9C1B02F41C21540C00D6C3AD /* GNKeyboardUtil.m in Sources */,
 				9CEAE86B1C48D97000978887 /* PhotoImageView.m in Sources */,
 				9CDAB6B11CD8B58A009DEDE9 /* MMCell.m in Sources */,
+				9C0C1FB61CFA095600CDAFBB /* ChineseString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2666,7 +2706,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2420f973-4e3b-4ae3-a148-476a29307c70";
+				PROVISIONING_PROFILE = "2fe62bad-e0ae-4b08-939b-41826a39c789";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2703,7 +2743,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "1a019ea3-bb80-4b1c-ae3f-8b42d9bd2e86";
+				PROVISIONING_PROFILE = "3b5b302d-9d1e-4283-8483-d20057e2181f";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2726,7 +2766,7 @@
 					"$(PROJECT_DIR)/DataSchool/Library/ChatLib/AudioRecord/opencore_amr/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2420f973-4e3b-4ae3-a148-476a29307c70";
+				PROVISIONING_PROFILE = "2fe62bad-e0ae-4b08-939b-41826a39c789";
 			};
 			name = Debug;
 		};
@@ -2747,7 +2787,7 @@
 					"$(PROJECT_DIR)/DataSchool/Library/ChatLib/AudioRecord/opencore_amr/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1a019ea3-bb80-4b1c-ae3f-8b42d9bd2e86";
+				PROVISIONING_PROFILE = "3b5b302d-9d1e-4283-8483-d20057e2181f";
 			};
 			name = Release;
 		};
@@ -2781,6 +2821,7 @@
 				INFOPLIST_FILE = DataSchoolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4a2d8a86-f1c4-487f-849e-b8573e5f7089";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataSchool.app/DataSchool";
 			};
 			name = Release;

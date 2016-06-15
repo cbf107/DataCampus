@@ -15,4 +15,7 @@
 @property ( nonatomic , copy ) NSString *mTitle;
 @property (nonatomic, weak) id <SearchVCDelegate> delegate;
 
+@property(nonatomic,retain) NSMutableArray *indexArray;
+@property(nonatomic,retain) NSMutableArray *LetterResultArr;
+
 @end

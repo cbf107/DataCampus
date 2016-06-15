@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "pinyin.h"
-#import "TKAddressBook.h"
+#import "LeaveInfo.h"
 
 @interface ChineseString : NSObject
-@property(retain,nonatomic)TKAddressBook *addressBook;
+@property(retain,nonatomic)LeaveTeacher *leaveTeacher;
 @property(retain,nonatomic)NSString *pinYin;
 
 //-----  返回tableview右方indexArray

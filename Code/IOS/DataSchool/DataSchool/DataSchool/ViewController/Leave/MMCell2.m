@@ -19,5 +19,11 @@
     self.imageView.image = [UIImage imageNamed:@"schoolIcon"];
     [super layoutSubviews];
     self.imageView.image = img;
+
+    self.imageView.layer.cornerRadius = 40;
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.contentMode = UIViewContentModeScaleToFill;
+    
 }
+
 @end

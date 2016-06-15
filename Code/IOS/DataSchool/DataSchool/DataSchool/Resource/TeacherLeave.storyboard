@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -83,7 +84,7 @@
                                                 <constraint firstAttribute="width" constant="117" id="4q8-7l-RC4"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="4q8-7l-RC4"/>
@@ -115,12 +116,12 @@
                                             <exclude reference="sF5-8O-5GR"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="kg0-zR-l0C"/>
-                                            <exclude reference="qFC-DR-ZMY"/>
-                                            <exclude reference="zeU-BM-FMr"/>
                                             <exclude reference="0lN-v5-Asp"/>
                                             <exclude reference="TnO-Ns-A6k"/>
                                             <exclude reference="Vat-k5-oQf"/>
+                                            <exclude reference="kg0-zR-l0C"/>
+                                            <exclude reference="qFC-DR-ZMY"/>
+                                            <exclude reference="zeU-BM-FMr"/>
                                             <exclude reference="FGn-NQ-e6I"/>
                                             <exclude reference="Fd1-wr-fVK"/>
                                             <exclude reference="Xs2-cB-2o5"/>
@@ -134,12 +135,12 @@
                                             <include reference="sF5-8O-5GR"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="kg0-zR-l0C"/>
-                                            <include reference="qFC-DR-ZMY"/>
-                                            <include reference="zeU-BM-FMr"/>
                                             <include reference="0lN-v5-Asp"/>
                                             <include reference="TnO-Ns-A6k"/>
                                             <exclude reference="Vat-k5-oQf"/>
+                                            <include reference="kg0-zR-l0C"/>
+                                            <include reference="qFC-DR-ZMY"/>
+                                            <include reference="zeU-BM-FMr"/>
                                             <include reference="FGn-NQ-e6I"/>
                                             <include reference="Fd1-wr-fVK"/>
                                             <include reference="Xs2-cB-2o5"/>
@@ -162,7 +163,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请假描述" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-ol-h4K">
                                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
@@ -357,21 +358,21 @@
                                             <exclude reference="Dbm-Nk-SmL"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <exclude reference="YTg-c8-8dN"/>
+                                            <exclude reference="zyW-Vi-8Tq"/>
+                                            <exclude reference="L2D-5V-2F1"/>
+                                            <exclude reference="hht-ZO-3iN"/>
+                                            <exclude reference="1cK-Xj-eeH"/>
+                                            <exclude reference="73B-dS-3Iy"/>
                                             <exclude reference="BcD-k4-Bpb"/>
                                             <exclude reference="Wzi-Ky-vRN"/>
                                             <exclude reference="ecr-ZA-Qfi"/>
-                                            <exclude reference="1cK-Xj-eeH"/>
-                                            <exclude reference="73B-dS-3Iy"/>
                                             <exclude reference="dJB-B7-xAN"/>
                                             <exclude reference="dv8-u3-LDl"/>
                                             <exclude reference="sWF-2a-Jwd"/>
-                                            <exclude reference="YTg-c8-8dN"/>
-                                            <exclude reference="zyW-Vi-8Tq"/>
                                             <exclude reference="Ixy-MW-SJI"/>
                                             <exclude reference="ZU2-gm-UfQ"/>
                                             <exclude reference="eiO-1y-7tl"/>
-                                            <exclude reference="L2D-5V-2F1"/>
-                                            <exclude reference="hht-ZO-3iN"/>
                                         </mask>
                                     </variation>
                                     <variation key="widthClass=compact">
@@ -384,21 +385,21 @@
                                             <include reference="Dbm-Nk-SmL"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="YTg-c8-8dN"/>
+                                            <include reference="zyW-Vi-8Tq"/>
+                                            <include reference="L2D-5V-2F1"/>
+                                            <include reference="hht-ZO-3iN"/>
+                                            <include reference="1cK-Xj-eeH"/>
+                                            <include reference="73B-dS-3Iy"/>
                                             <include reference="BcD-k4-Bpb"/>
                                             <include reference="Wzi-Ky-vRN"/>
                                             <include reference="ecr-ZA-Qfi"/>
-                                            <include reference="1cK-Xj-eeH"/>
-                                            <include reference="73B-dS-3Iy"/>
                                             <include reference="dJB-B7-xAN"/>
                                             <include reference="dv8-u3-LDl"/>
                                             <include reference="sWF-2a-Jwd"/>
-                                            <include reference="YTg-c8-8dN"/>
-                                            <include reference="zyW-Vi-8Tq"/>
                                             <include reference="Ixy-MW-SJI"/>
                                             <include reference="ZU2-gm-UfQ"/>
                                             <include reference="eiO-1y-7tl"/>
-                                            <include reference="L2D-5V-2F1"/>
-                                            <include reference="hht-ZO-3iN"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>

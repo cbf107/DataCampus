@@ -9,6 +9,7 @@
 #import "LeaveRequest.h"
 #import "LeaveInfo.h"
 #import "MMCell2.h"
+#import "ChineseString.h"
 
 @interface SearchVC()< UITableViewDataSource , UITableViewDelegate , UISearchDisplayDelegate , UISearchBarDelegate >
 
@@ -57,6 +58,9 @@
             [_dataArr addObject:leaveArray[i]];
         }
         
+        self.indexArray = [ChineseString IndexArray:_dataArr];
+        self.LetterResultArr = [ChineseString LetterSortArray:[request parseResult]];
+
         [self.aTableView reloadData];
         
     }failure:^(NSError *err) {
@@ -70,8 +74,8 @@
 -(void)createView
 {
     _aTableView = [[ UITableView alloc ] initWithFrame:CGRectMake (0, 0, self.view.frame.size.width , self.view.frame.size.height )];
-    _aTableView.delegate = self ;
-    _aTableView.dataSource = self ;
+    _aTableView.delegate = self;
+    _aTableView.dataSource = self;
     [self.view addSubview:_aTableView ];
     
     _search = [[ UISearchBar alloc ] initWithFrame:CGRectMake (0, 0, _aTableView.bounds.size.width, 40 )];//self.view.frame.size.width
@@ -90,9 +94,94 @@
 }
 
 #pragma mark -
-/*- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return _search;
-}*/
+#pragma mark Table View Data Source Methods
+#pragma mark -设置右方表格的索引数组
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        return nil;
+    }
+    
+    return _indexArray;
+}
+
+#pragma mark -
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        return 0;
+    }
+
+    return index;
+}
+
+#pragma mark -允许数据源告知必须加载到Table View中的表的Section数。
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        return 1;
+    }
+
+    return [_indexArray count];
+}
+#pragma mark -设置表格的行数为数组的元素个数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    NSInteger row = 0 ;
+    
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        row = [self.resultsArr count];
+    } else {
+        //row = [self.dataArr count];
+        row = [[self.LetterResultArr objectAtIndex:section] count];
+    }
+    
+    return row;
+
+}
+
+#pragma mark -Section的Header的值
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        return @"";
+    }
+
+    NSString *key = [_indexArray objectAtIndex:section];
+    return key;
+}
+
+#pragma mark - Section header view
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
+        return nil;
+    }
+
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    lab.backgroundColor = [UIColor colorWithHexString:@"f7f7f7"];
+    lab.text = [_indexArray objectAtIndex:section];
+    lab.textColor = [UIColor colorWithHexString:@"333e4c"];
+    
+    [self resetContent:lab];
+    return lab;
+}
+
+//自适应计算间距
+- ( void )resetContent:(UILabel *)contentLabel{
+    NSMutableAttributedString *attributedString = [[ NSMutableAttributedString alloc ] initWithString : contentLabel.text ];
+    
+    NSMutableParagraphStyle *paragraphStyle = [[ NSMutableParagraphStyle alloc ] init ];
+    
+    paragraphStyle.alignment = NSTextAlignmentLeft ;
+    
+    [paragraphStyle setFirstLineHeadIndent:16]; //首行缩进16个像素
+    
+    [attributedString addAttribute : NSParagraphStyleAttributeName value:paragraphStyle range : NSMakeRange (0 , [contentLabel.text length])];
+    
+    contentLabel.attributedText = attributedString;
+    
+    [contentLabel sizeToFit];
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,20 +192,7 @@
 #pragma mark UITableViewDelegate
 - (BOOL)searchBarShouldEndEditing:( UISearchBar *)searchBar
 {
-    //[self.navigationController popViewControllerAnimated:YES];
     return YES;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSInteger row = 0 ;
-    
-    if ([tableView isEqual : self.searchPlay.searchResultsTableView ]) {
-        row = [self.resultsArr count];
-    } else {
-        row = [self.dataArr count];
-    }
-    
-    return row;
 }
 
 - ( UITableViewCell *)tableView:( UITableView *)tableView cellForRowAtIndexPath:( NSIndexPath *)indexPath
@@ -136,7 +212,8 @@
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:coverURL] placeholderImage:[UIImage imageNamed:@"schoolIcon"]];
 
     } else {
-        LeaveTeacher *type = [_dataArr objectAtIndex:indexPath.row];
+        //LeaveTeacher *type = [_dataArr objectAtIndex:indexPath.row];
+        LeaveTeacher *type = [[self.LetterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
         cell.textLabel.text = type.TeacherName;
         
         NSString *coverURL = [NSString stringWithFormat:@"%@%@", kServerAddressTest, type.TeacherPic];
@@ -193,7 +270,8 @@
         LeaveTeacher *type = [_resultsArr objectAtIndex:indexPath.row];
         name = type.TeacherName;
     } else {
-        LeaveTeacher *type = [_dataArr objectAtIndex:indexPath.row];
+        LeaveTeacher *type = [[self.LetterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]
+;
         name = type.TeacherName;
     }
     
@@ -203,6 +281,7 @@
 
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end
 

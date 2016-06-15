@@ -9,4 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MMCell2 : UITableViewCell
+
+//@property (nonatomic, retain) UILabel *mTeacherLabel;
+//@property (nonatomic, retain) UIImageView *mTeacherImage;
+
 @end

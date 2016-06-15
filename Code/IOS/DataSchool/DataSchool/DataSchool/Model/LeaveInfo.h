@@ -41,4 +41,5 @@
 @property (nonatomic, copy)NSString *TeacherName;
 @property (nonatomic, copy)NSString *TeacherPic;
 @property (nonatomic, copy)NSString *RefId;
+@property (nonatomic, copy)NSString *FirstLetter;
 @end

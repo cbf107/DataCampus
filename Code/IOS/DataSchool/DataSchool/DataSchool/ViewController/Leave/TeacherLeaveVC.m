@@ -30,6 +30,10 @@
 @property (nonatomic, copy)NSMutableArray *worknameArray;
 
 @property (nonatomic, retain) NSIndexPath *workIndex;
+
+@property (nonatomic, retain) UITextField *commentField;
+@property (nonatomic, retain) UITextField *dayField;
+
 @end
 
 @implementation TeacherLeaveVC
@@ -51,6 +55,12 @@
     
     [self initFooterView];
     [self initWorkInfo];
+    
+    LeaveTypeCell *typeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    LeaveMsgCell *msgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+
+    _dayField = typeCell.mFieldTime;
+    _commentField = msgCell.mFieldMsg;
 }
 
 -(void)initFooterView{
@@ -129,7 +139,7 @@
     
     LeaveMsgCell *msgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
 
-    LeaveImgCell *imgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:4]];
+    LeaveImgCell *imgCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:5]];
 
     LeaveSubmitRequest *request = [[LeaveSubmitRequest alloc]init];
     request.Content = msgCell.mFieldMsg.text;
@@ -249,9 +259,9 @@
     }else if (section == 3){
         lab.text = @"请假内容";
     }else if (section == 4){
-        lab.text = @"上传图片";
-    }else if (section == 5){
         lab.text = @"工作交接";
+    }else if (section == 5){
+        lab.text = @"上传图片";
     }
     
     [self resetContent:lab start:0 length:[lab.text length]];
@@ -284,7 +294,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 5) {
+    if (section == 4) {
         return _workArray.count;
     }
     return 1;
@@ -310,11 +320,11 @@
             
             //请假上传的图片
         case 4:
-            return 120;
+            return 60;
 
             //请假工作安排
         case 5:
-            return 60;
+            return 120;
 
         default:{
             return 0;
@@ -360,18 +370,17 @@
             break;
         
         case 4: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"LeaveImgCell" forIndexPath:indexPath];
+            cell = [tableView dequeueReusableCellWithIdentifier:@"LeaveFlowCell" forIndexPath:indexPath];
+            ((LeaveFlowCell *)cell).mWorkLabel.text = _workArray[indexPath.row];
+            ((LeaveFlowCell *)cell).mNameLabel.text = _nameArray[indexPath.row];
             
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
         }
             break;
     
         case 5: {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"LeaveFlowCell" forIndexPath:indexPath];
-            ((LeaveFlowCell *)cell).mWorkLabel.text = _workArray[indexPath.row];
-            ((LeaveFlowCell *)cell).mNameLabel.text = _nameArray[indexPath.row];
-
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            
+            cell = [tableView dequeueReusableCellWithIdentifier:@"LeaveImgCell" forIndexPath:indexPath];
         }
             break;
 
@@ -418,7 +427,7 @@
         }
         
         
-    }else if (indexPath.section == 5) {
+    }else if (indexPath.section == 4) {
         _workIndex = indexPath;
         
         SearchVC *search = [[SearchVC alloc] init];
@@ -501,6 +510,8 @@
         _mDataPickview = nil;
     }
     
+    [_dayField resignFirstResponder];
+    [_commentField resignFirstResponder];
     [_popDatePickerView setHidden:YES];
 
 }
