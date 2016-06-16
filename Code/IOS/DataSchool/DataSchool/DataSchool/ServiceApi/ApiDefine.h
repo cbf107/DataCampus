@@ -29,7 +29,15 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 
 //@"http://develop.dtech-school.com"
 #define kServerAddressTest          @"http://www.dtech-school.com/SchoolApps"
+//#define MemberRefID                 @"7E5E0D36-142D-4F76-9E9E-49D9FC0005EE"
+
+
+#ifdef CAOQIAO
+//草桥小学
+#define MemberRefID                 @"E98A6D3C-1728-46AD-B1C8-07EC3492573E"
+#else
 #define MemberRefID                 @"7E5E0D36-142D-4F76-9E9E-49D9FC0005EE"
+#endif
 
 //#define kServerURLAddress           @"http://115.28.85.127:8084"
 //#define kServerAddressTestProduct   @"http://115.28.85.127:8084/wdpm/WDServlet/"
