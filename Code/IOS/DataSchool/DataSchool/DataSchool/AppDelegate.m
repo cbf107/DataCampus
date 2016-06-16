@@ -224,7 +224,9 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^ {
         NSString *AppStoreVersion = nil;
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/cn/lookup?id=1110237739"]];
+        NSString *str = [NSString stringWithFormat:@"%@%@", @"http://itunes.apple.com/cn/lookup?id=", APPID];
+        NSURL *url = [NSURL URLWithString:str];
+        
         NSError *error=nil;
         NSString* versionRequest = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
         if (!error) {
@@ -273,8 +275,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 530) {
         if (buttonIndex != alertView.cancelButtonIndex) {
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/qi-zhong-fu-xiao/id1110237739?l=zh&ls=1&mt=8"]];
+            NSString *url = [NSString stringWithFormat:@"%@%@", @"https://itunes.apple.com/cn/app", APPUPDATEPATH];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
             
             
         }
