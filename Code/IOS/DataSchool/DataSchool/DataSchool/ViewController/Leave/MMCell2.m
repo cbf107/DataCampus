@@ -20,7 +20,7 @@
     [super layoutSubviews];
     self.imageView.image = img;
 
-    self.imageView.layer.cornerRadius = 40;
+    self.imageView.layer.cornerRadius = 30;
     self.imageView.layer.masksToBounds = YES;
     self.imageView.contentMode = UIViewContentModeScaleToFill;
     

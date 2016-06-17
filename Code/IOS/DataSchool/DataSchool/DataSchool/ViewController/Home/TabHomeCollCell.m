@@ -31,12 +31,20 @@
         [_mActivityInfoArr removeAllObjects];
         [_mActivityInfoArr addObjectsFromArray:activeInfoArr];
         [_mImgContainer reloadData];
-    }else{
-        UIImageView *bkg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bannerImage"]];
-        bkg.contentMode = UIViewContentModeScaleToFill;
-
-        [self addSubview:bkg];
         
+        UIImageView *bkg = (UIImageView *)[self viewWithTag:100];
+        if (bkg != nil) {
+            [bkg removeFromSuperview];
+        }
+    }else{
+        CGRect frame = CGRectMake(0.0, 0.0, self.bounds.size.width, self.bounds.size.height);
+        UIImageView *bkg = [[UIImageView alloc] initWithFrame:frame];
+        bkg = [[UIImageView alloc] initWithFrame:frame];
+        bkg.contentMode = UIViewContentModeScaleAspectFill;
+        [bkg sd_setImageWithURL:nil placeholderImage:[UIImage imageNamed:@"bannerImage"]];
+
+        bkg.tag = 100;
+        [self addSubview:bkg];
     }
 }
 
@@ -49,7 +57,7 @@
     
     if (!view) {
         view = [[UIImageView alloc] initWithFrame:frame];
-        view.contentMode = UIViewContentModeScaleToFill;
+        view.contentMode = UIViewContentModeScaleAspectFill;//UIViewContentModeScaleToFill;
     }
     view.frame = frame;
 
