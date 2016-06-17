@@ -3323,8 +3323,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nous Information Inc. (LK6KF996Q5)";
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/DataSchool/CasuallyStop.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/caoqiao/caoqiaoInfo.plist";
@@ -3337,7 +3337,7 @@
 				OTHER_CFLAGS = "-DCAOQIAO";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darktech.CaoQiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1a019ea3-bb80-4b1c-ae3f-8b42d9bd2e86";
 			};
 			name = Debug;
 		};
@@ -3360,7 +3360,7 @@
 				OTHER_CFLAGS = "-DCAOQIAO";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darktech.CaoQiao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4a2d8a86-f1c4-487f-849e-b8573e5f7089";
 			};
 			name = Release;
 		};
@@ -3381,8 +3381,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bing Gao (UAL9PHHWN5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bing Gao (UAL9PHHWN5)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3403,7 +3403,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "2fe62bad-e0ae-4b08-939b-41826a39c789";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3440,6 +3440,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "4a2d8a86-f1c4-487f-849e-b8573e5f7089";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3517,6 +3518,7 @@
 				INFOPLIST_FILE = DataSchoolTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4a2d8a86-f1c4-487f-849e-b8573e5f7089";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DataSchool.app/DataSchool";
 			};
 			name = Release;

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>73F5F919-D320-429C-B253-ECF813B73F6E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DataSchool</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>030D1732B556D88882F1B4DBB7CDB2AEE227BAEE</key>
+		<string>https://github.com/cbf107/DataCampus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Code/IOS/DataSchool/DataSchool/DataSchool.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>030D1732B556D88882F1B4DBB7CDB2AEE227BAEE</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/cbf107/DataCampus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>030D1732B556D88882F1B4DBB7CDB2AEE227BAEE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>030D1732B556D88882F1B4DBB7CDB2AEE227BAEE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DataCampus</string>
+		</dict>
+	</array>
+</dict>
+</plist>
