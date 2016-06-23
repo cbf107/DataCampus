@@ -34,6 +34,7 @@
     
     _mBtnLogin.layer.cornerRadius = 5;
     _mBtnLogin.layer.masksToBounds = YES;
+    _mBtnLogin.backgroundColor = [UIColor colorWithHexString:LoginBtnColor];
     
     _mEditMobile.text = @"";
     _mEditPwd.text = @"";

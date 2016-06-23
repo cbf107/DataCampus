@@ -37,11 +37,14 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define MemberRefID                 @"E98A6D3C-1728-46AD-B1C8-07EC3492573E"
 #define APPID                       @""
 #define APPUPDATEPATH               @""
+#define LoginBtnColor               @"EAA701"
+
 #else//七中附小
 
 #define MemberRefID                 @"7E5E0D36-142D-4F76-9E9E-49D9FC0005EE"
 #define APPID                       @"1110237739"
 #define APPUPDATEPATH               @"/qi-zhong-fu-xiao/id1110237739?l=zh&ls=1&mt=8"
+#define LoginBtnColor               @"00BEFF"
 
 #endif
 

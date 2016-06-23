@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -14,7 +14,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pI7-VG-UqM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="9q4-o0-DA3" kind="relationship" relationship="rootViewController" id="qT1-pD-hHm"/>
@@ -44,7 +43,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usernameIcon" translatesAutoresizingMaskIntoConstraints="NO" id="wqb-U9-O3X">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="86g-j0-Uyb">
                                                 <variation key="widthClass=compact" constant="50"/>
@@ -63,7 +61,6 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-uf-uWx" customClass="LineVIew">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="8" id="Peb-OK-eiI">
@@ -83,12 +80,10 @@
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-Ct-QE1">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="jjw-Ct-QE1" secondAttribute="centerY" id="Dg0-jL-8dp"/>
@@ -160,7 +155,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pwdIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QAG-aq-CEf">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="46" id="APK-KL-PUh">
                                                 <variation key="widthClass=compact" constant="50"/>
@@ -179,7 +173,6 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uzf-Dp-AIn" customClass="LineVIew">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <animations/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="8" id="MFH-V8-zi8">
@@ -199,12 +192,10 @@
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TvE-uA-pct">
                                         <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                        <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="QAG-aq-CEf" firstAttribute="top" secondItem="u2c-bq-6vT" secondAttribute="top" id="6aK-8z-VN1"/>
@@ -276,7 +267,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhN-Vs-1rh">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.74509803921568629" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="159-Ke-z8h">
@@ -309,7 +299,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="schoolIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pDc-io-ChB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="LxJ-Hz-H2B">
                                         <variation key="widthClass=compact" constant="140"/>
@@ -332,7 +321,6 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" red="0.85882352939999995" green="0.85882352939999995" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="pDc-io-ChB" secondAttribute="trailing" constant="6" id="0NR-PE-8I4">
@@ -384,23 +372,23 @@
                                 <exclude reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="P9n-Xu-cYs"/>
-                                <exclude reference="cwP-1T-6R3"/>
-                                <exclude reference="toW-h1-O1Z"/>
+                                <exclude reference="f2F-fH-Wj5"/>
+                                <exclude reference="6bg-Ck-xVm"/>
+                                <exclude reference="Dtf-v7-d9F"/>
+                                <exclude reference="TDG-fy-QP8"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <exclude reference="D4y-Dd-4Fz"/>
                                 <exclude reference="cSx-xo-E6n"/>
                                 <exclude reference="rJT-RZ-MJ7"/>
+                                <exclude reference="P9n-Xu-cYs"/>
+                                <exclude reference="cwP-1T-6R3"/>
+                                <exclude reference="toW-h1-O1Z"/>
                                 <exclude reference="I5t-wM-VkY"/>
                                 <exclude reference="IsP-EY-oGn"/>
                                 <exclude reference="wss-eU-QGL"/>
                                 <exclude reference="5Rr-7Y-fG2"/>
                                 <exclude reference="JeA-06-OCw"/>
                                 <exclude reference="tu1-M7-FYi"/>
-                                <exclude reference="6bg-Ck-xVm"/>
-                                <exclude reference="Dtf-v7-d9F"/>
-                                <exclude reference="TDG-fy-QP8"/>
-                                <exclude reference="f2F-fH-Wj5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -412,23 +400,23 @@
                                 <include reference="pDc-io-ChB"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="P9n-Xu-cYs"/>
-                                <include reference="cwP-1T-6R3"/>
-                                <include reference="toW-h1-O1Z"/>
+                                <include reference="f2F-fH-Wj5"/>
+                                <include reference="6bg-Ck-xVm"/>
+                                <include reference="Dtf-v7-d9F"/>
+                                <include reference="TDG-fy-QP8"/>
                                 <exclude reference="0NR-PE-8I4"/>
                                 <include reference="D4y-Dd-4Fz"/>
                                 <include reference="cSx-xo-E6n"/>
                                 <include reference="rJT-RZ-MJ7"/>
+                                <include reference="P9n-Xu-cYs"/>
+                                <include reference="cwP-1T-6R3"/>
+                                <include reference="toW-h1-O1Z"/>
                                 <include reference="I5t-wM-VkY"/>
                                 <include reference="IsP-EY-oGn"/>
                                 <include reference="wss-eU-QGL"/>
                                 <include reference="5Rr-7Y-fG2"/>
                                 <include reference="JeA-06-OCw"/>
                                 <include reference="tu1-M7-FYi"/>
-                                <include reference="6bg-Ck-xVm"/>
-                                <include reference="Dtf-v7-d9F"/>
-                                <include reference="TDG-fy-QP8"/>
-                                <include reference="f2F-fH-Wj5"/>
                             </mask>
                         </variation>
                     </view>
