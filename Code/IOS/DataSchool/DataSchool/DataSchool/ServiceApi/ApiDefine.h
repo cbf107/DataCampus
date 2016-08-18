@@ -39,6 +39,14 @@ typedef NS_ENUM(NSInteger, IWanDaRequestState)
 #define APPUPDATEPATH               @""
 #define LoginBtnColor               @"EAA701"
 
+#elif   YIZHOU//益州小学
+
+#define MemberRefID                 @"E98A6D3C-1728-46AD-B1C8-07EC3492573E"
+#define APPID                       @""
+#define APPUPDATEPATH               @""
+#define LoginBtnColor               @"EAA701"
+
+
 #else//七中附小
 
 #define MemberRefID                 @"7E5E0D36-142D-4F76-9E9E-49D9FC0005EE"

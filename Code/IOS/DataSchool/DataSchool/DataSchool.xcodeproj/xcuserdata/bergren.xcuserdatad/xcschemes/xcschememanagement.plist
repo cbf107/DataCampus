@@ -14,10 +14,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>YiZhou.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>9C3AFB5E1D1253BE0073966D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9C83D10E1D658DFD00D1C62D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
